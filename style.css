@@ -12,7 +12,7 @@
   --fog:          #F2EDE6;   /* body text on dark */
   --ash:          #9AAB99;   /* secondary text, metadata */
   --alert:        #C0473A;   /* pain-point icons */
-  --card-bg:      #172318;   /* card surfaces */
+  --card-bg:      #1e2e1f;   /* card surfaces */
   --border:       rgba(242, 237, 230, 0.08);
 
   --font-display: 'Fraunces', serif;
@@ -148,12 +148,14 @@ blockquote::after { content: none; }
 
 .btn--outline {
   background-color: transparent;
-  color: var(--fog);
-  border-color: rgba(242, 237, 230, 0.28);
+  color: rgba(242, 237, 230, 0.9);
+  border-color: rgba(242, 237, 230, 0.9);
 }
 
 .btn--outline:hover {
-  border-color: rgba(242, 237, 230, 0.7);
+  color: #f2ede6;
+  border-color: #f2ede6;
+  background-color: rgba(242, 237, 230, 0.06);
 }
 
 .btn--sm {
@@ -224,7 +226,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.05rem;
-  color: var(--fog);
+  color: #f2ede6;
   line-height: 1.3;
   margin-bottom: 12px;
 }
@@ -318,7 +320,7 @@ blockquote::after { content: none; }
 
 .hero__sub {
   font-size: 1.05rem;
-  color: var(--ash);
+  color: #c8d4c8;
   max-width: 560px;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -326,7 +328,7 @@ blockquote::after { content: none; }
 
 .hero__audience {
   font-size: 0.82rem;
-  color: rgba(154, 171, 153, 0.7);
+  color: #c8d4c8;
   font-style: italic;
   margin-bottom: 40px;
 }
@@ -390,7 +392,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.05rem;
-  color: var(--fog);
+  color: #f2ede6;
   line-height: 1.3;
   margin-bottom: 10px;
 }
@@ -427,10 +429,16 @@ blockquote::after { content: none; }
 .card--service {
   display: flex;
   flex-direction: column;
+  border-top: 3px solid transparent;
+  transition: border-color 0.2s ease, border-top-color 0.2s ease;
 }
 
 .card--accent-top {
-  border-top: 3px solid var(--bark);
+  border-top-color: var(--bark);
+}
+
+.card--service:hover {
+  border-top-color: var(--bark);
 }
 
 .service-tag {
@@ -675,7 +683,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1rem;
-  color: var(--fog);
+  color: #f2ede6;
   line-height: 1.3;
 }
 
