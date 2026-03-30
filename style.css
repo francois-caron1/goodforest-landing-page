@@ -5,12 +5,12 @@
   --forest:       #f5faf6;   /* main background — light */
   --green-primary:#384b38;   /* nav, accents, outline buttons */
   --green-logo:   #405b40;   /* logo green */
-  --heading:      #384b38;   /* all headings */
+  --heading:      #2a3a2a;   /* all headings */
   --bark:         #be842d;   /* CTA buttons, highlights, italic words */
   --bark-hover:   #a8711f;   /* primary button hover */
-  --text-dark:    #0e0e0e;   /* dark body text */
-  --fog:          #0e0e0e;   /* primary text */
-  --ash:          #4a5a49;   /* secondary text, metadata */
+  --text-dark:    #1a1a1a;   /* dark body text */
+  --fog:          #1a1a1a;   /* primary text */
+  --ash:          #3a4a39;   /* secondary text, metadata */
   --alert:        #c0473a;   /* pain-point icons */
   --card-bg:      #ffffff;   /* card surfaces */
   --border:       rgba(0, 0, 0, 0.08);
@@ -231,7 +231,7 @@ blockquote::after { content: none; }
 
 .card__text {
   font-size: 0.92rem;
-  color: var(--ash);
+  color: #2a2a2a;
   line-height: 1.65;
 }
 
@@ -623,7 +623,7 @@ blockquote::after { content: none; }
 
 .faq-item__answer p {
   font-size: 0.92rem;
-  color: var(--ash);
+  color: #2a2a2a;
   line-height: 1.65;
 }
 
