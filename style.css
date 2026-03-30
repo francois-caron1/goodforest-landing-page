@@ -743,6 +743,158 @@ blockquote::after { content: none; }
 }
 
 /* ============================================================
+   SECTION MODES — .section-light / .section-dark
+   ============================================================ */
+
+/* --- Backgrounds --- */
+.section-light { background: #f5faf6; }
+.section-dark  { background: #384b38; }
+
+/* --- Headings --- */
+.section-light .section-title,
+.section-light .hero__headline,
+.section-light .cta-title,
+.section-light .card__title,
+.section-light .step__title,
+.section-light .cta-card__title,
+.section-light .faq-item__question { color: #384b38; }
+
+.section-dark .section-title,
+.section-dark .cta-title,
+.section-dark .card__title,
+.section-dark .step__title,
+.section-dark .cta-card__title,
+.section-dark .faq-item__question { color: #f2ede6; }
+
+/* --- Section labels (same accent in both modes) --- */
+.section-light .section-label,
+.section-dark  .section-label { color: #be842d; }
+
+/* --- Body / secondary text --- */
+.section-light .card__text,
+.section-light .step__text,
+.section-light .faq-item__answer p,
+.section-light .cta-card__text,
+.section-light .card__tagline,
+.section-light .card__source,
+.section-light .service-price,
+.section-light .hero__sub,
+.section-light .hero__audience,
+.section-light .event-pill { color: #2a2a2a; }
+
+.section-dark .card__text,
+.section-dark .step__text,
+.section-dark .faq-item__answer p,
+.section-dark .cta-card__text,
+.section-dark .card__tagline,
+.section-dark .card__source,
+.section-dark .service-price,
+.section-dark .hero__sub,
+.section-dark .hero__audience,
+.section-dark .event-pill { color: #c8d4c8; }
+
+/* Quote text and event pill strong slightly brighter in dark */
+.section-dark .card--quote .card__text,
+.section-dark .event-pill strong { color: #f2ede6; }
+
+/* Eyebrow */
+.section-dark .eyebrow { color: #c8d4c8; }
+
+/* Hero italic emphasis */
+.section-dark .hero__headline em { color: #be842d; }
+
+/* --- Cards --- */
+.section-dark .card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Service card top-border accent */
+.section-dark .card--accent-top { border-top-color: #be842d; }
+.section-dark .card--service:hover { border-top-color: #be842d; }
+
+/* Service tag pill */
+.section-dark .service-tag {
+  color: #be842d;
+  border-color: rgba(190, 132, 45, 0.4);
+}
+
+/* --- Events bar --- */
+.section-dark .events-bar {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .event-pill {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- CTA cards --- */
+.section-dark .cta-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .cta-card:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* --- FAQ items --- */
+.section-dark .faq-item {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-dark .faq-item[open] {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* --- Steps --- */
+.section-dark .step__num {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.section-dark .steps::before { background: rgba(255, 255, 255, 0.15); }
+
+/* --- Quote mark --- */
+.section-dark .card__quote-mark { color: rgba(190, 132, 45, 0.55); }
+
+/* --- Heatmap placeholder --- */
+.section-dark .heatmap-placeholder {
+  background: rgba(255, 255, 255, 0.06);
+  color: #c8d4c8;
+}
+
+/* --- CTA section borders --- */
+.section-dark.section--cta {
+  border-top-color: rgba(255, 255, 255, 0.08);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Buttons inside dark --- */
+.section-dark .btn--primary {
+  background-color: #be842d;
+  color: #ffffff;
+  border-color: #be842d;
+}
+
+.section-dark .btn--outline {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.section-dark .btn--outline:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* ============================================================
    FADE-IN / SCROLL ANIMATIONS
    ============================================================ */
 .fade-in {
