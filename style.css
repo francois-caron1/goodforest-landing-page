@@ -2,18 +2,18 @@
    CSS VARIABLES
    ============================================================ */
 :root {
-  --forest:       #0F1F14;   /* main dark background */
-  --green-primary:#384b38;   /* nav, accents */
+  --forest:       #f5faf6;   /* main background — light */
+  --green-primary:#384b38;   /* nav, accents, outline buttons */
   --green-logo:   #405b40;   /* logo green */
-  --bark:         #c98a3a;   /* CTA buttons, highlights, italic words */
-  --bark-hover:   #afdfaa;   /* button hover */
-  --body-bg:      #f5faf6;   /* light surface if needed */
-  --text-dark:    #1a1a1a;   /* dark text / primary button label */
-  --fog:          #f2ede6;   /* body text on dark */
-  --ash:          #c8d4c8;   /* secondary text, metadata */
-  --alert:        #C0473A;   /* pain-point icons */
-  --card-bg:      #1e2e1f;   /* card surfaces */
-  --border:       rgba(242, 237, 230, 0.08);
+  --heading:      #384b38;   /* all headings */
+  --bark:         #be842d;   /* CTA buttons, highlights, italic words */
+  --bark-hover:   #a8711f;   /* primary button hover */
+  --text-dark:    #0e0e0e;   /* dark body text */
+  --fog:          #0e0e0e;   /* primary text */
+  --ash:          #4a5a49;   /* secondary text, metadata */
+  --alert:        #c0473a;   /* pain-point icons */
+  --card-bg:      #ffffff;   /* card surfaces */
+  --border:       rgba(0, 0, 0, 0.08);
 
   --font-display: 'Fraunces', serif;
   --font-body:    'DM Sans', sans-serif;
@@ -79,10 +79,8 @@ blockquote::after { content: none; }
   top: 0;
   z-index: 100;
   height: var(--nav-height);
-  background-color: rgba(15, 31, 20, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background-color: #ffffff;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
 }
 
 .nav__inner {
@@ -135,27 +133,27 @@ blockquote::after { content: none; }
 }
 
 .btn--primary {
-  background-color: #c98a3a;
+  background-color: var(--bark);
   color: #ffffff;
-  border-color: #c98a3a;
+  border-color: var(--bark);
 }
 
 .btn--primary:hover {
   background-color: var(--bark-hover);
   border-color: var(--bark-hover);
-  color: var(--text-dark);
+  color: #ffffff;
 }
 
 .btn--outline {
   background-color: transparent;
-  color: #e0e0e0;
-  border: 2px solid #e0e0e0;
+  color: #384b38;
+  border: 2px solid #384b38;
 }
 
 .btn--outline:hover {
-  color: #ffffff;
-  border-color: #ffffff;
-  background-color: rgba(224, 224, 224, 0.08);
+  background-color: rgba(56, 75, 56, 0.06);
+  color: #2a3829;
+  border-color: #2a3829;
 }
 
 .btn--sm {
@@ -183,7 +181,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
-  color: var(--fog);
+  color: var(--heading);
   line-height: 1.2;
   max-width: 680px;
   margin-bottom: 56px;
@@ -219,14 +217,14 @@ blockquote::after { content: none; }
 }
 
 .card:hover {
-  border-color: rgba(242, 237, 230, 0.18);
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 .card__title {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.05rem;
-  color: var(--fog);
+  color: var(--heading);
   line-height: 1.3;
   margin-bottom: 12px;
 }
@@ -308,7 +306,7 @@ blockquote::after { content: none; }
   font-size: clamp(2.4rem, 5vw, 4rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
-  color: var(--fog);
+  color: var(--heading);
   max-width: 780px;
   margin-bottom: 24px;
 }
@@ -320,7 +318,7 @@ blockquote::after { content: none; }
 
 .hero__sub {
   font-size: 1.05rem;
-  color: #c8d4c8;
+  color: var(--ash);
   max-width: 560px;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -328,7 +326,7 @@ blockquote::after { content: none; }
 
 .hero__audience {
   font-size: 0.82rem;
-  color: #a8bca8;
+  color: var(--ash);
   font-style: italic;
   margin-bottom: 40px;
 }
@@ -392,7 +390,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.05rem;
-  color: var(--fog);
+  color: var(--heading);
   line-height: 1.3;
   margin-bottom: 10px;
 }
@@ -557,7 +555,7 @@ blockquote::after { content: none; }
 }
 
 .faq-item[open] {
-  border-color: rgba(242, 237, 230, 0.2);
+  border-color: rgba(56, 75, 56, 0.3);
 }
 
 .faq-item__question {
@@ -571,7 +569,7 @@ blockquote::after { content: none; }
   font-family: var(--font-body);
   font-size: 0.97rem;
   font-weight: 500;
-  color: var(--fog);
+  color: var(--heading);
   line-height: 1.4;
   user-select: none;
 }
@@ -643,7 +641,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 300;
   font-size: clamp(1.8rem, 3.5vw, 3rem);
-  color: var(--fog);
+  color: var(--heading);
   max-width: 600px;
   margin: 0 auto 56px;
   line-height: 1.2;
@@ -671,7 +669,7 @@ blockquote::after { content: none; }
 }
 
 .cta-card:hover {
-  border-color: rgba(242, 237, 230, 0.2);
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 .cta-card__icon {
@@ -683,7 +681,7 @@ blockquote::after { content: none; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1rem;
-  color: var(--fog);
+  color: var(--heading);
   line-height: 1.3;
 }
 
@@ -706,7 +704,7 @@ blockquote::after { content: none; }
   width: auto;
   display: block;
   margin: 0 auto 16px;
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
 .footer__contact,
@@ -722,25 +720,25 @@ blockquote::after { content: none; }
 .footer__contact a,
 .footer__legal a {
   font-size: 0.78rem;
-  color: rgba(154, 171, 153, 0.5);
+  color: var(--ash);
   text-underline-offset: 3px;
   transition: color 0.2s ease;
 }
 
 .footer__contact a:hover,
 .footer__legal a:hover {
-  color: var(--ash);
+  color: var(--heading);
   text-decoration: underline;
 }
 
 .footer__sep {
   font-size: 0.78rem;
-  color: rgba(154, 171, 153, 0.25);
+  color: rgba(74, 90, 73, 0.3);
 }
 
 .footer__text {
   font-size: 0.72rem;
-  color: rgba(154, 171, 153, 0.3);
+  color: rgba(74, 90, 73, 0.5);
   margin-top: 4px;
 }
 
