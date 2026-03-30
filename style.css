@@ -12,7 +12,7 @@
   --fog:          #1a1a1a;   /* primary text */
   --ash:          #3a4a39;   /* secondary text, metadata */
   --alert:        #c0473a;   /* pain-point icons */
-  --card-bg:      #f5faf6;   /* card surfaces — matches light section bg */
+  --card-bg:      #ffffff;   /* card surfaces */
   --border:       rgba(0, 0, 0, 0.08);
 
   --font-display: 'Fraunces', serif;
