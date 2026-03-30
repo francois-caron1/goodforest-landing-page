@@ -135,9 +135,9 @@ blockquote::after { content: none; }
 }
 
 .btn--primary {
-  background-color: var(--bark);
-  color: var(--forest);
-  border-color: var(--bark);
+  background-color: #c98a3a;
+  color: #ffffff;
+  border-color: #c98a3a;
 }
 
 .btn--primary:hover {
@@ -149,7 +149,7 @@ blockquote::after { content: none; }
 .btn--outline {
   background-color: transparent;
   color: #e0e0e0;
-  border-color: #e0e0e0;
+  border: 2px solid #e0e0e0;
 }
 
 .btn--outline:hover {
@@ -320,7 +320,7 @@ blockquote::after { content: none; }
 
 .hero__sub {
   font-size: 1.05rem;
-  color: var(--ash);
+  color: #c8d4c8;
   max-width: 560px;
   line-height: 1.6;
   margin-bottom: 12px;
@@ -328,7 +328,7 @@ blockquote::after { content: none; }
 
 .hero__audience {
   font-size: 0.82rem;
-  color: var(--ash);
+  color: #a8bca8;
   font-style: italic;
   margin-bottom: 40px;
 }
