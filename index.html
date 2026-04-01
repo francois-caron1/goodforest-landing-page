@@ -38,7 +38,7 @@
         <p class="hero__sub">Goodforest delivers reliable, fast satellite-based damage assessment for forest insurers — after storms and wildfires.</p>
         <p class="hero__audience">Built for forest insurers and forest portfolio managers.</p>
         <div class="hero__ctas">
-          <a href="#services" class="btn btn--primary">Get a heatmap</a>
+          <a href="#services" class="btn btn--primary" data-modal-order>Get a heatmap</a>
           <a href="#contact" class="btn btn--outline" data-modal>Talk to our team</a>
         </div>
       </div>
@@ -125,7 +125,7 @@
             <p class="card__tagline"><em>Get visibility fast</em></p>
             <p class="card__text">Identify the most affected zones across your insured portfolio. Prioritize expert deployment. Reassure owners with data.</p>
             <p class="service-price">From €10 / ha</p>
-            <a href="#contact" class="btn btn--primary">Get started</a>
+            <a href="#contact" class="btn btn--primary" data-modal-order>Get started</a>
           </article>
 
           <article class="card card--service fade-in" style="background: #f5faf6">
@@ -236,7 +236,7 @@
             <div class="cta-card__icon" aria-hidden="true">🗺</div>
             <h3 class="cta-card__title">Start a heatmap analysis</h3>
             <p class="cta-card__text">Self-service. Submit your perimeter, get your damage heatmap.</p>
-            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d">Get started — from €10/ha</a>
+            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d" data-modal-order>Get started — from €10/ha</a>
           </div>
 
           <div class="cta-card fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
@@ -347,6 +347,89 @@
 
       <div class="modal-success" id="modalSuccess" hidden>
         <p>Thank you — we'll be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ORDER MODAL ===================== -->
+  <div class="modal-overlay" id="orderModal" aria-modal="true" role="dialog" aria-labelledby="orderModalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal-title" id="orderModalTitle">Start your heatmap analysis</h2>
+      <p class="modal-sub">Tell us about your event — we'll call you back within 24 hours to confirm and process your order.</p>
+
+      <form class="modal-form" id="orderForm" action="https://formspree.io/f/mpqolpba" method="POST">
+
+        <input type="hidden" name="form-name" value="get-started">
+
+        <div class="form-group">
+          <label for="o-name">Full name <span class="form-required">*</span></label>
+          <input type="text" id="o-name" name="name" required placeholder="Jane Dupont">
+        </div>
+
+        <div class="form-group">
+          <label for="o-email">Professional email <span class="form-required">*</span></label>
+          <input type="email" id="o-email" name="email" required placeholder="jane@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="o-phone">Phone number <span class="form-required">*</span></label>
+          <input type="tel" id="o-phone" name="phone" required placeholder="+33 6 12 34 56 78">
+        </div>
+
+        <div class="form-group">
+          <label for="o-organisation">Organisation <span class="form-required">*</span></label>
+          <input type="text" id="o-organisation" name="organisation" required placeholder="Groupama, AXA…">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-event-type">Event type <span class="form-required">*</span></label>
+            <select id="o-event-type" name="event-type" required>
+              <option value="" disabled selected>Select event type</option>
+              <option>Storm</option>
+              <option>Wildfire</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="o-event-date">Approximate event date <span class="form-required">*</span></label>
+            <input type="date" id="o-event-date" name="event-date" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="o-event-name">Event name &amp; country <span class="form-required">*</span></label>
+          <input type="text" id="o-event-name" name="event-name" required placeholder="e.g. Storm Nils, France">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="o-area">Estimated area to analyse <span class="form-required">*</span></label>
+            <select id="o-area" name="area" required>
+              <option value="" disabled selected>Select area</option>
+              <option>Less than 50 ha</option>
+              <option>50 to 200 ha</option>
+              <option>200 to 500 ha</option>
+              <option>More than 500 ha</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="o-shapefile">Shapefile ready? <span class="form-required">*</span></label>
+            <select id="o-shapefile" name="shapefile" required>
+              <option value="" disabled selected>Select an option</option>
+              <option>Yes</option>
+              <option>No, I'll draw my perimeter</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary modal-submit">Submit my order request</button>
+      </form>
+
+      <div class="modal-success" id="orderSuccess" hidden>
+        <p>Thank you — we'll call you back within 24 hours to confirm your order and get started.</p>
       </div>
     </div>
   </div>

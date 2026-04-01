@@ -36,6 +36,77 @@
   fadeEls.forEach((el) => observer.observe(el));
 })();
 
+// ─── Modal factory ────────────────────────────────────────────────────────────
+function initModal(overlayId, formId, successId, triggerAttr, resetLabel) {
+  'use strict';
+
+  const overlay  = document.getElementById(overlayId);
+  const form     = document.getElementById(formId);
+  const success  = document.getElementById(successId);
+  const closeBtn = overlay && overlay.querySelector('.modal-close');
+  if (!overlay) return;
+
+  function openModal() {
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    closeBtn && closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+    if (form) form.style.display = '';
+    if (success) success.hidden = true;
+    if (form) form.reset();
+  }
+
+  document.querySelectorAll('[' + triggerAttr + ']').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  closeBtn && closeBtn.addEventListener('click', closeModal);
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeModal();
+  });
+
+  form && form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('.modal-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        success.hidden = false;
+        setTimeout(closeModal, 3000);
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = resetLabel;
+        alert('Something went wrong. Please try again or email us at contact@goodforest.fr');
+      }
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = resetLabel;
+      alert('Network error. Please try again or email us at contact@goodforest.fr');
+    }
+  });
+}
+
 // ─── Contact modal ────────────────────────────────────────────────────────────
 (function () {
   'use strict';
@@ -112,3 +183,12 @@
     }
   });
 })();
+
+// ─── Order modal (Get started / Get a heatmap) ────────────────────────────────
+initModal(
+  'orderModal',
+  'orderForm',
+  'orderSuccess',
+  'data-modal-order',
+  'Submit my order request'
+);
