@@ -382,20 +382,18 @@
           <input type="text" id="o-organisation" name="organisation" required placeholder="Groupama, AXA…">
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="o-event-type">Event type <span class="form-required">*</span></label>
-            <select id="o-event-type" name="event-type" required>
-              <option value="" disabled selected>Select event type</option>
-              <option>Storm</option>
-              <option>Wildfire</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="o-event-type">Event type <span class="form-required">*</span></label>
+          <select id="o-event-type" name="event-type" required>
+            <option value="" disabled selected>Select event type</option>
+            <option>Storm</option>
+            <option>Wildfire</option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="o-event-date">Approximate event date <span class="form-required">*</span></label>
-            <input type="date" id="o-event-date" name="event-date" required>
-          </div>
+        <div class="form-group">
+          <label for="o-event-date">Approximate event date <span class="form-required">*</span></label>
+          <input type="date" id="o-event-date" name="event-date" required>
         </div>
 
         <div class="form-group">
@@ -403,26 +401,15 @@
           <input type="text" id="o-event-name" name="event-name" required placeholder="e.g. Storm Nils, France">
         </div>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="o-area">Estimated area to analyse <span class="form-required">*</span></label>
-            <select id="o-area" name="area" required>
-              <option value="" disabled selected>Select area</option>
-              <option>Less than 50 ha</option>
-              <option>50 to 200 ha</option>
-              <option>200 to 500 ha</option>
-              <option>More than 500 ha</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="o-shapefile">Shapefile ready? <span class="form-required">*</span></label>
-            <select id="o-shapefile" name="shapefile" required>
-              <option value="" disabled selected>Select an option</option>
-              <option>Yes</option>
-              <option>No, I'll draw my perimeter</option>
-            </select>
-          </div>
+        <div class="form-group">
+          <label for="o-area">Estimated area to analyse <span class="form-required">*</span></label>
+          <select id="o-area" name="area" required>
+            <option value="" disabled selected>Select area</option>
+            <option>Less than 50 ha</option>
+            <option>50 to 200 ha</option>
+            <option>200 to 500 ha</option>
+            <option>More than 500 ha</option>
+          </select>
         </div>
 
         <button type="submit" class="btn btn--primary modal-submit">Submit my order request</button>
