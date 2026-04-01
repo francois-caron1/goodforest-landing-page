@@ -489,7 +489,7 @@ blockquote::after { content: none; }
    ============================================================ */
 .logos-row {
   display: flex;
-  gap: 12px;
+  gap: 40px;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -497,21 +497,16 @@ blockquote::after { content: none; }
 }
 
 .logo-img-wrapper {
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 4px;
-  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 64px;
 }
 
 .logo-img {
-  height: 32px;
+  height: 40px;
   width: auto;
-  max-width: 140px;
-  object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 /* ============================================================
@@ -1162,16 +1157,10 @@ blockquote::after { content: none; }
   }
 
   .logos-row {
-    gap: 8px;
-  }
-
-  .logo-img-wrapper {
-    padding: 10px 14px;
-    height: 56px;
+    gap: 24px;
   }
 
   .logo-img {
-    height: 26px;
-    max-width: 110px;
+    height: 32px;
   }
 }
