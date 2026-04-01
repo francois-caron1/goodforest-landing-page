@@ -187,6 +187,21 @@ blockquote::after { content: none; }
   margin-bottom: 56px;
 }
 
+.section-subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #4a5a49;
+  margin-top: -36px;
+  margin-bottom: 48px;
+}
+
+.service-coverage {
+  font-size: 0.78rem;
+  color: #be842d;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
 .section-title--centered {
   margin-left: auto;
   margin-right: auto;
