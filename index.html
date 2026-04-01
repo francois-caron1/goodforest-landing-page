@@ -20,7 +20,7 @@
       </a>
       <div class="nav__actions">
         <a href="#services" class="btn btn--outline btn--sm">Our services</a>
-        <a href="#contact" class="btn btn--primary btn--sm">Talk to our team</a>
+        <a href="#contact" class="btn btn--primary btn--sm" data-modal>Talk to our team</a>
       </div>
     </div>
   </nav>
@@ -39,7 +39,7 @@
         <p class="hero__audience">Built for forest insurers and forest portfolio managers.</p>
         <div class="hero__ctas">
           <a href="#services" class="btn btn--primary">Get a heatmap</a>
-          <a href="#contact" class="btn btn--outline">Talk to our team</a>
+          <a href="#contact" class="btn btn--outline" data-modal>Talk to our team</a>
         </div>
       </div>
     </section>
@@ -132,7 +132,7 @@
             <p class="card__tagline"><em>Precise, plot-level analysis</em></p>
             <p class="card__text">Detailed damage zones and damage rates by plot — ready to use in your reports and claims documentation. We adapt to your existing workflow and report format. API integration available. Available for storm and wildfire events.</p>
             <p class="service-price">Contact us for a quote</p>
-            <a href="#contact" class="btn btn--outline">Talk to our team</a>
+            <a href="#contact" class="btn btn--outline" data-modal>Talk to our team</a>
           </article>
 
         </div>
@@ -241,7 +241,7 @@
             <div class="cta-card__icon" aria-hidden="true">💬</div>
             <h3 class="cta-card__title">Talk to our team</h3>
             <p class="cta-card__text">For full damage assessment, large portfolios, or any question.</p>
-            <a href="mailto:contact@goodforest.fr" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff">Book a call</a>
+            <a href="mailto:contact@goodforest.fr" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff" data-modal>Book a call</a>
           </div>
 
         </div>
@@ -269,6 +269,80 @@
       <p class="footer__text">© 2026 Goodforest</p>
     </div>
   </footer>
+
+  <!-- ===================== CONTACT MODAL ===================== -->
+  <div class="modal-overlay" id="contactModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal-title" id="modalTitle">Talk to our team</h2>
+      <p class="modal-sub">Tell us about your situation — we'll get back to you within 24 hours.</p>
+
+      <form class="modal-form" id="contactForm" action="https://formspree.io/f/mpqolpba" method="POST">
+
+        <div class="form-group">
+          <label for="name">Full name <span class="form-required">*</span></label>
+          <input type="text" id="name" name="name" required placeholder="Jane Dupont">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Professional email <span class="form-required">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="jane@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="organisation">Organisation <span class="form-required">*</span></label>
+          <input type="text" id="organisation" name="organisation" required placeholder="Groupama, ONF…">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="role">Your role <span class="form-required">*</span></label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option>Claims manager</option>
+              <option>Forest portfolio manager</option>
+              <option>Underwriter</option>
+              <option>Forest manager</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="area">Estimated forest area</label>
+            <select id="area" name="area">
+              <option value="">— optional —</option>
+              <option>Less than 100 ha</option>
+              <option>100–500 ha</option>
+              <option>500–2000 ha</option>
+              <option>More than 2000 ha</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="situation">Your situation <span class="form-required">*</span></label>
+          <select id="situation" name="situation" required>
+            <option value="" disabled selected>Select your situation</option>
+            <option>I have a recent storm event to assess</option>
+            <option>I have a recent wildfire event to assess</option>
+            <option>I want to learn more before a future event</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Any specific context or question?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary modal-submit">Send — we'll get back to you within 24h</button>
+      </form>
+
+      <div class="modal-success" id="modalSuccess" hidden>
+        <p>Thank you — we'll be in touch within 24 hours.</p>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

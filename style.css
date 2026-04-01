@@ -892,6 +892,148 @@ blockquote::after { content: none; }
 }
 
 /* ============================================================
+   CONTACT MODAL
+   ============================================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.is-open {
+  display: flex;
+}
+
+.modal-card {
+  background: #f5faf6;
+  border-radius: 8px;
+  padding: 40px;
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #384b38;
+  cursor: pointer;
+  padding: 4px 8px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close:hover { opacity: 1; }
+
+.modal-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #384b38;
+  margin-bottom: 6px;
+  padding-right: 32px;
+}
+
+.modal-sub {
+  font-size: 0.88rem;
+  color: #4a5a49;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #384b38;
+  margin-bottom: 5px;
+}
+
+.form-required { color: #be842d; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1.5px solid rgba(56, 75, 56, 0.3);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #384b38;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23384b38' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 32px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.modal-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 0.92rem;
+}
+
+.modal-success {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.modal-success p {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.3rem;
+  color: #384b38;
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .modal-card { padding: 28px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    FADE-IN / SCROLL ANIMATIONS
    ============================================================ */
 .fade-in {
