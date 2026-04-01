@@ -108,7 +108,7 @@ function initModal(overlayId, formId, successId, triggerAttr, resetLabel) {
 initModal('demoModal', 'demoForm', 'demoSuccess', 'data-modal-demo', 'Send my request');
 
 // ─── Modal 2 — Free analysis ──────────────────────────────────────────────────
-initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analysis', 'Start my free analysis');
+initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analysis', 'Request a callback to get started');
 
 // ─── Price simulator ──────────────────────────────────────────────────────────
 (function () {
