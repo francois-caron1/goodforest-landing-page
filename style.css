@@ -408,6 +408,8 @@ blockquote::after { content: none; }
   border-radius: 6px;
   overflow: hidden;
   border: 1px solid var(--border);
+  max-width: 50%;
+  margin: 0 auto;
 }
 
 .heatmap-img {
