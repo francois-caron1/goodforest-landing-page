@@ -318,7 +318,7 @@ blockquote::after { content: none; }
 .hero__headline {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--heading);
