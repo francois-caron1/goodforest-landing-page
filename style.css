@@ -404,21 +404,16 @@ blockquote::after { content: none; }
 /* ============================================================
    HEATMAP PLACEHOLDER
    ============================================================ */
-.heatmap-placeholder {
-  background-color: var(--card-bg);
-  border: 1.5px dashed rgba(200, 121, 65, 0.3);
-  border-radius: 4px;
-  padding: 80px 32px;
-  text-align: center;
-  color: var(--ash);
-  font-style: italic;
-  font-size: 0.95rem;
+.heatmap-visual {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
 }
 
-.heatmap-placeholder__sub {
-  margin-top: 10px !important;
-  font-size: 0.78rem !important;
-  opacity: 0.55;
+.heatmap-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ============================================================
