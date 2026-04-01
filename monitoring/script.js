@@ -1,6 +1,6 @@
 /**
  * Goodforest — Monitoring Landing Page
- * Fade-in scroll animations · Contact modal · Price simulator
+ * Fade-in scroll animations · Two contact modals · Price simulator
  */
 
 // ─── Fade-in scroll animations ────────────────────────────────────────────────
@@ -33,13 +33,13 @@
   fadeEls.forEach((el) => observer.observe(el));
 })();
 
-// ─── Contact modal ────────────────────────────────────────────────────────────
-(function () {
+// ─── Modal factory ────────────────────────────────────────────────────────────
+function initModal(overlayId, formId, successId, triggerAttr, resetLabel) {
   'use strict';
 
-  const overlay  = document.getElementById('contactModal');
-  const form     = document.getElementById('contactForm');
-  const success  = document.getElementById('modalSuccess');
+  const overlay  = document.getElementById(overlayId);
+  const form     = document.getElementById(formId);
+  const success  = document.getElementById(successId);
   const closeBtn = overlay && overlay.querySelector('.modal-close');
   if (!overlay) return;
 
@@ -57,7 +57,7 @@
     if (form) form.reset();
   }
 
-  document.querySelectorAll('[data-modal]').forEach((btn) => {
+  document.querySelectorAll('[' + triggerAttr + ']').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       openModal();
@@ -93,16 +93,22 @@
         setTimeout(closeModal, 3000);
       } else {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send my request';
+        submitBtn.textContent = resetLabel;
         alert('Something went wrong. Please try again or email us at contact@goodforest.fr');
       }
     } catch {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send my request';
+      submitBtn.textContent = resetLabel;
       alert('Network error. Please try again or email us at contact@goodforest.fr');
     }
   });
-})();
+}
+
+// ─── Modal 1 — Book a demo ────────────────────────────────────────────────────
+initModal('demoModal', 'demoForm', 'demoSuccess', 'data-modal-demo', 'Send my request');
+
+// ─── Modal 2 — Free analysis ──────────────────────────────────────────────────
+initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analysis', 'Start my free analysis');
 
 // ─── Price simulator ──────────────────────────────────────────────────────────
 (function () {

@@ -20,7 +20,7 @@
       </a>
       <div class="nav__actions">
         <a href="#how" class="btn btn--outline btn--sm">See how it works</a>
-        <a href="#contact" class="btn btn--primary btn--sm" data-modal>Book a demo</a>
+        <a href="#contact" class="btn btn--primary btn--sm" data-modal-demo>Book a demo</a>
       </div>
     </div>
   </nav>
@@ -38,7 +38,7 @@
         <p class="hero__sub">Goodforest detects health decline in conifer forests using satellite imagery and AI — continuously, at scale, without additional field trips.</p>
         <p class="hero__audience">Built for forest managers and forest portfolio managers.</p>
         <div class="hero__ctas">
-          <a href="#contact" class="btn btn--primary" data-modal>Get a free 36-month analysis</a>
+          <a href="#contact" class="btn btn--primary" data-modal-analysis>Get a free 12-month analysis</a>
           <a href="#how" class="btn btn--outline">See how it works</a>
         </div>
       </div>
@@ -256,7 +256,7 @@
               <span class="faq-item__icon" aria-hidden="true"></span>
             </summary>
             <div class="faq-item__answer">
-              <p>Yes. We provide a free retrospective analysis of your parcels over 36 months at no cost — so you can validate detection quality on your own territory before any commitment.</p>
+              <p>Yes. We provide a free retrospective analysis of your parcels over 12 months at no cost — so you can validate detection quality on your own territory before any commitment.</p>
             </div>
           </details>
 
@@ -279,16 +279,11 @@
       <div class="container">
         <div class="cta-mono">
           <h2 class="cta-title">Your forests under monitoring — starting this week.</h2>
-          <p class="cta-subtitle">Start with a free 36-month retrospective analysis — no commitment required.</p>
+          <p class="cta-subtitle">Start with a free 12-month retrospective analysis — no commitment required.</p>
           <div class="cta-btns">
-            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d" data-modal>Get my free analysis</a>
-            <a href="#contact" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff" data-modal>Book a demo</a>
+            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d" data-modal-analysis>Get my free analysis</a>
+            <a href="#contact" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff" data-modal-demo>Book a demo</a>
           </div>
-          <ul class="reassurance-list" aria-label="Key guarantees">
-            <li class="reassurance-item">No commitment</li>
-            <li class="reassurance-item">Free 36-month retrospective analysis</li>
-            <li class="reassurance-item">Account configured in 48h</li>
-          </ul>
         </div>
       </div>
     </section>
@@ -315,43 +310,95 @@
     </div>
   </footer>
 
-  <!-- ===================== CONTACT MODAL ===================== -->
-  <div class="modal-overlay" id="contactModal" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+  <!-- ===================== MODAL 1 — BOOK A DEMO ===================== -->
+  <div class="modal-overlay" id="demoModal" aria-modal="true" role="dialog" aria-labelledby="demoModalTitle">
     <div class="modal-card">
       <button class="modal-close" aria-label="Close">&times;</button>
-      <h2 class="modal-title" id="modalTitle">Start your free analysis</h2>
-      <p class="modal-sub">Tell us about your forests — we will get back to you within 48 hours to set up your account.</p>
+      <h2 class="modal-title" id="demoModalTitle">Book a demo</h2>
+      <p class="modal-sub">We'll show you Goodforest on your own forests — no commitment.</p>
 
-      <form class="modal-form" id="contactForm" action="https://formspree.io/f/mpqolpba" method="POST">
+      <form class="modal-form" id="demoForm" action="https://formspree.io/f/mpqolpba" method="POST">
+
+        <input type="hidden" name="form-name" value="book-demo">
 
         <div class="form-group">
-          <label for="m-name">Full name <span class="form-required">*</span></label>
-          <input type="text" id="m-name" name="name" required placeholder="Jane Dupont">
+          <label for="d-name">Full name <span class="form-required">*</span></label>
+          <input type="text" id="d-name" name="name" required placeholder="Jane Dupont">
         </div>
 
         <div class="form-group">
-          <label for="m-email">Professional email <span class="form-required">*</span></label>
-          <input type="email" id="m-email" name="email" required placeholder="jane@company.com">
+          <label for="d-email">Professional email <span class="form-required">*</span></label>
+          <input type="email" id="d-email" name="email" required placeholder="jane@company.com">
         </div>
 
         <div class="form-group">
-          <label for="m-phone">Phone number <span class="form-required">*</span></label>
-          <input type="tel" id="m-phone" name="phone" required placeholder="+33 6 12 34 56 78">
+          <label for="d-phone">Phone number <span class="form-required">*</span></label>
+          <input type="tel" id="d-phone" name="phone" required placeholder="+33 6 12 34 56 78">
         </div>
 
         <div class="form-group">
-          <label for="m-organisation">Organisation <span class="form-required">*</span></label>
-          <input type="text" id="m-organisation" name="organisation" required placeholder="ONF, Fransylva…">
+          <label for="d-organisation">Organisation <span class="form-required">*</span></label>
+          <input type="text" id="d-organisation" name="organisation" required placeholder="ONF, Fransylva…">
         </div>
 
         <div class="form-group">
-          <label for="m-area">Forest area (ha) <span class="form-required">*</span></label>
-          <input type="number" id="m-area" name="forest-area" required min="1" placeholder="e.g. 5000">
+          <label for="d-area">Forest area (ha) <span class="form-required">*</span></label>
+          <input type="number" id="d-area" name="forest-area" required min="1" placeholder="e.g. 5000">
         </div>
 
         <div class="form-group">
-          <label for="m-species">Main conifer species</label>
-          <select id="m-species" name="species">
+          <label for="d-message">Message</label>
+          <textarea id="d-message" name="message" rows="3" placeholder="Any specific context or question?"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary modal-submit">Send my request</button>
+      </form>
+
+      <div class="modal-success" id="demoSuccess" hidden>
+        <p>Thank you — we will get back to you within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MODAL 2 — FREE ANALYSIS ===================== -->
+  <div class="modal-overlay" id="analysisModal" aria-modal="true" role="dialog" aria-labelledby="analysisModalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h2 class="modal-title" id="analysisModalTitle">Start your free 12-month analysis</h2>
+      <p class="modal-sub">Tell us about your forests — we'll configure your account within 48 hours.</p>
+
+      <form class="modal-form" id="analysisForm" action="https://formspree.io/f/mpqolpba" method="POST">
+
+        <input type="hidden" name="form-name" value="free-analysis">
+
+        <div class="form-group">
+          <label for="a-name">Full name <span class="form-required">*</span></label>
+          <input type="text" id="a-name" name="name" required placeholder="Jane Dupont">
+        </div>
+
+        <div class="form-group">
+          <label for="a-email">Professional email <span class="form-required">*</span></label>
+          <input type="email" id="a-email" name="email" required placeholder="jane@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="a-phone">Phone number <span class="form-required">*</span></label>
+          <input type="tel" id="a-phone" name="phone" required placeholder="+33 6 12 34 56 78">
+        </div>
+
+        <div class="form-group">
+          <label for="a-organisation">Organisation <span class="form-required">*</span></label>
+          <input type="text" id="a-organisation" name="organisation" required placeholder="ONF, Fransylva…">
+        </div>
+
+        <div class="form-group">
+          <label for="a-area">Forest area (ha) <span class="form-required">*</span></label>
+          <input type="number" id="a-area" name="forest-area" required min="1" placeholder="e.g. 5000">
+        </div>
+
+        <div class="form-group">
+          <label for="a-species">Main conifer species</label>
+          <select id="a-species" name="species">
             <option value="">— optional —</option>
             <option>Spruce</option>
             <option>Silver fir</option>
@@ -361,14 +408,14 @@
         </div>
 
         <div class="form-group">
-          <label for="m-message">Message</label>
-          <textarea id="m-message" name="message" rows="3" placeholder="Tell us about your forests, location, specific concerns..."></textarea>
+          <label for="a-message">Message</label>
+          <textarea id="a-message" name="message" rows="3" placeholder="Tell us about your forests, location, specific concerns..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary modal-submit">Send my request</button>
+        <button type="submit" class="btn btn--primary modal-submit">Start my free analysis</button>
       </form>
 
-      <div class="modal-success" id="modalSuccess" hidden>
+      <div class="modal-success" id="analysisSuccess" hidden>
         <p>Thank you — we will get back to you within 48 hours to set up your free analysis.</p>
       </div>
     </div>
