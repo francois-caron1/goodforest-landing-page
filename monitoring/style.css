@@ -410,6 +410,37 @@ blockquote::after { content: none; }
 }
 
 /* ============================================================
+   HOW IT WORKS — VISUALS
+   ============================================================ */
+.how-visuals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.how-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.how-visual__img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10), 0 1px 4px rgba(0, 0, 0, 0.06);
+  display: block;
+}
+
+.how-visual__caption {
+  font-size: 0.8rem;
+  color: var(--ash);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================================
    SERVICES — cards
    ============================================================ */
 .card--service {
@@ -1136,6 +1167,10 @@ blockquote::after { content: none; }
 
   .faq-list {
     max-width: 100%;
+  }
+
+  .how-visuals {
+    grid-template-columns: 1fr;
   }
 
   .modal-card { padding: 28px 20px; }
