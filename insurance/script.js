@@ -3,6 +3,11 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
+// ─── Nav scroll state ─────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
 (function () {
   'use strict';
 
