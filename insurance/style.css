@@ -299,21 +299,24 @@ blockquote::before, blockquote::after { content: none; }
 }
 .section:last-of-type { border-bottom: none; }
 
-/* Section backgrounds */
-#problem  { background: var(--c-bg-alt); }
-#how      { background: var(--c-bg); }
-#services { background: var(--c-bg-alt); }
-#proof    { background: var(--c-bg); }
-#faq      { background: var(--c-bg-alt); }
+/* Section backgrounds — strict alternation */
+#problem  { background: #ffffff; }
+#how      { background: #0a1628; }
+#services { background: #ffffff; }
+#proof    { background: #0a1628; }
+#faq      { background: #ffffff; }
 #contact  { background: #0a1628; }
+
+/* Remove dark spacer — now redundant */
+.section--dark-spacer { display: none; }
 
 .section-label {
   font-family: var(--font-mono);
   font-size: 0.70rem;
-  font-weight: 400;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--c-accent);
+  color: #3DD68C;
   margin-bottom: 16px;
 }
 
@@ -351,17 +354,17 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .card__title {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.95rem;
-  color: var(--c-text);
+  color: #0a1628;
   line-height: 1.35;
   margin-bottom: 10px;
 }
 
 .card__text {
   font-size: 0.88rem;
-  font-weight: 300;
-  color: var(--c-text-muted);
+  font-weight: 400;
+  color: #475569;
   line-height: 1.7;
 }
 
@@ -672,8 +675,6 @@ blockquote::before, blockquote::after { content: none; }
   border-bottom: none;
 }
 
-#contact .section-label { color: rgba(255,255,255,0.45); }
-
 .cta-title {
   font-weight: 600;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
@@ -720,7 +721,7 @@ blockquote::before, blockquote::after { content: none; }
    FOOTER
    ============================================================ */
 .footer {
-  background: #0a1628;
+  background: #0f172a;
   padding: 40px 0;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -886,6 +887,78 @@ blockquote::before, blockquote::after { content: none; }
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   DARK SECTIONS — #how, #proof, #contact
+   ============================================================ */
+
+/* Remove light border between sections on dark bg */
+#how, #proof, #contact {
+  border-bottom: 1px solid #1e3a5f;
+}
+#contact { border-bottom: none; }
+
+/* Section labels */
+#how .section-label,
+#proof .section-label {
+  color: #3DD68C;
+}
+
+/* Section titles */
+#how .section-title,
+#proof .section-title {
+  color: #ffffff;
+}
+
+/* Section subtitle */
+#how .section-subtitle,
+#proof .section-subtitle {
+  color: #94a3b8;
+}
+
+/* ---- How It Works ---- */
+#how .step-card {
+  background: #0f2340;
+  border: 1px solid #1e3a5f;
+}
+#how .step-card:hover {
+  border-color: #3DD68C;
+  box-shadow: 0 4px 24px rgba(61, 214, 140, 0.12);
+}
+#how .step__title { color: #ffffff; }
+#how .step__text  { color: #cbd5e1; }
+#how .step-arrow  { color: #3DD68C; opacity: 0.6; }
+
+#how .heatmap-visual {
+  border-color: #1e3a5f;
+}
+
+/* ---- Trusted by ---- */
+#proof .events-bar {
+  background: #0f2340;
+  border-color: #1e3a5f;
+}
+#proof .event-pill {
+  background: #0a1628;
+  border-color: #1e3a5f;
+  color: #94a3b8;
+}
+#proof .event-pill strong { color: #e2e8f0; }
+
+#proof .card--quote {
+  background: #0f2340;
+  border: 1px solid #1e3a5f;
+  border-left: 2px solid #3DD68C;
+  border-radius: var(--card-radius);
+}
+#proof .card--quote .card__text {
+  color: #cbd5e1;
+}
+#proof .card--quote .card__source {
+  color: #64748b;
+}
+
+/* ---- CTA cards already styled for dark in base CSS ---- */
 
 /* ============================================================
    RESPONSIVE
