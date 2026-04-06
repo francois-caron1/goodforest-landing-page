@@ -78,6 +78,7 @@ blockquote::before, blockquote::after { content: none; }
   height: 28px;
   width: auto;
   display: block;
+  filter: brightness(0);
 }
 
 .nav__actions {
