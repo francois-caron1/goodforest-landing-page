@@ -11,8 +11,8 @@
   --c-text-muted:   #6b7280;
   --c-border:       #e2e8e4;
 
-  --font-body:    'DM Sans', sans-serif;
-  --font-display: 'DM Sans', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-display: 'Inter', sans-serif;
   --font-mono:    'DM Mono', monospace;
 
   --section-padding: 96px 0;
@@ -64,7 +64,7 @@ blockquote::before, blockquote::after { content: none; }
   z-index: 100;
   height: var(--nav-height);
   background: var(--c-bg);
-  border-bottom: 1px solid var(--c-border);
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .nav__inner {
@@ -89,12 +89,12 @@ blockquote::before, blockquote::after { content: none; }
 .nav__link {
   font-family: var(--font-body);
   font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--c-text-muted);
+  font-weight: 500;
+  color: #0a1628;
   transition: color 0.2s ease;
 }
 
-.nav__link:hover { color: var(--c-text); }
+.nav__link:hover { color: #3DD68C; }
 
 /* ============================================================
    BUTTONS
@@ -164,6 +164,16 @@ blockquote::before, blockquote::after { content: none; }
   border-color: rgba(255,255,255,0.40);
 }
 .btn--outline-inv:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.70); }
+
+/* Green */
+.btn--green {
+  background: #3DD68C;
+  color: #0a1628;
+  font-weight: 600;
+  border-radius: 8px;
+  border-color: #3DD68C;
+}
+.btn--green:hover { background: #2fc47d; border-color: #2fc47d; }
 
 /* Small */
 .btn--sm { font-size: 0.80rem; padding: 9px 16px; }
@@ -294,7 +304,7 @@ blockquote::before, blockquote::after { content: none; }
 #services { background: var(--c-bg-alt); }
 #proof    { background: var(--c-bg); }
 #faq      { background: var(--c-bg-alt); }
-#contact  { background: var(--c-bg-dark); }
+#contact  { background: #0a1628; }
 
 .section-label {
   font-family: var(--font-mono);
@@ -307,9 +317,9 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .section-title {
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: var(--c-text);
+  color: #0a1628;
   line-height: 1.15;
   max-width: 680px;
   margin-bottom: 48px;
@@ -368,53 +378,83 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 /* ============================================================
-   HOW IT WORKS — STEPS
+   HOW IT WORKS — STEPS FLOW
    ============================================================ */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.steps-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
   margin-bottom: 64px;
 }
 
-.step {
-  position: relative;
+.step-card {
+  flex: 1;
   background: var(--c-bg);
-  border: 1px solid var(--c-border);
-  border-radius: var(--card-radius);
-  padding: 32px 28px 28px;
-  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.step__bg-num {
-  position: absolute;
-  top: -0.15em;
-  right: 8px;
-  font-family: var(--font-mono);
-  font-size: 6rem;
-  font-weight: 400;
-  color: var(--c-text);
-  opacity: 0.08;
-  line-height: 1;
-  pointer-events: none;
-  user-select: none;
+.step-card:hover {
+  border-color: #3DD68C;
+  box-shadow: 0 4px 20px rgba(61, 214, 140, 0.10);
+}
+
+.step-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.step-card__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #3DD68C;
+  letter-spacing: 0.05em;
+}
+
+.step-card__icon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  color: #cbd5e1;
+  font-size: 1.2rem;
+  margin-top: 40px;
 }
 
 .step__title {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--c-text);
+  color: #0a1628;
   line-height: 1.35;
-  margin-bottom: 10px;
-  position: relative;
+  margin-bottom: 8px;
 }
 
 .step__text {
   font-size: 0.88rem;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--c-text-muted);
   line-height: 1.7;
-  position: relative;
+}
+
+/* ============================================================
+   DARK SPACER SECTION
+   ============================================================ */
+.section--dark-spacer {
+  background: #0a1628;
+  border-bottom: none;
+  padding: 0;
+  min-height: 80px;
 }
 
 /* ============================================================
@@ -440,6 +480,14 @@ blockquote::before, blockquote::after { content: none; }
   flex-direction: column;
   gap: 0;
   padding: 32px;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card--service:hover {
+  border-color: #3DD68C;
+  box-shadow: 0 4px 20px rgba(61, 214, 140, 0.15);
 }
 
 .card--accent-top { border-top: 3px solid var(--c-accent); }
@@ -474,10 +522,10 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .service-price {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--c-text);
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #0a1628;
   margin-top: auto;
   padding-top: 20px;
   margin-bottom: 16px;
@@ -671,7 +719,7 @@ blockquote::before, blockquote::after { content: none; }
    FOOTER
    ============================================================ */
 .footer {
-  background: var(--c-bg-dark);
+  background: #0a1628;
   padding: 40px 0;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.06);
@@ -700,15 +748,15 @@ blockquote::before, blockquote::after { content: none; }
 .footer__legal a {
   font-size: 0.78rem;
   font-weight: 400;
-  color: rgba(255,255,255,0.40);
+  color: #94a3b8;
   transition: color 0.2s ease;
 }
 
 .footer__contact a:hover,
-.footer__legal a:hover { color: rgba(255,255,255,0.80); }
+.footer__legal a:hover { color: #3DD68C; }
 
 .footer__sep  { font-size: 0.78rem; color: rgba(255,255,255,0.15); }
-.footer__text { font-size: 0.70rem; color: rgba(255,255,255,0.22); margin-top: 8px; }
+.footer__text { font-size: 0.70rem; color: #64748b; margin-top: 8px; }
 
 /* ============================================================
    MODAL
@@ -881,7 +929,17 @@ blockquote::before, blockquote::after { content: none; }
     grid-template-columns: 1fr;
   }
 
-  .steps { grid-template-columns: 1fr; gap: 12px; }
+  .steps-flow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .step-arrow {
+    width: auto;
+    height: 32px;
+    margin-top: 0;
+    transform: rotate(90deg);
+  }
 
   .heatmap-visual { max-width: 100%; }
 
