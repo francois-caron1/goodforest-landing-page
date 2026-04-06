@@ -257,39 +257,110 @@ blockquote::before, blockquote::after { content: none; }
   flex-wrap: wrap;
 }
 
-/* Hero visual — heatmap card */
+/* Hero visual — laptop mockup */
 .hero__visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 48px 40px 48px 24px;
+  padding: 48px 32px 48px 16px;
 }
 
-.hero__heatmap-card {
-  border-radius: 12px;
+/* ---- Laptop wrapper ---- */
+.laptop {
+  width: 100%;
+  max-width: 480px;
+  transform: perspective(1000px) rotateY(-8deg) rotateX(3deg);
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.50));
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.laptop:hover {
+  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
+  filter: drop-shadow(0 32px 64px rgba(0, 0, 0, 0.60));
+}
+
+/* Screen lid */
+.laptop__screen {
+  background: #1e293b;
+  border-radius: 10px 10px 3px 3px;
   overflow: hidden;
-  transform: rotate(-2deg);
-  box-shadow:
-    0 0 0 1px rgba(34, 197, 94, 0.25),
-    0 8px 32px rgba(0, 0, 0, 0.40),
-    0 0 64px rgba(34, 197, 94, 0.30);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  max-width: 420px;
-  width: 100%;
+  border: 2px solid #2d3748;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
 
-.hero__heatmap-card:hover {
-  transform: rotate(0deg) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(34, 197, 94, 0.40),
-    0 16px 48px rgba(0, 0, 0, 0.50),
-    0 0 80px rgba(34, 197, 94, 0.40);
+/* Title bar */
+.laptop__titlebar {
+  background: #0f172a;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
 }
 
-.hero__heatmap-img {
+.laptop__dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.laptop__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.laptop__dot--red    { background: #ff5f57; }
+.laptop__dot--yellow { background: #febc2e; }
+.laptop__dot--green  { background: #28c840; }
+
+.laptop__urlbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 3px;
+  padding: 2px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Display / heatmap */
+.laptop__display { line-height: 0; }
+
+.laptop__img {
   width: 100%;
-  height: auto;
+  height: 230px;
+  object-fit: cover;
   display: block;
+}
+
+/* Hinge */
+.laptop__hinge {
+  height: 3px;
+  background: #1a202c;
+  width: 62%;
+  margin: 0 auto;
+  border-radius: 0 0 2px 2px;
+}
+
+/* Base / keyboard — trapeze légèrement plus large */
+.laptop__base {
+  height: 18px;
+  background: linear-gradient(180deg, #374151 0%, #2d3748 100%);
+  border-radius: 0 0 8px 8px;
+  transform: scaleX(1.06);
+  transform-origin: center top;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.50);
 }
 
 /* ============================================================
@@ -877,10 +948,12 @@ blockquote::before, blockquote::after { content: none; }
     justify-content: flex-start;
   }
 
-  .hero__heatmap-card {
+  .laptop {
     transform: none;
-    max-width: 100%;
+    filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
   }
+
+  .laptop:hover { transform: none; }
 
   .hero__metrics-bar {
     flex-direction: column;
