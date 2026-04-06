@@ -119,11 +119,13 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Primary */
 .btn--primary {
-  background: var(--c-accent);
-  color: #ffffff;
-  border-color: var(--c-accent);
+  background: #3DD68C;
+  color: #0a1628;
+  border-color: #3DD68C;
+  font-weight: 600;
+  border-radius: 8px;
 }
-.btn--primary:hover { opacity: 0.85; }
+.btn--primary:hover { background: #2fc47d; border-color: #2fc47d; }
 
 /* Outline */
 .btn--outline {
@@ -146,7 +148,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Ghost on dark hero */
 .hero .btn--ghost {
-  color: rgba(255, 255, 255, 0.70);
+  color: #3DD68C;
 }
 .hero .btn--ghost:hover { color: #ffffff; }
 
