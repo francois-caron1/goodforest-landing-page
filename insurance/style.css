@@ -535,6 +535,18 @@ blockquote::before, blockquote::after { content: none; }
   margin-bottom: 16px;
 }
 
+.service-price--normal {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.card--service .btn {
+  width: 50%;
+  min-width: fit-content;
+  align-self: flex-start;
+}
+
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
