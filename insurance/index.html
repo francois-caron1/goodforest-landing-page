@@ -7,19 +7,19 @@
   <meta name="description" content="Reliable, fast satellite-based damage assessment for forest insurers — after storms and wildfires.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ===================== NAV ===================== -->
-  <nav class="nav" aria-label="Main navigation" style="background: #ffffff">
+  <nav class="nav" aria-label="Main navigation">
     <div class="nav__inner container">
       <a href="#hero" class="nav__logo" aria-label="Goodforest — home">
         <img src="../logo normal.png" alt="Goodforest" class="nav__logo-img" height="32">
       </a>
       <div class="nav__actions">
-        <a href="#services" class="btn btn--outline btn--sm">Our services</a>
+        <a href="#services" class="nav__link">Our services</a>
         <a href="#contact" class="btn btn--primary btn--sm" data-modal>Talk to our team</a>
       </div>
     </div>
@@ -28,55 +28,48 @@
   <main>
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero section-light" id="hero" style="background: #f5faf6">
-      <div class="hero__bg-radial" aria-hidden="true"></div>
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow">Forest damage assessment · Satellite &amp; AI</p>
-          <h1 class="hero__headline">
-            After a storm, every week of uncertainty costs —<br> in <em>timber</em>, in <em>claims</em>, in <em>operational burden</em>.
-          </h1>
-          <p class="hero__sub">Goodforest delivers reliable, fast satellite-based damage assessment for forest insurers — after storms and wildfires.</p>
-          <p class="hero__audience">Built for forest insurers and forest portfolio managers.</p>
-          <div class="hero__ctas">
-            <a href="#services" class="btn btn--primary" data-modal-order>Get a heatmap</a>
-            <a href="#contact" class="btn btn--outline" data-modal>Talk to our team</a>
-          </div>
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <p class="hero__eyebrow">SATELLITE · IA · POST-ÉVÉNEMENT</p>
+        <h1 class="hero__headline">
+          After a storm, every week of uncertainty costs —<br> in <em>timber</em>, in <em>claims</em>, in <em>operational burden</em>.
+        </h1>
+        <p class="hero__sub">Goodforest delivers reliable, fast satellite-based damage assessment for forest insurers — after storms and wildfires.</p>
+        <p class="hero__metrics">Résolution 100 m² · Livraison sous 4 jours · Précision parcelle</p>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary" data-modal-order>Obtenir une heatmap</a>
+          <a href="#contact" class="btn btn--ghost" data-modal>Parler à notre équipe →</a>
         </div>
-        <div class="hero__image-wrap">
-          <img src="../assets/hero-insurance.jpg" alt="Satellite damage heatmap over a forest area" class="hero__image">
-        </div>
+      </div>
+      <div class="hero__media">
+        <img src="../assets/hero-insurance.jpg" alt="Satellite damage heatmap over a forest area" class="hero__img">
       </div>
     </section>
 
     <!-- ===================== PROBLEM ===================== -->
-    <section class="section section-light" id="problem" style="background: #ffffff">
+    <section class="section" id="problem">
       <div class="container">
         <p class="section-label">The Challenge</p>
         <h2 class="section-title">Forest damage is hard to see, harder to measure — and every delay has a cost.</h2>
         <p class="section-subtitle">Whether after a storm or a wildfire.</p>
         <div class="cards-grid cards-grid--2x2">
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
+          <article class="card card--problem fade-in">
             <h3 class="card__title">You don't know where to look first</h3>
             <p class="card__text">After a major storm like Nils (France, 2026), dozens of claims land simultaneously. Without visibility on actual damage, every parcel feels urgent. Experts get mobilized where damage is limited — while the critical zones wait.</p>
           </article>
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
+          <article class="card card--problem fade-in">
             <h3 class="card__title">The clock is ticking on your timber</h3>
             <p class="card__text">Fast-degrading species like spruce and maritime pine need rapid assessment. Post-Ciaran (France, 2023), some expertises took up to 6 months. The longer the wait, the harder it is to salvage and sell the timber — and to close the claim cleanly.</p>
           </article>
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
+          <article class="card card--problem fade-in">
             <h3 class="card__title">When access is impossible, data becomes critical</h3>
             <p class="card__text">After a wildfire, ground access can be blocked for weeks. Satellite assessment delivers precise damage rates and affected zones — without requiring an expert on site.</p>
           </article>
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
+          <article class="card card--problem fade-in">
             <h3 class="card__title">Disputed claims need objective ground truth</h3>
             <p class="card__text">When damage figures are contested, a satellite-based assessment from a trusted third party gives everyone — insurer and owner — a shared, independent reference point.</p>
           </article>
@@ -86,24 +79,24 @@
     </section>
 
     <!-- ===================== HOW IT WORKS ===================== -->
-    <section class="section section-light" id="how" style="background: #f5faf6">
+    <section class="section" id="how">
       <div class="container">
         <p class="section-label">How It Works</p>
         <h2 class="section-title">Satellite and AI, delivering forest damage assessment at scale.</h2>
 
         <div class="steps">
           <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">1</div>
+            <span class="step__bg-num" aria-hidden="true">01</span>
             <h3 class="step__title">Define your perimeter</h3>
             <p class="step__text">You submit the affected area — a parcel, a forest, or a region — via our online platform. No technical setup required.</p>
           </div>
           <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">2</div>
+            <span class="step__bg-num" aria-hidden="true">02</span>
             <h3 class="step__title">Satellite captures, AI processes</h3>
             <p class="step__text">We analyze multi-source satellite imagery and apply our AI models trained on forest damage — storms and wildfires.</p>
           </div>
           <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">3</div>
+            <span class="step__bg-num" aria-hidden="true">03</span>
             <h3 class="step__title">You get actionable results</h3>
             <p class="step__text">A damage heatmap to prioritize your response, or a full damage assessment with damage zones and rates by plot.</p>
           </div>
@@ -117,13 +110,13 @@
     </section>
 
     <!-- ===================== SERVICES ===================== -->
-    <section class="section section-light" id="services" style="background: #ffffff">
+    <section class="section" id="services">
       <div class="container">
         <p class="section-label">Our Services</p>
         <h2 class="section-title">Two services, one platform —<br> from first overview to full assessment.</h2>
         <div class="cards-grid cards-grid--2col">
 
-          <article class="card card--service card--accent-top fade-in" style="background: #f5faf6">
+          <article class="card card--service card--accent-top fade-in">
             <span class="service-tag">Self-service</span>
             <h3 class="card__title">Damage Heatmap</h3>
             <p class="service-coverage">🌪 Storms · 🔥 Wildfires</p>
@@ -133,7 +126,7 @@
             <a href="#contact" class="btn btn--primary" data-modal-order>Get started</a>
           </article>
 
-          <article class="card card--service fade-in" style="background: #f5faf6">
+          <article class="card card--service fade-in">
             <span class="service-tag">On demand</span>
             <h3 class="card__title">Full Damage Assessment</h3>
             <p class="service-coverage">🌪 Storms · 🔥 Wildfires</p>
@@ -148,12 +141,12 @@
     </section>
 
     <!-- ===================== SOCIAL PROOF ===================== -->
-    <section class="section section-dark" id="proof" style="background: #384b38; color: #f2ede6">
+    <section class="section" id="proof">
       <div class="container">
         <p class="section-label">Trusted by Forest Insurers</p>
         <h2 class="section-title">Deployed on real events across Europe and beyond.</h2>
 
-        <div class="events-bar" role="list" aria-label="Events covered" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
+        <div class="events-bar" role="list" aria-label="Events covered">
           <span class="event-pill" role="listitem"><strong>Storm Nils</strong> · France 2026</span>
           <span class="event-pill" role="listitem"><strong>Storm Goretti</strong> · France 2026</span>
           <span class="event-pill" role="listitem"><strong>Wildfire events</strong> · Europe &amp; Australia</span>
@@ -161,26 +154,22 @@
 
         <div class="cards-grid cards-grid--2x2">
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
+          <blockquote class="card card--quote fade-in">
             <p class="card__text">"We were able to reassure our clients quickly — they knew where they stood before the expert even arrived."</p>
             <footer class="card__source">Claims manager, French insurer</footer>
           </blockquote>
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
+          <blockquote class="card card--quote fade-in">
             <p class="card__text">"We sent experts to the right places first. The most critical parcels got assessed faster, which made a real difference for salvage operations."</p>
             <footer class="card__source">Claims manager, French insurer</footer>
           </blockquote>
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
+          <blockquote class="card card--quote fade-in">
             <p class="card__text">"On the ground, we went straight to the most damaged areas of the parcel. No time wasted."</p>
             <footer class="card__source">Forest manager, France</footer>
           </blockquote>
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
+          <blockquote class="card card--quote fade-in">
             <p class="card__text">"It gave us an objective basis for the claims conversation — and helped avoid unnecessary counter-expertise."</p>
             <footer class="card__source">Underwriter, French insurer</footer>
           </blockquote>
@@ -190,7 +179,7 @@
     </section>
 
     <!-- ===================== FAQ ===================== -->
-    <section class="section section-light" id="faq" style="background: #f5faf6">
+    <section class="section" id="faq">
       <div class="container">
         <p class="section-label">FAQ</p>
         <h2 class="section-title section-title--centered">Common questions.</h2>
@@ -232,23 +221,21 @@
     </section>
 
     <!-- ===================== CTA FINAL ===================== -->
-    <section class="section section--cta section-dark" id="contact" style="background: #384b38; color: #f2ede6">
+    <section class="section section--cta" id="contact">
       <div class="container">
         <h2 class="cta-title">Ready to see your forests clearly after the next event?</h2>
         <div class="cta-cards">
 
-          <div class="cta-card fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <div class="cta-card__icon" aria-hidden="true">🗺</div>
+          <div class="cta-card fade-in">
             <h3 class="cta-card__title">Start a heatmap analysis</h3>
             <p class="cta-card__text">Self-service. Submit your perimeter, get your damage heatmap.</p>
-            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d" data-modal-order>Get started — from €10/ha</a>
+            <a href="#contact" class="btn btn--primary-inv" data-modal-order>Obtenir une heatmap — dès €10/ha</a>
           </div>
 
-          <div class="cta-card fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <div class="cta-card__icon" aria-hidden="true">💬</div>
+          <div class="cta-card fade-in">
             <h3 class="cta-card__title">Talk to our team</h3>
             <p class="cta-card__text">For full damage assessment, large portfolios, or any question.</p>
-            <a href="#contact" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff" data-modal>Book a call</a>
+            <a href="#contact" class="btn btn--outline-inv" data-modal>Book a call →</a>
           </div>
 
         </div>
