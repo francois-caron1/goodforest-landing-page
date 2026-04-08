@@ -219,7 +219,7 @@ blockquote::before, blockquote::after { content: none; }
   font-size: 3rem;
   line-height: 1.1;
   color: #ffffff;
-  max-width: 640px;
+  max-width: 680px;
 }
 
 .hero__headline em {
@@ -231,7 +231,7 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 300;
   font-size: 1.25rem;
   color: #cbd5e1;
-  max-width: 640px;
+  max-width: 680px;
   line-height: 1.65;
 }
 
@@ -327,7 +327,7 @@ blockquote::before, blockquote::after { content: none; }
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: #0a1628;
   line-height: 1.15;
-  max-width: 680px;
+  max-width: 720px;
   margin-bottom: 48px;
 }
 
