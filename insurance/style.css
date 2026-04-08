@@ -216,7 +216,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .hero__headline {
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 2.8rem;
   line-height: 1.1;
   color: #ffffff;
   max-width: 680px;
