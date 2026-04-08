@@ -231,7 +231,7 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 300;
   font-size: 1.25rem;
   color: #cbd5e1;
-  max-width: 460px;
+  max-width: 640px;
   line-height: 1.65;
 }
 
