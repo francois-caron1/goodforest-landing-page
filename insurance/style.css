@@ -219,7 +219,7 @@ blockquote::before, blockquote::after { content: none; }
   font-size: 3rem;
   line-height: 1.1;
   color: #ffffff;
-  max-width: 540px;
+  max-width: 640px;
 }
 
 .hero__headline em {
