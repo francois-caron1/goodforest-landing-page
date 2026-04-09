@@ -542,7 +542,7 @@ blockquote::before, blockquote::after { content: none; }
 .tech-block__text {
   font-size: 0.80rem;
   color: #4a6280;
-  padding-left: 22px; /* 14px icon + 8px gap — aligns with title */
+  padding-left: 28px; /* 20px icon + 8px gap — aligns with title */
   line-height: 1.65;
   font-weight: 400;
 }
