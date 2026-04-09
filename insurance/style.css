@@ -454,6 +454,95 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 /* ============================================================
+   HOW IT WORKS — NEW 2-COL + TECH BAR LAYOUT
+   ============================================================ */
+.how-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 56px;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.how-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid #1e3a5f;
+}
+.how-step:first-child { padding-top: 0; }
+.how-step:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.how-step__num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #3DD68C;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+  margin-top: 3px;
+  opacity: 0.85;
+}
+
+.how-step__body { flex: 1; }
+
+.how-heatmap {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  border: 1px solid #1e3a5f;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.30);
+}
+
+/* Tech credibility bar */
+.how-tech-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #1e3a5f;
+  padding-top: 40px;
+  margin-top: 8px;
+}
+
+.tech-block {
+  padding: 8px 28px 8px 0;
+  border-right: 1px solid #1e3a5f;
+  margin-right: 28px;
+}
+.tech-block:last-child {
+  border-right: none;
+  margin-right: 0;
+}
+
+.tech-block__icon {
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.tech-block__title {
+  font-weight: 600;
+  font-size: 0.83rem;
+  color: #e2e8f0;
+  margin-bottom: 6px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.tech-block__text {
+  font-size: 0.80rem;
+  color: #4a6280;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* ============================================================
    DARK SPACER SECTION
    ============================================================ */
 .section--dark-spacer {
@@ -1030,6 +1119,24 @@ blockquote::before, blockquote::after { content: none; }
   }
 
   .heatmap-visual { max-width: 100%; }
+
+  .how-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .how-tech-bar {
+    grid-template-columns: 1fr;
+    padding-top: 32px;
+  }
+
+  .tech-block {
+    border-right: none;
+    border-bottom: 1px solid #1e3a5f;
+    padding: 20px 0;
+    margin-right: 0;
+  }
+  .tech-block:last-child { border-bottom: none; padding-bottom: 0; }
 
   .faq-list { max-width: 100%; }
 
