@@ -363,6 +363,17 @@ blockquote::before, blockquote::after { content: none; }
   margin-bottom: 10px;
 }
 
+.card__title--icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card__title-icon {
+  flex-shrink: 0;
+  display: block;
+}
+
 .card__text {
   font-size: 0.88rem;
   font-weight: 400;
