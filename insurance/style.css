@@ -202,13 +202,14 @@ blockquote::before, blockquote::after { content: none; }
 
 .hero__persona {
   display: inline-block;
+  width: fit-content;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.10em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #3DD68C;
+  border: 1px solid #3DD68C;
   border-radius: 20px;
   padding: 4px 12px;
 }
