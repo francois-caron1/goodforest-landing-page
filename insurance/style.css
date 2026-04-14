@@ -38,6 +38,14 @@
 
   /* Transitions */
   --transition: 0.18s ease;
+
+  /* Dark sections (intentional brand navy — not DS light theme) */
+  --dark-bg:        var(--dark-bg);
+  --dark-surface:   var(--dark-surface);
+  --dark-border:    var(--dark-border);
+  --dark-text:      #e2e8f0;
+  --dark-text-muted: #94a3b8;
+  --dark-text-dim:  #4a6280;
 }
 
 /* ============================================================
@@ -140,7 +148,7 @@ blockquote::before, blockquote::after { content: none; }
 /* Primary */
 .btn--primary {
   background: var(--c-primary);
-  color: #0a1628;
+  color: var(--dark-bg);
   border-color: var(--c-primary);
   font-weight: 600;
 }
@@ -190,7 +198,7 @@ blockquote::before, blockquote::after { content: none; }
 /* Green (alias primary — kept for backward compat) */
 .btn--green {
   background: var(--c-primary);
-  color: #0a1628;
+  color: var(--dark-bg);
   font-weight: 600;
   border-color: var(--c-primary);
 }
@@ -207,7 +215,7 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 55fr 45fr;
   min-height: 580px;
   padding-top: var(--nav-height);
-  background: linear-gradient(180deg, #0a1628 0%, #0f2340 100%);
+  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
 }
 
 .hero__content {
@@ -248,7 +256,7 @@ blockquote::before, blockquote::after { content: none; }
 .hero__sub {
   font-weight: 300;
   font-size: 1.25rem;
-  color: #cbd5e1;
+  color: var(--dark-text-muted);
   max-width: 680px;
   line-height: 1.65;
 }
@@ -303,7 +311,7 @@ blockquote::before, blockquote::after { content: none; }
   height: auto;
   display: block;
   transform: perspective(1000px) rotateY(-8deg) rotateX(3deg);
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease; /* intentional slow — hero 3D tilt */
 }
 
 .hero__mac-img:hover {
@@ -321,11 +329,11 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Section backgrounds — strict alternation */
 #problem  { background: var(--c-bg); }
-#how      { background: #0a1628; }
+#how      { background: var(--dark-bg); }
 #services { background: var(--c-surface); }
-#proof    { background: #0a1628; }
+#proof    { background: var(--dark-bg); }
 #faq      { background: var(--c-bg); }
-#contact  { background: #0a1628; }
+#contact  { background: var(--dark-bg); }
 
 /* Remove dark spacer — now redundant */
 .section--dark-spacer { display: none; }
@@ -459,7 +467,7 @@ blockquote::before, blockquote::after { content: none; }
   justify-content: center;
   flex-shrink: 0;
   width: 40px;
-  color: #cbd5e1;
+  color: var(--dark-text-muted);
   font-size: 1.2rem;
   margin-top: 40px;
 }
@@ -501,7 +509,7 @@ blockquote::before, blockquote::after { content: none; }
   gap: 20px;
   align-items: flex-start;
   padding: 24px 0;
-  border-bottom: 1px solid #1e3a5f;
+  border-bottom: 1px solid var(--dark-border);
 }
 .how-step:first-child { padding-top: 0; }
 .how-step:last-child  { border-bottom: none; padding-bottom: 0; }
@@ -522,7 +530,7 @@ blockquote::before, blockquote::after { content: none; }
 .how-heatmap {
   border-radius: var(--card-radius);
   overflow: hidden;
-  border: 1px solid #1e3a5f;
+  border: 1px solid var(--dark-border);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.30);
 }
 
@@ -530,14 +538,14 @@ blockquote::before, blockquote::after { content: none; }
 .how-tech-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid #1e3a5f;
+  border-top: 1px solid var(--dark-border);
   padding-top: 40px;
   margin-top: 8px;
 }
 
 .tech-block {
   padding: 8px 28px 8px 0;
-  border-right: 1px solid #1e3a5f;
+  border-right: 1px solid var(--dark-border);
   margin-right: 28px;
 }
 .tech-block:last-child {
@@ -554,20 +562,20 @@ blockquote::before, blockquote::after { content: none; }
 
 .tech-block__icon {
   flex-shrink: 0;
-  color: #4a6280;
+  color: var(--dark-text-dim);
 }
 
 .tech-block__title {
   font-weight: 600;
   font-size: 0.83rem;
-  color: #e2e8f0;
+  color: var(--dark-text);
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
 
 .tech-block__text {
   font-size: 0.80rem;
-  color: #4a6280;
+  color: var(--dark-text-dim);
   padding-left: 28px; /* 20px icon + 8px gap — aligns with title */
   line-height: 1.65;
   font-weight: 400;
@@ -577,7 +585,7 @@ blockquote::before, blockquote::after { content: none; }
    DARK SPACER SECTION
    ============================================================ */
 .section--dark-spacer {
-  background: #0a1628;
+  background: var(--dark-bg);
   border-bottom: none;
   padding: 0;
   min-height: 80px;
@@ -797,7 +805,7 @@ blockquote::before, blockquote::after { content: none; }
   position: absolute;
   background: var(--c-accent);
   border-radius: 1px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform var(--transition), opacity var(--transition);
 }
 
 .faq-item__icon::before {
@@ -959,7 +967,7 @@ blockquote::before, blockquote::after { content: none; }
   cursor: pointer;
   padding: 4px 8px;
   opacity: 0.6;
-  transition: opacity 0.2s ease;
+  transition: opacity var(--transition);
 }
 .modal-close:hover { opacity: 1; }
 
@@ -1005,7 +1013,7 @@ blockquote::before, blockquote::after { content: none; }
   border: 1px solid var(--c-border);
   border-radius: var(--card-radius);
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: border-color var(--transition);
   -webkit-appearance: none;
   appearance: none;
 }
@@ -1043,7 +1051,7 @@ blockquote::before, blockquote::after { content: none; }
 .fade-in {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease; /* intentional slow — scroll reveal */
 }
 .fade-in.is-visible { opacity: 1; transform: translateY(0); }
 
@@ -1053,7 +1061,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Remove light border between sections on dark bg */
 #how, #proof, #contact {
-  border-bottom: 1px solid #1e3a5f;
+  border-bottom: 1px solid var(--dark-border);
 }
 #contact { border-bottom: none; }
 
@@ -1072,49 +1080,49 @@ blockquote::before, blockquote::after { content: none; }
 /* Section subtitle */
 #how .section-subtitle,
 #proof .section-subtitle {
-  color: #94a3b8;
+  color: var(--dark-text-muted);
 }
 
 /* ---- How It Works ---- */
 #how .step-card {
-  background: #0f2340;
-  border: 1px solid #1e3a5f;
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
 }
 #how .step-card:hover {
   border-color: var(--c-primary);
   box-shadow: 0 4px 24px rgba(16, 185, 129, 0.12);
 }
 #how .step__title { color: #ffffff; }
-#how .step__text  { color: #cbd5e1; }
+#how .step__text  { color: var(--dark-text-muted); }
 #how .step-arrow  { color: var(--c-primary); opacity: 0.6; }
 
 #how .heatmap-visual {
-  border-color: #1e3a5f;
+  border-color: var(--dark-border);
 }
 
 /* ---- Trusted by ---- */
 #proof .events-bar {
-  background: #0f2340;
-  border-color: #1e3a5f;
+  background: var(--dark-surface);
+  border-color: var(--dark-border);
 }
 #proof .event-pill {
-  background: #0a1628;
-  border-color: #1e3a5f;
-  color: #94a3b8;
+  background: var(--dark-bg);
+  border-color: var(--dark-border);
+  color: var(--dark-text-muted);
 }
-#proof .event-pill strong { color: #e2e8f0; }
+#proof .event-pill strong { color: var(--dark-text); }
 
 #proof .card--quote {
-  background: #0f2340;
-  border: 1px solid #1e3a5f;
+  background: var(--dark-surface);
+  border: 1px solid var(--dark-border);
   border-left: 2px solid var(--c-primary);
   border-radius: var(--card-radius);
 }
 #proof .card--quote .card__text {
-  color: #cbd5e1;
+  color: var(--dark-text-muted);
 }
 #proof .card--quote .card__source {
-  color: #64748b;
+  color: var(--dark-text-dim);
 }
 
 /* ---- CTA cards already styled for dark in base CSS ---- */
@@ -1188,7 +1196,7 @@ blockquote::before, blockquote::after { content: none; }
 
   .tech-block {
     border-right: none;
-    border-bottom: 1px solid #1e3a5f;
+    border-bottom: 1px solid var(--dark-border);
     padding: 20px 0;
     margin-right: 0;
   }
