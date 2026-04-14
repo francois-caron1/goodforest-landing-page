@@ -215,7 +215,9 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 55fr 45fr;
   min-height: 580px;
   padding-top: var(--nav-height);
-  background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
+  background:
+    linear-gradient(rgba(8, 20, 40, 0.82), rgba(8, 20, 40, 0.82)),
+    url('https://images.unsplash.com/photo-1634919367249-cc2320d74d27?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center / cover no-repeat;
 }
 
 .hero__content {
@@ -224,6 +226,44 @@ blockquote::before, blockquote::after { content: none; }
   justify-content: center;
   gap: 22px;
   padding: 72px clamp(32px, 4vw, 64px) 72px max(24px, calc((100vw - var(--container-max)) / 2 + 24px));
+}
+
+.hero__persona {
+  display: inline-block;
+  width: fit-content;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: #3DD68C;
+  border: 1px solid #3DD68C;
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+.hero__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hero__bullets li {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: #cbd5e1;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.hero__bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #3DD68C;
+  font-weight: 400;
 }
 
 .hero__eyebrow {
@@ -306,8 +346,8 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Hero mac image */
 .hero__mac-img {
-  width: 100%;
-  max-width: 520px;
+  width: 150%;
+  max-width: 676px;
   height: auto;
   display: block;
   transform: perspective(1000px) rotateY(-8deg) rotateX(3deg);
@@ -393,6 +433,17 @@ blockquote::before, blockquote::after { content: none; }
   color: var(--c-text);
   line-height: 1.35;
   margin-bottom: 10px;
+}
+
+.card__title--icon {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card__title-icon {
+  flex-shrink: 0;
+  display: block;
 }
 
 .card__text {
