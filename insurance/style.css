@@ -111,8 +111,8 @@ blockquote::before, blockquote::after { content: none; }
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 500;
-  color: #0a1628;
-  transition: color 0.2s ease;
+  color: var(--c-text);
+  transition: color var(--transition);
 }
 
 .nav__link:hover { color: var(--c-primary); }
@@ -233,8 +233,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .hero__headline {
-  font-weight: 600;
-  font-size: 2.8rem;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 3.2rem); /* DS .lp-h1 */
   line-height: 1.1;
   color: #ffffff;
   max-width: 680px;
@@ -320,11 +320,11 @@ blockquote::before, blockquote::after { content: none; }
 .section:last-of-type { border-bottom: none; }
 
 /* Section backgrounds — strict alternation */
-#problem  { background: #ffffff; }
+#problem  { background: var(--c-bg); }
 #how      { background: #0a1628; }
-#services { background: #ffffff; }
+#services { background: var(--c-surface); }
 #proof    { background: #0a1628; }
-#faq      { background: #ffffff; }
+#faq      { background: var(--c-bg); }
 #contact  { background: #0a1628; }
 
 /* Remove dark spacer — now redundant */
@@ -382,7 +382,7 @@ blockquote::before, blockquote::after { content: none; }
 .card__title {
   font-weight: 600;
   font-size: 0.95rem;
-  color: #0a1628;
+  color: var(--c-text);
   line-height: 1.35;
   margin-bottom: 10px;
 }
@@ -390,7 +390,7 @@ blockquote::before, blockquote::after { content: none; }
 .card__text {
   font-size: 0.88rem;
   font-weight: 400;
-  color: #475569;
+  color: var(--c-text-muted);
   line-height: 1.7;
 }
 
@@ -467,7 +467,7 @@ blockquote::before, blockquote::after { content: none; }
 .step__title {
   font-weight: 600;
   font-size: 0.95rem;
-  color: #0a1628;
+  color: var(--c-text);
   line-height: 1.35;
   margin-bottom: 8px;
 }
@@ -654,7 +654,7 @@ blockquote::before, blockquote::after { content: none; }
   align-items: center;
   gap: 8px;
   font-size: 0.82rem;
-  color: #64748b;
+  color: var(--c-text-muted);
   margin-top: 10px;
 }
 
@@ -674,7 +674,7 @@ blockquote::before, blockquote::after { content: none; }
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 1.5rem;
-  color: #0a1628;
+  color: var(--c-text);
   margin-top: auto;
   padding-top: 20px;
   margin-bottom: 16px;
@@ -880,10 +880,10 @@ blockquote::before, blockquote::after { content: none; }
    FOOTER
    ============================================================ */
 .footer {
-  background: #ffffff;
+  background: var(--c-surface);
   padding: 40px 0;
   text-align: center;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--c-border);
 }
 
 .footer__logo {
@@ -909,15 +909,15 @@ blockquote::before, blockquote::after { content: none; }
 .footer__legal a {
   font-size: 0.78rem;
   font-weight: 400;
-  color: #475569;
-  transition: color 0.2s ease;
+  color: var(--c-text-muted);
+  transition: color var(--transition);
 }
 
 .footer__contact a:hover,
 .footer__legal a:hover { color: var(--c-primary); }
 
-.footer__sep  { font-size: 0.78rem; color: #cbd5e1; }
-.footer__text { font-size: 0.70rem; color: #94a3b8; margin-top: 8px; }
+.footer__sep  { font-size: 0.78rem; color: var(--c-border); }
+.footer__text { font-size: 0.70rem; color: var(--c-text-subtle); margin-top: 8px; }
 
 /* ============================================================
    MODAL
