@@ -318,7 +318,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Hero mac image */
 .hero__mac-img {
-  width: 100%;
+  width: 150%;
   max-width: 520px;
   height: auto;
   display: block;
