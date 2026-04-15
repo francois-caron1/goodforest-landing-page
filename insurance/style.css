@@ -308,16 +308,15 @@ blockquote::before, blockquote::after { content: none; }
    ============================================================ */
 .section {
   padding: var(--sec-pad) 0;
-  border-bottom: 1px solid var(--cb);
 }
 
 /* Color alternation */
 #problem  { background: var(--bg); }
 #how      { background: var(--bg); }
-#services { background: var(--surface); }
+#services { background: var(--bg); }
 #proof    { background: var(--bg); }
 #faq      { background: var(--bg); }
-#contact  { background: var(--bg);  border-bottom: none; }
+#contact  { background: var(--bg); }
 
 .section--dark-spacer { display: none; }
 
@@ -764,7 +763,6 @@ blockquote::before, blockquote::after { content: none; }
    ============================================================ */
 .section--cta {
   text-align: center;
-  border-bottom: none;
 }
 
 .cta-title {
