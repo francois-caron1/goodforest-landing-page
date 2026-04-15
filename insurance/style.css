@@ -99,10 +99,15 @@ blockquote::before, blockquote::after { content: none; }
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: var(--nav-h);
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--cb);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+/* Bouton pill dans la nav */
+.nav .btn--green {
+  border-radius: 999px;
 }
 
 .nav__inner {
@@ -763,6 +768,19 @@ blockquote::before, blockquote::after { content: none; }
    ============================================================ */
 .section--cta {
   text-align: center;
+}
+
+/* Label "START TODAY" injecté en CSS au-dessus du titre CTA */
+.cta-title::before {
+  content: '— START TODAY';
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--primary);
+  margin-bottom: 16px;
 }
 
 .cta-title {
