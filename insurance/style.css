@@ -771,7 +771,7 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 /* Label "START TODAY" injecté en CSS au-dessus du titre CTA */
-.cta-title::before {
+.section--cta .container::before {
   content: '— START TODAY';
   display: block;
   font-family: var(--font-mono);
@@ -781,7 +781,6 @@ blockquote::before, blockquote::after { content: none; }
   letter-spacing: 0.10em;
   color: var(--primary);
   margin-bottom: 16px;
-  text-align: left;
 }
 
 .cta-title {
