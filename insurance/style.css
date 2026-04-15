@@ -317,7 +317,7 @@ blockquote::before, blockquote::after { content: none; }
 #services { background: var(--surface); }
 #proof    { background: var(--bg); }
 #faq      { background: var(--bg); }
-#contact  { background: var(--dk-bg);  border-bottom: none; }
+#contact  { background: var(--bg);  border-bottom: none; }
 
 .section--dark-spacer { display: none; }
 
@@ -770,9 +770,9 @@ blockquote::before, blockquote::after { content: none; }
 .cta-title {
   font-weight: 700;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  color: var(--dk-t1);
+  color: var(--t1);
   max-width: 580px;
-  margin: 0 auto 56px;
+  margin: 0 auto 40px;
   line-height: 1.15;
   letter-spacing: -0.03em;
 }
@@ -786,33 +786,52 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .cta-card {
-  background: var(--dk-card);
-  border: 1px solid var(--dk-cb);
+  background: var(--surface);
+  border: 1px solid var(--cb);
   border-radius: var(--r);
-  padding: 32px 24px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-align: center;
-  transition: border-color var(--tr), transform var(--tr);
+  box-shadow: var(--sh);
+  transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
 }
 .cta-card:hover {
-  border-color: rgba(16, 185, 129, 0.40);
+  border-color: var(--acs-b);
+  box-shadow: var(--shm);
   transform: translateY(-2px);
 }
 
 .cta-card__title {
   font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--dk-t1);
+  color: var(--t1);
   line-height: 1.3;
 }
 .cta-card__text {
   font-size: 0.8125rem;
   font-weight: 400;
-  color: var(--dk-t2);
+  color: var(--t2);
   line-height: 1.55;
+}
+
+/* Bouton primaire pill dans le CTA */
+#contact .btn--green {
+  border-radius: 999px;
+}
+
+/* Bouton secondaire outline clair (remplace outline-inv sur fond clair) */
+#contact .btn--outline-inv {
+  color: var(--t1);
+  border-color: var(--cb);
+  background: transparent;
+}
+#contact .btn--outline-inv:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--acs);
 }
 
 /* ============================================================
