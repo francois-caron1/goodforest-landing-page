@@ -211,7 +211,7 @@ blockquote::before, blockquote::after { content: none; }
    ============================================================ */
 .hero {
   display: grid;
-  grid-template-columns: 55fr 45fr;
+  grid-template-columns: 63fr 37fr;
   min-height: 580px;
   padding-top: var(--nav-h);
   background:
@@ -253,7 +253,7 @@ blockquote::before, blockquote::after { content: none; }
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: #ffffff;
-  max-width: 620px;
+  max-width: 760px;
 }
 .hero__headline em {
   font-style: normal;
