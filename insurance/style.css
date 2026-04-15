@@ -107,7 +107,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Bouton pill dans la nav */
 .nav .btn--green {
-  border-radius: 999px;
+  border-radius: var(--r-sm);
 }
 
 .nav__inner {
@@ -836,7 +836,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Bouton primaire pill dans le CTA */
 #contact .btn--green {
-  border-radius: 999px;
+  border-radius: var(--r-sm);
 }
 
 /* Bouton secondaire outline clair (remplace outline-inv sur fond clair) */
