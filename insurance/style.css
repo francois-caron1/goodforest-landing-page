@@ -313,7 +313,7 @@ blockquote::before, blockquote::after { content: none; }
 
 /* Color alternation */
 #problem  { background: var(--bg); }
-#how      { background: var(--dk-bg);  border-color: var(--dk-cb); }
+#how      { background: var(--bg); }
 #services { background: var(--surface); }
 #proof    { background: var(--dk-bg);  border-color: var(--dk-cb); }
 #faq      { background: var(--bg); }
@@ -322,6 +322,9 @@ blockquote::before, blockquote::after { content: none; }
 .section--dark-spacer { display: none; }
 
 .section-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   font-weight: 700;
@@ -329,6 +332,12 @@ blockquote::before, blockquote::after { content: none; }
   letter-spacing: 0.10em;
   color: var(--primary);
   margin-bottom: 16px;
+}
+.section-label::before {
+  content: '—';
+  color: var(--primary);
+  font-weight: 400;
+  flex-shrink: 0;
 }
 
 .section-title {
@@ -347,7 +356,6 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 /* Dark section title overrides */
-#how .section-title,
 #proof .section-title { color: var(--dk-t1); }
 
 /* ============================================================
@@ -415,49 +423,58 @@ blockquote::before, blockquote::after { content: none; }
 .how-steps {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
 .how-step {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--dk-cb);
+  padding: 22px 24px;
+  background: var(--surface);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  transition: transform var(--tr), box-shadow var(--tr);
 }
-.how-step:first-child { padding-top: 0; }
-.how-step:last-child  { border-bottom: none; padding-bottom: 0; }
+.how-step:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shm);
+}
 
 .how-step__num {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--primary);
   letter-spacing: 0.06em;
   flex-shrink: 0;
-  margin-top: 3px;
-  opacity: 0.85;
+  background: var(--acs);
+  border-radius: var(--r-sm);
+  padding: 4px 8px;
+  line-height: 1;
 }
 .how-step__body { flex: 1; }
 
 .step__title {
   font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--dk-t1);
+  color: var(--t1);
   line-height: 1.35;
   letter-spacing: -0.01em;
   margin-bottom: 8px;
 }
 .step__text {
   font-size: 0.875rem;
-  color: var(--dk-t2);
+  color: var(--t2);
   line-height: 1.70;
 }
 
 .how-heatmap {
   border-radius: var(--r);
   overflow: hidden;
-  border: 1px solid var(--dk-cb);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--cb);
+  box-shadow: var(--shm);
 }
 .heatmap-img { width: 100%; height: auto; display: block; }
 
@@ -465,13 +482,13 @@ blockquote::before, blockquote::after { content: none; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  border-top: 1px solid var(--dk-cb);
+  border-top: 1px solid var(--cb);
   padding-top: 40px;
 }
 
 .tech-block {
   padding-right: 28px;
-  border-right: 1px solid var(--dk-cb);
+  border-right: 1px solid var(--cb);
 }
 .tech-block:last-child { border-right: none; padding-right: 0; }
 
@@ -481,17 +498,17 @@ blockquote::before, blockquote::after { content: none; }
   gap: 8px;
   margin-bottom: 6px;
 }
-.tech-block__icon   { flex-shrink: 0; color: var(--dk-t3); }
+.tech-block__icon   { flex-shrink: 0; color: var(--t3); }
 .tech-block__title  {
   font-weight: 600;
   font-size: 0.8125rem;
-  color: var(--dk-t1);
+  color: var(--t1);
   line-height: 1.35;
   letter-spacing: -0.01em;
 }
 .tech-block__text {
   font-size: 0.8125rem;
-  color: var(--dk-t3);
+  color: var(--t2);
   padding-left: 28px;
   line-height: 1.65;
 }
@@ -959,7 +976,7 @@ blockquote::before, blockquote::after { content: none; }
   .how-tech-bar  { grid-template-columns: 1fr; padding-top: 32px; gap: 0; }
   .tech-block {
     border-right: none;
-    border-bottom: 1px solid var(--dk-cb);
+    border-bottom: 1px solid var(--cb);
     padding: 20px 0;
   }
   .tech-block:last-child { border-bottom: none; padding-bottom: 0; }
