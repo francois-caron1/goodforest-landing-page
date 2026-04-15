@@ -781,6 +781,7 @@ blockquote::before, blockquote::after { content: none; }
   letter-spacing: 0.10em;
   color: var(--primary);
   margin-bottom: 16px;
+  text-align: left;
 }
 
 .cta-title {
