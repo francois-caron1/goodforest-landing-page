@@ -401,6 +401,111 @@ blockquote::before, blockquote::after { content: none; }
 .cards-grid--2col { grid-template-columns: repeat(2, 1fr); }
 
 /* ============================================================
+   CLAIMS TIMELINE
+   ============================================================ */
+.claims-timeline {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.claims-timeline__rail {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 33px; /* timing-height(28px) + dot-radius(5px) */
+  height: 2px;
+  background: var(--cb);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.claims-timeline__fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--primary) 0%, #f59e0b 60%, #ef4444 100%);
+  border-radius: 1px;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.claims-timeline__fill.is-filled { width: 100%; }
+
+.claims-timeline__steps {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.claims-timeline__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.claims-timeline__timing {
+  display: flex;
+  align-items: flex-end;
+  height: 28px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: var(--t3);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.claims-timeline__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--cb);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  transition: border-color var(--tr);
+}
+
+.claims-timeline__step--danger .claims-timeline__timing {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.claims-timeline__step--danger .claims-timeline__dot {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.10);
+}
+
+.claims-timeline__status {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--t2);
+  text-align: center;
+  line-height: 1.35;
+  max-width: 76px;
+}
+
+.claims-timeline__step--danger .claims-timeline__status {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .claims-timeline {
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+  }
+  .claims-timeline__steps { min-width: 460px; }
+  .claims-timeline__rail  { left: 10%; right: 10%; }
+}
+
+/* ============================================================
    PROBLEM CARDS
    ============================================================ */
 .card--problem {
@@ -410,6 +515,23 @@ blockquote::before, blockquote::after { content: none; }
 .card--problem:hover {
   transform: translateY(-2px);
   box-shadow: var(--shm);
+}
+
+.card__danger-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  border-radius: 999px;
+  padding: 3px 9px 3px 7px;
+  margin-bottom: 10px;
 }
 
 /* ============================================================

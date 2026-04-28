@@ -53,6 +53,41 @@
       <div class="container">
         <p class="section-label">The Challenge</p>
         <h2 class="section-title">Forest damage is hard to localise, harder to measure and every delay has a cost.</h2>
+
+        <!-- Claims process timeline -->
+        <div class="claims-timeline" id="claimsTimeline" aria-label="Storm claims process timeline">
+          <div class="claims-timeline__rail">
+            <div class="claims-timeline__fill" id="timelineFill"></div>
+          </div>
+          <ol class="claims-timeline__steps">
+            <li class="claims-timeline__step">
+              <span class="claims-timeline__timing">Day 0</span>
+              <span class="claims-timeline__dot"></span>
+              <span class="claims-timeline__status">Storm event</span>
+            </li>
+            <li class="claims-timeline__step claims-timeline__step--danger">
+              <span class="claims-timeline__timing">Days 1–7</span>
+              <span class="claims-timeline__dot"></span>
+              <span class="claims-timeline__status">No visibility</span>
+            </li>
+            <li class="claims-timeline__step claims-timeline__step--danger">
+              <span class="claims-timeline__timing">Weeks 2–4</span>
+              <span class="claims-timeline__dot"></span>
+              <span class="claims-timeline__status">Timber degrading</span>
+            </li>
+            <li class="claims-timeline__step">
+              <span class="claims-timeline__timing">Month 1–3</span>
+              <span class="claims-timeline__dot"></span>
+              <span class="claims-timeline__status">Expert deployment</span>
+            </li>
+            <li class="claims-timeline__step claims-timeline__step--danger">
+              <span class="claims-timeline__timing">Post-Ciarán</span>
+              <span class="claims-timeline__dot"></span>
+              <span class="claims-timeline__status">Up to 6 months</span>
+            </li>
+          </ol>
+        </div>
+
         <div class="cards-grid cards-grid--2x2">
 
           <article class="card card--problem fade-in">
@@ -78,6 +113,10 @@
               </svg>
               The clock is ticking on your timber
             </h3>
+            <span class="card__danger-badge">
+              <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true"><path d="M5.5 1L10.5 10H0.5L5.5 1Z" fill="#ef4444"/><line x1="5.5" y1="4.5" x2="5.5" y2="7" stroke="white" stroke-width="1.2" stroke-linecap="round"/><circle cx="5.5" cy="8.5" r="0.6" fill="white"/></svg>
+              Post-Ciarán: up to 6 months
+            </span>
             <p class="card__text">Fast-degrading species like spruce and maritime pine need rapid assessment. Post-Ciaran (France, 2023), some expertises took up to 6 months. The longer the wait, the harder it is to salvage and sell the timber — and to close the claim cleanly.</p>
           </article>
 

@@ -3,6 +3,27 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
+// ─── Timeline fill on scroll ──────────────────────────────────────────────────
+(function () {
+  'use strict';
+  const timeline = document.getElementById('claimsTimeline');
+  const fill     = document.getElementById('timelineFill');
+  if (!timeline || !fill) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          fill.classList.add('is-filled');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.4 }
+  );
+  observer.observe(timeline);
+})();
+
 // ─── Nav scroll state ─────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
