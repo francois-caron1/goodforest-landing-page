@@ -13,10 +13,7 @@
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          fill.classList.add('is-filled');
-          observer.unobserve(entry.target);
-        }
+        fill.classList.toggle('is-filled', entry.isIntersecting);
       });
     },
     { threshold: 0.4 }
