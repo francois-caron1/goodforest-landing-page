@@ -3,22 +3,24 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
-// ─── Timeline fill on scroll ──────────────────────────────────────────────────
+// ─── Problem card scroll-highlight ───────────────────────────────────────────
 (function () {
   'use strict';
-  const timeline = document.getElementById('claimsTimeline');
-  const fill     = document.getElementById('timelineFill');
-  if (!timeline || !fill) return;
+  const cards = document.querySelectorAll('.card--problem');
+  if (!cards.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        fill.classList.toggle('is-filled', entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-highlighted');
+          observer.unobserve(entry.target);
+        }
       });
     },
-    { threshold: 0.4 }
+    { threshold: 0.55, rootMargin: '0px 0px -32px 0px' }
   );
-  observer.observe(timeline);
+  cards.forEach((card) => observer.observe(card));
 })();
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────
