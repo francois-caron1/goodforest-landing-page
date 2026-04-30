@@ -9,34 +9,23 @@
   const rows = document.querySelectorAll('.challenge-row');
   if (!rows.length) return;
 
-  // Highlight when row enters the viewport (fires when bottom 70% of viewport reached)
-  const enterObserver = new IntersectionObserver(
+  const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
+          // Row entered the trigger zone — activate
           entry.target.classList.add('is-highlighted');
+        } else if (entry.boundingClientRect.top > 0) {
+          // Row exited below viewport bottom (user scrolled back up) — de-activate
+          entry.target.classList.remove('is-highlighted');
         }
+        // top < 0: row exited past the top — stay highlighted
       });
     },
     { threshold: 0, rootMargin: '0px 0px -30% 0px' }
   );
 
-  // De-highlight when row exits past the top of the viewport
-  const exitObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
-          entry.target.classList.remove('is-highlighted');
-        }
-      });
-    },
-    { threshold: 0 }
-  );
-
-  rows.forEach((row) => {
-    enterObserver.observe(row);
-    exitObserver.observe(row);
-  });
+  rows.forEach((row) => observer.observe(row));
 })();
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────
