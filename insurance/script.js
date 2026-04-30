@@ -3,11 +3,11 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
-// ─── Problem card scroll-highlight ───────────────────────────────────────────
+// ─── Problem row scroll-highlight ────────────────────────────────────────────
 (function () {
   'use strict';
-  const cards = document.querySelectorAll('.card--problem');
-  if (!cards.length) return;
+  const rows = document.querySelectorAll('.problem-row');
+  if (!rows.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -18,9 +18,9 @@
         }
       });
     },
-    { threshold: 0.55, rootMargin: '0px 0px -32px 0px' }
+    { threshold: 0, rootMargin: '0px 0px -20% 0px' }
   );
-  cards.forEach((card) => observer.observe(card));
+  rows.forEach((row) => observer.observe(row));
 })();
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────

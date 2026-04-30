@@ -401,24 +401,62 @@ blockquote::before, blockquote::after { content: none; }
 .cards-grid--2col { grid-template-columns: repeat(2, 1fr); }
 
 /* ============================================================
-   PROBLEM CARDS
+   PROBLEM ROWS
    ============================================================ */
-.card--problem {
-  border-left: 3px solid var(--acs-b);
-  border-radius: 0 var(--r) var(--r) 0;
-  transition: opacity 0.45s ease, border-left-color 0.45s ease,
-              transform var(--tr), box-shadow var(--tr);
-}
-.card--problem:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shm);
+.problem-rows {
+  display: flex;
+  flex-direction: column;
 }
 
-/* Dimmed until highlighted */
-.card--problem.fade-in.is-visible        { opacity: 0.4; }
-.card--problem.fade-in.is-visible.is-highlighted {
+.problem-row {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 36px 0 36px 20px;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid var(--cb);
+  opacity: 0.35;
+  transition: opacity 0.5s ease, border-left-color 0.5s ease;
+}
+.problem-row:last-child { border-bottom: none; }
+
+.problem-row.is-highlighted {
   opacity: 1;
   border-left-color: var(--accent);
+}
+
+.problem-row__heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.problem-row__icon {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.problem-row__title {
+  font-weight: 700;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--t1);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.problem-row__text {
+  font-size: 0.875rem;
+  color: var(--t2);
+  line-height: 1.70;
+}
+
+@media (max-width: 768px) {
+  .problem-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 28px 0 28px 16px;
+  }
 }
 
 /* ============================================================
