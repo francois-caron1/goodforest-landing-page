@@ -3,24 +3,40 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
-// ─── Problem row scroll-highlight ────────────────────────────────────────────
+// ─── Challenge row scroll-highlight ──────────────────────────────────────────
 (function () {
   'use strict';
-  const rows = document.querySelectorAll('.problem-row');
+  const rows = document.querySelectorAll('.challenge-row');
   if (!rows.length) return;
 
-  const observer = new IntersectionObserver(
+  // Highlight when row enters the viewport (fires when bottom 70% of viewport reached)
+  const enterObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-highlighted');
-          observer.unobserve(entry.target);
         }
       });
     },
-    { threshold: 0, rootMargin: '0px 0px -20% 0px' }
+    { threshold: 0, rootMargin: '0px 0px -30% 0px' }
   );
-  rows.forEach((row) => observer.observe(row));
+
+  // De-highlight when row exits past the top of the viewport
+  const exitObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+          entry.target.classList.remove('is-highlighted');
+        }
+      });
+    },
+    { threshold: 0 }
+  );
+
+  rows.forEach((row) => {
+    enterObserver.observe(row);
+    exitObserver.observe(row);
+  });
 })();
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────
