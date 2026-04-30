@@ -406,6 +406,9 @@ blockquote::before, blockquote::after { content: none; }
 .challenge-rows {
   max-width: 800px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .challenge-row {
@@ -413,13 +416,15 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 15% 1fr;
   column-gap: 24px;
   align-items: center;
-  padding: 32px 0 32px 16px;
+  padding: 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--cb);
   border-left: 3px solid transparent;
-  border-bottom: 1px solid var(--cb);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
   opacity: 0.3;
   transition: opacity 0.4s ease, border-left-color 0.4s ease;
 }
-.challenge-row:last-child { border-bottom: none; }
 
 .challenge-row.is-highlighted {
   opacity: 1;
