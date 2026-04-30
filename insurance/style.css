@@ -454,6 +454,12 @@ blockquote::before, blockquote::after { content: none; }
   line-height: 1.60;
 }
 
+.challenge-row__text--strong {
+  font-weight: 600;
+  color: var(--t1);
+  margin-top: 4px;
+}
+
 @media (max-width: 768px) {
   .challenge-row {
     grid-template-columns: 52px 1fr;
