@@ -448,7 +448,7 @@ blockquote::before, blockquote::after { content: none; }
 /* Col 2 — heading + body */
 .challenge-row__title {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--t1);
   line-height: 1.30;
   letter-spacing: -0.015em;
@@ -476,28 +476,19 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .problem-image {
-  position: relative;
   width: 40%;
   flex-shrink: 0;
-  margin-top: -6rem;
+  margin-top: 0;
   position: sticky;
   top: 2rem;
 }
 
 .problem-image img {
   width: 100%;
-  height: 75vh;
+  height: 65vh;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 0;
   display: block;
-}
-
-.problem-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  border-radius: 16px;
 }
 
 /* ============================================================
