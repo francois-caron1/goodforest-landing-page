@@ -403,42 +403,33 @@ blockquote::before, blockquote::after { content: none; }
 /* ============================================================
    CHALLENGE ROWS
    ============================================================ */
+.problem-split {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+}
+
 .challenge-rows {
-  max-width: 800px;
-  margin: 0 auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
 .challenge-row {
-  display: grid;
-  grid-template-columns: 15% 1fr;
-  column-gap: 24px;
-  align-items: center;
-  padding: 24px 28px;
-  background: var(--card);
-  border: 1px solid var(--cb);
-  border-left: 3px solid transparent;
-  border-radius: var(--r);
-  box-shadow: var(--sh);
+  padding: 0;
   opacity: 0.3;
-  transition: opacity 0.4s ease, border-left-color 0.4s ease;
+  transition: opacity 0.4s ease;
+}
+
+.challenge-row + .challenge-row {
+  padding-top: 3.5rem;
 }
 
 .challenge-row.is-highlighted {
   opacity: 1;
-  border-left-color: var(--primary);
 }
 
-/* Col 1 — icon, 52px, centered */
-.challenge-row__icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Col 2 — heading + body */
+/* heading + body */
 .challenge-row__title {
   font-weight: 700;
   font-size: 1rem;
@@ -454,18 +445,17 @@ blockquote::before, blockquote::after { content: none; }
   line-height: 1.60;
 }
 
-.challenge-row__text--strong {
-  font-weight: 600;
-  color: var(--t1);
-  margin-top: 4px;
+.problem-image {
+  width: 45%;
+  position: sticky;
+  top: 2rem;
 }
 
-@media (max-width: 768px) {
-  .challenge-row {
-    grid-template-columns: 52px 1fr;
-    column-gap: 16px;
-    padding: 24px 0 24px 14px;
-  }
+.problem-image img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* ============================================================
