@@ -744,7 +744,7 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 400;
   color: var(--t2);
   font-size: 0.9rem;
-  line-height: 1.70;
+  line-height: 1.4;
   margin-bottom: 16px;
 }
 .card__source {
