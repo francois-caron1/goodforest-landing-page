@@ -744,12 +744,8 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 400;
   color: var(--t2);
   font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 16px;
-}
-.card--quote .card__text p,
-.card--quote p {
   line-height: 1.4 !important;
+  margin-bottom: 16px;
 }
 .card__source {
   display: flex;
