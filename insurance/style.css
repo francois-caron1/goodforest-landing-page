@@ -730,14 +730,12 @@ blockquote::before, blockquote::after { content: none; }
   box-shadow: var(--shm);
 }
 
-.card__quote-mark {
-  display: inline;
-  font-size: 4rem;
-  line-height: 1;
+.quote-mark {
   color: #3DD68C;
+  font-size: 1.4em;
   font-family: Georgia, serif;
-  margin-bottom: 0;
-  vertical-align: top;
+  line-height: 1;
+  vertical-align: -0.1em;
 }
 
 .card--quote .card__text {
