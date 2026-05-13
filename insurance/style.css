@@ -211,7 +211,7 @@ blockquote::before, blockquote::after { content: none; }
    ============================================================ */
 .hero {
   display: grid;
-  grid-template-columns: 63fr 37fr;
+  grid-template-columns: 1fr;
   min-height: 580px;
   padding-top: var(--nav-h);
   background:
