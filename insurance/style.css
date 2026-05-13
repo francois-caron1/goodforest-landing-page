@@ -425,7 +425,7 @@ blockquote::before, blockquote::after { content: none; }
 .challenge-row {
   z-index: 2;
   display: grid;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 52px 1fr;
   column-gap: 24px;
   align-items: center;
   padding: 24px 28px;
