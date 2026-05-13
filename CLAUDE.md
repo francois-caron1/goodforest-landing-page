@@ -25,3 +25,8 @@ Do NOT explore the full repo before acting. Read only the file(s) mentioned in t
 Styles are in insurance/style.css (linked from insurance/index.html).
 Always edit insurance/style.css for any style changes.
 Never add <style> blocks inside the HTML.
+
+## Workflow
+Never launch a local preview server (no `npm run dev`, no `python -m http.server`, 
+no `live-server` or equivalent).
+Changes are verified directly on the live site after git commit and Vercel deployment.
