@@ -747,6 +747,10 @@ blockquote::before, blockquote::after { content: none; }
   line-height: 1.4;
   margin-bottom: 16px;
 }
+.card--quote .card__text p,
+.card--quote p {
+  line-height: 1.4 !important;
+}
 .card__source {
   display: flex;
   align-items: center;
