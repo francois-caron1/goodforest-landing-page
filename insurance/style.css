@@ -426,7 +426,7 @@ blockquote::before, blockquote::after { content: none; }
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 15% 1fr;
+  grid-template-columns: 1fr;
   column-gap: 24px;
   align-items: center;
   padding: 24px 28px;
@@ -444,11 +444,28 @@ blockquote::before, blockquote::after { content: none; }
   border-left-color: var(--primary);
 }
 
-/* Col 1 — icon, 52px, centered */
+/* Icon badge — top-left, matching how-step number style */
 .challenge-row__icon-wrap {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: auto;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--acs);
+  border-radius: var(--r-sm);
+  padding: 4px 6px;
+}
+
+.challenge-row__icon-wrap svg {
+  width: 16px;
+  height: 16px;
+}
+
+.challenge-row__content {
+  padding-top: 36px;
 }
 
 /* Col 2 — heading + body */
