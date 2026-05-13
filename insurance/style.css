@@ -451,8 +451,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .challenge-row__icon-wrap svg {
-  width: 52px;
-  height: 52px;
+  width: 32px;
+  height: 32px;
 }
 
 .challenge-row__content {
