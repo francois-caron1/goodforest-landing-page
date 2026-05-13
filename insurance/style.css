@@ -569,7 +569,7 @@ blockquote::before, blockquote::after { content: none; }
   align-items: center;
   justify-content: center;
 }
-.heatmap-img { width: 100%; height: auto; display: block; }
+.heatmap-img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
 
 .how-tech-bar {
   display: grid;
