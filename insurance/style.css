@@ -567,8 +567,6 @@ blockquote::before, blockquote::after { content: none; }
 .how-heatmap {
   border-radius: var(--r);
   overflow: hidden;
-  border: 1px solid var(--cb);
-  box-shadow: var(--shm);
 }
 .heatmap-img { width: 100%; height: auto; display: block; }
 
