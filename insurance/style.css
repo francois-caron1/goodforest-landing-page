@@ -730,8 +730,17 @@ blockquote::before, blockquote::after { content: none; }
   box-shadow: var(--shm);
 }
 
+.card__quote-mark {
+  display: block;
+  font-size: 4rem;
+  line-height: 0;
+  color: #3DD68C;
+  font-family: Georgia, serif;
+  margin-bottom: 0.5rem;
+}
+
 .card--quote .card__text {
-  font-style: italic;
+  font-style: normal;
   font-weight: 400;
   color: var(--t2);
   font-size: 0.9rem;
@@ -746,14 +755,17 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 500;
   color: var(--t3);
 }
-.card__source::before {
-  content: '';
-  display: inline-block;
+.card__source-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: 999px;
-  background: var(--acs);
-  border: 1.5px solid var(--acs-b);
+  background: #1a4d3a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.75rem;
   flex-shrink: 0;
 }
 
