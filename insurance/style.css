@@ -731,12 +731,13 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .card__quote-mark {
-  display: block;
+  display: inline;
   font-size: 4rem;
-  line-height: 0;
+  line-height: 1;
   color: #3DD68C;
   font-family: Georgia, serif;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+  vertical-align: top;
 }
 
 .card--quote .card__text {
