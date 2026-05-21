@@ -209,9 +209,10 @@ blockquote::before, blockquote::after { content: none; }
 /* ============================================================
    HERO
    ============================================================ */
+
 .hero {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   min-height: 580px;
   padding-top: var(--nav-h);
   background:
@@ -294,6 +295,14 @@ blockquote::before, blockquote::after { content: none; }
   align-items: center;
   justify-content: center;
   padding: 48px 32px 48px 16px;
+  overflow: visible;
+}
+
+.hero__visual img {
+  width: 120%;
+  max-width: 700px;
+  height: auto;
+  display: block;
 }
 
 .hero__mac-img {
