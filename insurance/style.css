@@ -502,7 +502,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .problem-timeline {
   flex-shrink: 0;
-  width: 340px;
+  width: 260px;
   display: flex;
   align-items: center;
   padding-left: 40px;
@@ -551,7 +551,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .timeline-item__line {
   width: 1px;
-  background: rgba(239, 68, 68, 0.35);
+  background: transparent;
   align-self: stretch;
   margin: 0 auto;
   position: relative;
