@@ -500,18 +500,100 @@ blockquote::before, blockquote::after { content: none; }
   }
 }
 
-.problem-image {
-  position: relative;
-  z-index: 1;
-  width: 45%;
+.problem-timeline {
   flex-shrink: 0;
-  margin-left: -200px;
+  width: 340px;
+  display: flex;
+  align-items: center;
+  padding-left: 40px;
 }
 
-.problem-image img {
+.timeline-card {
+  background: rgba(13, 27, 42, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px 24px 20px;
+  box-shadow:
+    0 12px 32px -12px rgba(0, 0, 0, 0.55),
+    0 24px 56px -24px rgba(0, 0, 0, 0.40);
   width: 100%;
-  height: auto;
-  object-fit: contain;
+}
+
+.timeline-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ef4444;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 72px 16px 1fr;
+  align-items: flex-start;
+  gap: 0 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item--last {
+  border-bottom: none;
+}
+
+.timeline-item__time {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #4a6280;
+  letter-spacing: 0.04em;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.timeline-item__line {
+  width: 1px;
+  background: rgba(239, 68, 68, 0.25);
+  align-self: stretch;
+  margin: 0 auto;
+  position: relative;
+}
+
+.timeline-item__line::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ef4444;
+  opacity: 0.7;
+}
+
+.timeline-item__label {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.45;
+  padding-top: 1px;
+}
+
+.timeline-item--last .timeline-item__label {
+  color: #ef4444;
+  opacity: 0.85;
 }
 
 /* ============================================================
