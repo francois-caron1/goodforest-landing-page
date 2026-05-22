@@ -417,9 +417,10 @@ blockquote::before, blockquote::after { content: none; }
 .problem-split {
   display: flex;
   position: relative;
-  align-items: flex-start;
-  gap: 0;
+  align-items: center;
+  gap: 48px;
 }
+
 
 .challenge-rows {
   position: relative;
@@ -501,11 +502,12 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .problem-timeline {
- flex-shrink: 0;
+  flex-shrink: 0;
   width: 320px;
   display: flex;
   align-items: center;
-  padding-left: 40px;
+  padding-left: 0;
+  margin-left: -60px;
 }
 
 .timeline-card {
