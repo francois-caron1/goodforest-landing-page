@@ -296,6 +296,8 @@ blockquote::before, blockquote::after { content: none; }
   justify-content: center;
   padding: 48px 32px 48px 16px;
   overflow: visible;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%);
 }
 
 .hero__visual img {
