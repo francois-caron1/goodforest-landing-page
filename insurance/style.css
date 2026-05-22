@@ -424,7 +424,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .challenge-rows {
   position: relative;
-  z-index: 2;
+z-index: 2;
   flex: 1;
   min-width: 65%;
   max-width: 800px;
@@ -508,6 +508,8 @@ blockquote::before, blockquote::after { content: none; }
   align-items: center;
   padding-left: 0;
   margin-left: -60px;
+   z-index: 2;
+
 }
 
 .timeline-card {
