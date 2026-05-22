@@ -501,8 +501,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .problem-timeline {
-  flex-shrink: 0;
-  width: 260px;
+ flex-shrink: 0;
+  width: 320px;
   display: flex;
   align-items: center;
   padding-left: 40px;
@@ -558,31 +558,7 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .timeline-item__line::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #ef4444;
-}
-
-.timeline-item__line::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #4a6280;
-}
-
-.timeline-item--last .timeline-item__line::before {
-  background: #ef4444;
+ display: none;
 }
 
 .timeline-item--last {
