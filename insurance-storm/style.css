@@ -1272,7 +1272,7 @@ z-index: 2;
   .nav__actions .nav__link { display: none; }
 
   .simulator { padding: 24px 20px; }
-  .simulator__results { flex-direction: column; gap: 16px; }
+  .simulator__results:not([hidden]) { flex-direction: column; gap: 16px; }
   .simulator__divider { width: 100%; height: 1px; margin: 0; }
   .simulator__result:last-child { text-align: left; }
 }
@@ -1332,7 +1332,7 @@ z-index: 2;
   color: var(--t3);
 }
 
-.simulator__results {
+.simulator__results:not([hidden]) {
   display: flex;
   align-items: center;
 }
