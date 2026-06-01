@@ -410,8 +410,8 @@ blockquote::before, blockquote::after { content: none; }
 .cards-grid       { display: grid; gap: 16px; }
 .cards-grid--2x2  { grid-template-columns: repeat(2, 1fr); }
 .cards-grid--2col { grid-template-columns: repeat(2, 1fr); }
-.cards-grid--podium { grid-template-columns: repeat(3, 1fr); align-items: start; }
-.card--featured { margin-top: -32px; }
+.cards-grid--podium { grid-template-columns: repeat(3, 1fr); align-items: end; }
+.card--featured { margin-bottom: 32px; }
 
 /* ============================================================
    CHALLENGE ROWS
