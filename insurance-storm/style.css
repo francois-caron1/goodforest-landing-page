@@ -1236,6 +1236,8 @@ z-index: 2;
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
+  .problem-timeline { display: none; }
+
   /* Hero */
   .hero {
     grid-template-columns: 1fr;
