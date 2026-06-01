@@ -1270,4 +1270,109 @@ z-index: 2;
   .form-row   { grid-template-columns: 1fr; }
 
   .nav__actions .nav__link { display: none; }
+
+  .simulator { padding: 24px 20px; }
+  .simulator__results { flex-direction: column; gap: 16px; }
+  .simulator__divider { width: 100%; height: 1px; margin: 0; }
+  .simulator__result:last-child { text-align: left; }
+}
+
+/* ============================================================
+   SIMULATOR
+   ============================================================ */
+.simulator {
+  max-width: 480px;
+  margin: 40px auto 0;
+  background: var(--surface);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 32px 36px;
+}
+
+.simulator__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--t2);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.simulator__input-wrap {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.simulator__input {
+  width: 100%;
+  padding: 12px 48px 12px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--t1);
+  background: var(--bg);
+  border: 1px solid var(--cb);
+  border-radius: var(--r-sm);
+  outline: none;
+  transition: border-color var(--tr), box-shadow var(--tr);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.simulator__input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--acs);
+}
+
+.simulator__unit {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--t3);
+}
+
+.simulator__results {
+  display: flex;
+  align-items: center;
+}
+
+.simulator__result {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.simulator__result:last-child {
+  text-align: right;
+}
+
+.simulator__divider {
+  width: 1px;
+  height: 40px;
+  background: var(--cb);
+  margin: 0 24px;
+  flex-shrink: 0;
+}
+
+.simulator__result-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--t2);
+}
+
+.simulator__result-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--t1);
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
+}
+
+.simulator__footnote {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--t3);
+  text-align: center;
 }

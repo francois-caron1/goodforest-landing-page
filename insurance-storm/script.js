@@ -222,3 +222,46 @@ initModal(
   'data-modal-order',
   'Submit my order request'
 );
+
+// ─── Price simulator ──────────────────────────────────────────────────────────
+(function () {
+  'use strict';
+
+  const input = document.getElementById('simulatorInput');
+  const priceHeatmap = document.getElementById('priceHeatmap');
+  const priceAssessment = document.getElementById('priceAssessment');
+  if (!input) return;
+
+  function getRateHeatmap(ha) {
+    if (ha < 100) return 6;
+    if (ha < 1000) return 5;
+    return 3.5;
+  }
+
+  function getRateAssessment(ha) {
+    if (ha < 100) return 18;
+    if (ha < 1000) return 15;
+    return 10;
+  }
+
+  function formatPrice(amount) {
+    return '€' + amount.toLocaleString('en-GB') + ' HT';
+  }
+
+  function calculate() {
+    const ha = parseFloat(input.value);
+    if (!ha || ha <= 0) {
+      priceHeatmap.textContent = '—';
+      priceAssessment.textContent = '—';
+      return;
+    }
+    priceHeatmap.textContent = formatPrice(Math.round(ha * getRateHeatmap(ha)) + 150);
+    priceAssessment.textContent = formatPrice(Math.round(ha * getRateAssessment(ha)) + 150);
+  }
+
+  let debounceTimer;
+  input.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(calculate, 300);
+  });
+})();

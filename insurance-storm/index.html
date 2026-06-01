@@ -285,6 +285,33 @@
           </article>
 
         </div>
+
+        <div class="simulator">
+          <p class="simulator__title">Estimate your cost</p>
+          <div class="simulator__input-wrap">
+            <input
+              type="number"
+              id="simulatorInput"
+              class="simulator__input"
+              placeholder="Forest area in hectares"
+              min="1"
+            />
+            <span class="simulator__unit">ha</span>
+          </div>
+          <div class="simulator__results">
+            <div class="simulator__result">
+              <span class="simulator__result-label">Damage Heatmap</span>
+              <span class="simulator__result-price" id="priceHeatmap">—</span>
+            </div>
+            <div class="simulator__divider"></div>
+            <div class="simulator__result">
+              <span class="simulator__result-label">Full Damage Assessment</span>
+              <span class="simulator__result-price" id="priceAssessment">—</span>
+            </div>
+          </div>
+          <p class="simulator__footnote">All prices exclude VAT · €150 activation fee included</p>
+        </div>
+
       </div>
     </section>
 
