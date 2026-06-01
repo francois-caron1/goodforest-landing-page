@@ -258,16 +258,13 @@ initModal(
       return;
     }
 
-    const contact = document.getElementById('simulatorContact');
-    const results = document.getElementById('simulatorResults');
-
     if (ha >= THRESHOLD) {
-      results.setAttribute('hidden', '');
-      contact.removeAttribute('hidden');
+      document.getElementById('simulatorResults').setAttribute('hidden', '');
+      document.getElementById('simulatorContact').removeAttribute('hidden');
       return;
     }
-    results.removeAttribute('hidden');
-    contact.setAttribute('hidden', '');
+    document.getElementById('simulatorResults').removeAttribute('hidden');
+    document.getElementById('simulatorContact').setAttribute('hidden', '');
 
     priceHeatmap.textContent = formatPrice(Math.round(ha * getRateHeatmap(ha)) + 150);
     priceAssessment.textContent = formatPrice(Math.round(ha * getRateAssessment(ha)) + 150);
