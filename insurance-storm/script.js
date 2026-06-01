@@ -232,6 +232,8 @@ initModal(
   const priceAssessment = document.getElementById('priceAssessment');
   if (!input) return;
 
+  const THRESHOLD = 30000;
+
   function getRateHeatmap(ha) {
     if (ha < 100) return 6;
     if (ha < 1000) return 5;
@@ -255,6 +257,18 @@ initModal(
       priceAssessment.textContent = '—';
       return;
     }
+
+    const contact = document.getElementById('simulatorContact');
+    const results = document.getElementById('simulatorResults');
+
+    if (ha >= THRESHOLD) {
+      results.setAttribute('hidden', '');
+      contact.removeAttribute('hidden');
+      return;
+    }
+    results.removeAttribute('hidden');
+    contact.setAttribute('hidden', '');
+
     priceHeatmap.textContent = formatPrice(Math.round(ha * getRateHeatmap(ha)) + 150);
     priceAssessment.textContent = formatPrice(Math.round(ha * getRateAssessment(ha)) + 150);
   }

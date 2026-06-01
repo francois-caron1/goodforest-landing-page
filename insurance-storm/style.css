@@ -1376,3 +1376,6 @@ z-index: 2;
   color: var(--t3);
   text-align: center;
 }
+
+.simulator__contact { margin-top: 16px; font-size: 0.8125rem; color: var(--t2); text-align: center; }
+.simulator__contact a { color: var(--primary); font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
