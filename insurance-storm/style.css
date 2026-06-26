@@ -137,6 +137,7 @@ blockquote::before, blockquote::after { content: none; }
   transition: color var(--tr);
 }
 .nav__link:hover { color: var(--primary); }
+.nav__link--active { color: var(--primary); font-weight: 600; }
 
 /* ============================================================
    BUTTONS
