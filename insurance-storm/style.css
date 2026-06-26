@@ -332,7 +332,7 @@ blockquote::before, blockquote::after { content: none; }
 #services { background: var(--bg); }
 #proof    { background: var(--bg); }
 #faq      { background: var(--bg); }
-#contact  { background: var(--bg); }
+#contact  { background: #1b2d1e; }
 
 .section--dark-spacer { display: none; }
 
