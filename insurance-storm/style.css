@@ -989,6 +989,9 @@ z-index: 2;
    ============================================================ */
 .section--cta {
   text-align: center;
+  background: #1b2d1e;
+  border-top: 1px solid rgba(52, 211, 153, 0.13);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.13);
 }
 
 /* Label "START TODAY" injecté en CSS au-dessus du titre CTA */
@@ -1000,7 +1003,7 @@ z-index: 2;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--primary);
+  color: #6ee7b7;
   margin-bottom: 16px;
   text-align: left;
 }
@@ -1008,7 +1011,7 @@ z-index: 2;
 .cta-title {
   font-weight: 700;
   font-size: clamp(1.7rem, 3vw, 2.4rem);
-  color: var(--t1);
+  color: #ecfdf5;
   max-width: 580px;
   margin: 0 auto 40px;
   line-height: 1.15;
@@ -1024,8 +1027,8 @@ z-index: 2;
 }
 
 .cta-card {
-  background: var(--surface);
-  border: 1px solid var(--cb);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(52, 211, 153, 0.13);
   border-radius: var(--r);
   padding: 16px 24px;
   display: flex;
@@ -1033,43 +1036,49 @@ z-index: 2;
   align-items: center;
   gap: 8px;
   text-align: center;
-  box-shadow: var(--sh);
-  transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+  box-shadow: none;
+  transition: border-color var(--tr), transform var(--tr);
 }
 .cta-card:hover {
-  border-color: var(--acs-b);
-  box-shadow: var(--shm);
+  border-color: rgba(52, 211, 153, 0.35);
   transform: translateY(-2px);
 }
 
 .cta-card__title {
   font-weight: 600;
   font-size: 0.9375rem;
-  color: var(--t1);
+  color: #ecfdf5;
   line-height: 1.3;
 }
 .cta-card__text {
   font-size: 0.8125rem;
   font-weight: 400;
-  color: var(--t2);
+  color: #6ee7b7;
   line-height: 1.55;
 }
 
-/* Bouton primaire pill dans le CTA */
+/* Bouton primaire dans le CTA — thème forest */
 #contact .btn--green {
+  background: #34d399;
+  color: #0c1a0f;
+  border-color: #34d399;
   border-radius: var(--r-sm);
 }
+#contact .btn--green:hover {
+  filter: brightness(1.09);
+  box-shadow: 0 4px 14px rgba(52, 211, 153, 0.35);
+}
 
-/* Bouton secondaire outline clair (remplace outline-inv sur fond clair) */
+/* Bouton secondaire outline sur fond sombre */
 #contact .btn--outline-inv {
-  color: var(--t1);
-  border-color: var(--cb);
+  color: #ecfdf5;
+  border-color: rgba(255, 255, 255, 0.35);
   background: transparent;
 }
 #contact .btn--outline-inv:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--acs);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #ecfdf5;
 }
 
 /* ============================================================
