@@ -623,7 +623,7 @@ z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
   margin-bottom: 56px;
 }
 
@@ -678,24 +678,12 @@ z-index: 2;
 }
 
 .how-heatmap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
   border-radius: var(--r);
   overflow: hidden;
 }
-.how-heatmap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: var(--r);
-  background: radial-gradient(ellipse at 62% 50%, transparent 35%, #f4f6f9 80%);
-  pointer-events: none;
-}
 .heatmap-img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
   object-position: 62% 50%;
   display: block;
