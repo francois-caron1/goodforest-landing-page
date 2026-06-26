@@ -682,7 +682,13 @@ z-index: 2;
   align-items: center;
   justify-content: center;
 }
-.heatmap-img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+.heatmap-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--r);
+}
 
 .how-tech-bar {
   display: grid;
