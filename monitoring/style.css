@@ -749,11 +749,10 @@ blockquote::before, blockquote::after { content: none; }
   box-shadow: var(--sh);
   overflow: hidden;
   margin-bottom: 32px;
-  max-width: fit-content;
 }
 
 .price-bar__segment {
-  padding: 20px 16px 16px;
+  padding: 24px 20px 20px;
 }
 
 .price-bar__color {
@@ -792,7 +791,7 @@ blockquote::before, blockquote::after { content: none; }
   border-radius: var(--r);
   box-shadow: var(--sh);
   padding: 28px 32px;
-  margin-bottom: 16px;
+  margin: 0 auto 16px;
   max-width: 480px;
 }
 
@@ -801,6 +800,7 @@ blockquote::before, blockquote::after { content: none; }
   font-size: 0.875rem;
   color: var(--t2);
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .price-includes__list {
