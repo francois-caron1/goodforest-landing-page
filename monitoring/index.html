@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Goodforest — Forest Health Monitoring</title>
+  <title>goodforest — Forest Health Monitoring</title>
   <meta name="description" content="Continuous satellite-based forest health monitoring for forest managers — detect decline before it's too late.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- ===================== NAV ===================== -->
-  <nav class="nav" aria-label="Main navigation" style="background: #ffffff">
+  <nav class="nav" aria-label="Main navigation">
     <div class="nav__inner container">
       <a href="#hero" class="nav__logo" aria-label="Goodforest — home">
-        <img src="../logo normal.png" alt="Goodforest" class="nav__logo-img" height="32">
+        <img src="../logo.png" alt="Goodforest" class="nav__logo-img" height="32">
       </a>
       <div class="nav__actions">
-        <a href="#how" class="btn btn--outline btn--sm">See how it works</a>
-        <a href="#contact" class="btn btn--primary btn--sm" data-modal-demo>Book a demo</a>
+        <a href="/monitoring/" class="nav__link nav__link--active">Forest monitoring</a>
+        <a href="/insurance-storm/" class="nav__link">Storm damage</a>
+
+        <a href="#contact" class="btn btn--green btn--sm" data-modal-demo>Book a demo</a>
       </div>
     </div>
   </nav>
@@ -28,106 +30,227 @@
   <main>
 
     <!-- ===================== HERO ===================== -->
-    <section class="hero section-light" id="hero" style="background: #f5faf6">
-      <div class="hero__bg-radial" aria-hidden="true"></div>
-      <div class="container hero__grid">
-        <div class="hero__text">
-          <p class="eyebrow">Forest health monitoring · Satellite &amp; AI</p>
-          <h1 class="hero__headline">
-            Your forests are changing. <em>Know it</em> before it's too late.
-          </h1>
-          <p class="hero__sub">Goodforest detects health decline in conifer forests using satellite imagery and AI — continuously, at scale, without additional field trips.</p>
-          <p class="hero__audience">Built for forest managers and forest portfolio managers.</p>
-          <div class="hero__ctas">
-            <a href="#contact" class="btn btn--primary" data-modal-analysis>Get a free 12-month analysis</a>
-            <a href="#how" class="btn btn--outline">See how it works</a>
-          </div>
+    <section class="hero" id="hero">
+      <div class="hero__content">
+        <span class="hero__persona">For forest managers</span>
+        <h1 class="hero__headline">
+          Your forests are changing. <em>Know it</em> before it's too late.
+        </h1>
+        <ul class="hero__bullets">
+          <li>Continuous health monitoring using satellite imagery and AI — at scale</li>
+          <li>Detect bark beetle and fungal decline early, without additional field trips</li>
+        </ul>
+        <div class="hero__ctas">
+          <a href="#contact" class="btn btn--primary" data-modal-analysis>Get a free 12-month analysis</a>
+          <a href="#contact" class="btn btn--ghost" data-modal-demo>Book a demo →</a>
         </div>
-        <div class="hero__image-wrap">
-          <img src="../assets/hero-monitoring.jpg" alt="Forest health monitoring dashboard showing detected zones" class="hero__image">
-        </div>
+      </div>
+      <div class="hero__visual">
+        <img src="../assets/hero-monitoring.jpg" alt="Forest health monitoring platform showing detected zones">
       </div>
     </section>
 
-    <!-- ===================== CHALLENGE ===================== -->
-    <section class="section section-light" id="challenge" style="background: #ffffff">
+    <!-- ===================== PROBLEM ===================== -->
+    <section class="section" id="problem">
       <div class="container">
         <p class="section-label">The Challenge</p>
         <h2 class="section-title">Forest health decline is silent, fast, and hard to catch in time.</h2>
-        <div class="cards-grid cards-grid--2x2">
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
-            <h3 class="card__title">You can't be everywhere</h3>
-            <p class="card__text">Large forest massifs require constant monitoring. But field presence is decreasing — some areas are rarely visited, and threats develop unnoticed between inspections.</p>
-          </article>
+        <div class="problem-split">
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
-            <h3 class="card__title">By the time you see it, it's too late</h3>
-            <p class="card__text">Bark beetle infestations and fungal diseases spread rapidly. Visual detection on the ground often comes months after the problem started — when salvage options are already limited.</p>
-          </article>
+          <div class="challenge-rows">
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
-            <h3 class="card__title">Prioritizing without data is a gamble</h3>
-            <p class="card__text">Without objective visibility, every field trip is a bet. You spend time on healthy parcels while critical zones deteriorate elsewhere.</p>
-          </article>
+            <article class="challenge-row">
+              <div class="challenge-row__icon-wrap">
+                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="9.5" cy="9.5" r="5.5" stroke="#3DD68C" stroke-width="1.5"/>
+                  <line x1="13.7" y1="13.7" x2="19" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="7" y1="9.5" x2="12" y2="9.5" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                  <line x1="9.5" y1="7" x2="9.5" y2="12" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                </svg>
+              </div>
+              <div class="challenge-row__content">
+                <h3 class="challenge-row__title">You can't be everywhere</h3>
+                <p class="challenge-row__text">Large forest massifs require constant monitoring. But field presence is decreasing — some areas are rarely visited, and threats develop unnoticed between inspections.</p>
+                <p class="challenge-row__text challenge-row__text--strong">Critical zones deteriorate while teams are stretched thin.</p>
+              </div>
+            </article>
 
-          <article class="card fade-in">
-            <div class="card__icon card__icon--alert" aria-hidden="true"></div>
-            <h3 class="card__title">Remote and inaccessible areas fall through the cracks</h3>
-            <p class="card__text">Steep terrain, poor access roads, understaffed teams — some zones simply don't get visited. Satellite monitoring closes that gap.</p>
-          </article>
+            <article class="challenge-row">
+              <div class="challenge-row__icon-wrap">
+                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" stroke="#3DD68C" stroke-width="1.5"/>
+                  <line x1="11" y1="7" x2="11" y2="11.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="11" y1="11.5" x2="14" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="11" cy="11.5" r="0.8" fill="#3DD68C"/>
+                </svg>
+              </div>
+              <div class="challenge-row__content">
+                <h3 class="challenge-row__title">By the time you see it, it's too late</h3>
+                <p class="challenge-row__text">Bark beetle infestations and fungal diseases spread rapidly. Visual detection on the ground often comes months after the problem started.</p>
+                <p class="challenge-row__text challenge-row__text--strong">When salvage options are already limited.</p>
+              </div>
+            </article>
+
+            <article class="challenge-row">
+              <div class="challenge-row__icon-wrap">
+                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M11 3L20 19H2L11 3Z" stroke="#3DD68C" stroke-width="1.5" stroke-linejoin="round"/>
+                  <line x1="11" y1="9" x2="11" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="11" cy="16" r="0.9" fill="#3DD68C"/>
+                </svg>
+              </div>
+              <div class="challenge-row__content">
+                <h3 class="challenge-row__title">Prioritizing without data is a gamble</h3>
+                <p class="challenge-row__text">Without objective visibility, every field trip is a bet. You spend time on healthy parcels while critical zones deteriorate elsewhere.</p>
+                <p class="challenge-row__text challenge-row__text--strong">Every wasted visit has a cost.</p>
+              </div>
+            </article>
+
+            <article class="challenge-row">
+              <div class="challenge-row__icon-wrap">
+                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <line x1="11" y1="3" x2="11" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <line x1="4" y1="6" x2="18" y2="6" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M4 6 Q2 10 4 13 Q6 16 8 13 Q10 10 8 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+                  <path d="M14 6 Q12 10 14 13 Q16 16 18 13 Q20 10 18 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+                  <line x1="8" y1="19" x2="14" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="challenge-row__content">
+                <h3 class="challenge-row__title">Remote and inaccessible areas fall through the cracks</h3>
+                <p class="challenge-row__text">Steep terrain, poor access roads, understaffed teams — some zones simply don't get visited.</p>
+                <p class="challenge-row__text challenge-row__text--strong">Satellite monitoring closes that gap.</p>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="problem-timeline">
+            <div class="timeline-card">
+              <div class="timeline-items">
+                <div class="timeline-item">
+                  <span class="timeline-item__time">D+0</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Storm hits</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-item__time">D+1 – D+7</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Claims volume surges</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-item__time">D+7 – D+21</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Experts unavailable</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-item__time">M1 – M6</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Assessments ongoing</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-item__time">M6 – M9</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Figures contested</span>
+                </div>
+                <div class="timeline-item timeline-item--last">
+                  <span class="timeline-item__time">M9+</span>
+                  <div class="timeline-item__line"></div>
+                  <span class="timeline-item__label">Salvage window gone</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
     </section>
 
     <!-- ===================== HOW IT WORKS ===================== -->
-    <section class="section section-light" id="how" style="background: #f5faf6">
+    <section class="section" id="how">
       <div class="container">
         <p class="section-label">How It Works</p>
         <h2 class="section-title">Continuous satellite monitoring, delivered as actionable alerts.</h2>
 
-        <div class="steps">
-          <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">1</div>
-            <h3 class="step__title">Share your parcels</h3>
-            <p class="step__text">Upload your forest perimeter as a shapefile or GeoJSON. We configure your account within 48 hours.</p>
+        <div class="how-layout">
+
+          <div class="how-steps">
+
+            <div class="how-step fade-in">
+              <span class="how-step__num">01</span>
+              <div class="how-step__body">
+                <h3 class="step__title">Share your parcels</h3>
+                <p class="step__text">Upload your forest perimeter as a shapefile or GeoJSON. We configure your account within 48 hours.</p>
+              </div>
+            </div>
+
+            <div class="how-step fade-in">
+              <span class="how-step__num">02</span>
+              <div class="how-step__body">
+                <h3 class="step__title">Satellite captures, AI detects</h3>
+                <p class="step__text">Our models analyze multi-source satellite imagery every time a clear image is available — detecting early signs of health decline across your entire portfolio.</p>
+              </div>
+            </div>
+
+            <div class="how-step fade-in">
+              <span class="how-step__num">03</span>
+              <div class="how-step__body">
+                <h3 class="step__title">You receive priority alerts</h3>
+                <p class="step__text">A map of affected zones, ranked by severity. You know exactly where to go — and where you don't need to.</p>
+              </div>
+            </div>
+
           </div>
-          <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">2</div>
-            <h3 class="step__title">Satellite captures, AI detects</h3>
-            <p class="step__text">Our models analyze multi-source satellite imagery every time a clear image is available — detecting early signs of health decline across your entire portfolio.</p>
+
+          <div class="how-heatmap">
+            <img src="../App example.png" alt="Priority alert on the monitoring platform" class="heatmap-img">
           </div>
-          <div class="step fade-in">
-            <div class="step__num" aria-hidden="true">3</div>
-            <h3 class="step__title">You receive priority alerts</h3>
-            <p class="step__text">A map of affected zones, ranked by severity. You know exactly where to go — and where you don't need to.</p>
-          </div>
+
         </div>
 
-        <div class="how-visuals">
-          <figure class="how-visual">
-            <img src="../App example.png" alt="Priority alert on Web" class="how-visual__img">
-            <figcaption class="how-visual__caption">Priority alert on Web</figcaption>
-          </figure>
-          <figure class="how-visual">
-            <img src="../Dashboard example.png" alt="Monitoring dashboard" class="how-visual__img">
-            <figcaption class="how-visual__caption">Monitoring dashboard</figcaption>
-          </figure>
+        <div class="how-tech-bar">
+
+          <div class="tech-block">
+            <div class="tech-block__header">
+              <svg class="tech-block__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 7 9 3 5 7l4 4"/><path d="m17 11 4 4-4 4-4-4"/><path d="m8 12 4 4 6-6-4-4Z"/><path d="m16 8 3-3"/><path d="M9 21a6 6 0 0 0-6-6"/>
+              </svg>
+              <h4 class="tech-block__title">Multi-source satellite data</h4>
+            </div>
+            <p class="tech-block__text">Radar (Sentinel-1) + multispectral (Sentinel-2) + very high resolution imagery.</p>
+          </div>
+
+          <div class="tech-block">
+            <div class="tech-block__header">
+              <svg class="tech-block__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/>
+              </svg>
+              <h4 class="tech-block__title">Deep learning models</h4>
+            </div>
+            <p class="tech-block__text">State-of-the-art AI architecture, optimized for conifer health detection.</p>
+          </div>
+
+          <div class="tech-block">
+            <div class="tech-block__header">
+              <svg class="tech-block__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/>
+              </svg>
+              <h4 class="tech-block__title">Trained on forest data</h4>
+            </div>
+            <p class="tech-block__text">Models trained on thousands of hectares of documented European forest health decline.</p>
+          </div>
+
         </div>
 
       </div>
     </section>
 
-
-    <!-- ===================== PROOF ===================== -->
-    <section class="section section-dark" id="proof" style="background: #384b38; color: #f2ede6">
+    <!-- ===================== SOCIAL PROOF ===================== -->
+    <section class="section" id="proof">
       <div class="container">
         <p class="section-label">Trusted by Forest Managers</p>
-        <h2 class="section-title">Trusted by forest managers across France.</h2>
+        <h2 class="section-title">Trusted by forest managers <br> across France.</h2>
 
         <div class="logos-row" aria-label="Client logos">
           <div class="logo-img-wrapper"><img src="../logos/ForetDici-Logo-developpe-vert-fond-transparent.png" alt="Forêt d'Ici" class="logo-img"></div>
@@ -139,16 +262,20 @@
 
         <div class="cards-grid cards-grid--2col">
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
-            <p class="card__text">"The added value is very clear. It helps us prioritize our health monitoring and target the areas that need attention first."</p>
-            <footer class="card__source">Stéphane, Forest Manager</footer>
+          <blockquote class="card card--quote fade-in">
+            <p class="card__text" style="line-height: 1.4;"><span class="quote-mark">"</span>The added value is very clear. It helps us prioritize our health monitoring and target the areas that need attention first.</p>
+            <footer class="card__source">
+              <span class="card__source-avatar">S</span>
+              Stéphane · Forest Manager
+            </footer>
           </blockquote>
 
-          <blockquote class="card card--quote fade-in" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1)">
-            <span class="card__quote-mark" aria-hidden="true">"</span>
-            <p class="card__text">"We manage large forest massifs where field presence has become harder to maintain. Goodforest gives us visibility over areas we can no longer visit regularly — without missing what matters."</p>
-            <footer class="card__source">Forest portfolio manager, France</footer>
+          <blockquote class="card card--quote fade-in">
+            <p class="card__text" style="line-height: 1.4;"><span class="quote-mark">"</span>We manage large forest massifs where field presence has become harder to maintain. Goodforest gives us visibility over areas we can no longer visit regularly — without missing what matters.</p>
+            <footer class="card__source">
+              <span class="card__source-avatar">F</span>
+              Forest portfolio manager, France
+            </footer>
           </blockquote>
 
         </div>
@@ -156,51 +283,65 @@
     </section>
 
     <!-- ===================== PRICING ===================== -->
-    <section class="section section-light" id="pricing" style="background: #f5faf6">
+    <section class="section" id="pricing">
       <div class="container">
         <p class="section-label">Pricing</p>
-        <h2 class="section-title">Simple, transparent pricing — per hectare per year.</h2>
+        <h2 class="section-title">Simple, transparent pricing — <br> per hectare per year.</h2>
+        <div class="cards-grid cards-grid--3col">
 
-        <div class="pricing-grid">
+          <article class="card card--service fade-in">
+            <span class="service-tag">S</span>
+            <h3 class="card__title">1,000 to 2,999 ha</h3>
+            <p class="card__tagline"><em>Entry tier</em></p>
+            <p class="service-price">€2.49</p>
+            <p class="service-price-unit">/ ha / year</p>
+          </article>
 
-          <div class="pricing-card fade-in">
-            <span class="pricing-card__tier">S</span>
-            <p class="pricing-card__range">1,000 to 2,999 ha</p>
-            <p class="pricing-card__price">€2.49</p>
-            <p class="pricing-card__unit">/ ha / year</p>
-          </div>
+          <article class="card card--service card--featured fade-in">
+            <span class="service-tag">M</span>
+            <h3 class="card__title">3,000 to 9,999 ha</h3>
+            <p class="card__tagline"><em>Most common</em></p>
+            <p class="service-price">€2.16</p>
+            <p class="service-price-unit">/ ha / year</p>
+          </article>
 
-          <div class="pricing-card pricing-card--featured fade-in">
-            <span class="pricing-card__tier">M</span>
-            <p class="pricing-card__range">3,000 to 9,999 ha</p>
-            <p class="pricing-card__price">€2.16</p>
-            <p class="pricing-card__unit">/ ha / year</p>
-          </div>
-
-          <div class="pricing-card fade-in">
-            <span class="pricing-card__tier">L</span>
-            <p class="pricing-card__range">10,000 ha+</p>
-            <p class="pricing-card__price">€1.99</p>
-            <p class="pricing-card__unit">/ ha / year</p>
-          </div>
+          <article class="card card--service fade-in">
+            <span class="service-tag">L</span>
+            <h3 class="card__title">10,000 ha+</h3>
+            <p class="card__tagline"><em>Large portfolio</em></p>
+            <p class="service-price">€1.99</p>
+            <p class="service-price-unit">/ ha / year</p>
+          </article>
 
         </div>
 
-        <p class="pricing-note">+€120 / user / year for web or mobile app access</p>
+        <p style="text-align: center; font-size: 0.8125rem; color: var(--t3); margin-top: 16px;">+€120 / user / year for web or mobile app access</p>
 
-        <div class="sim-wrapper">
-          <h3>Estimate your annual cost</h3>
-          <div class="sim-input-row">
-            <input type="number" id="sim-area" class="sim-input" min="1" placeholder="Enter your forest area (ha)">
+        <div class="simulator">
+          <p class="simulator__title">Estimate your annual cost</p>
+          <div class="simulator__input-wrap">
+            <input
+              type="number"
+              id="simulatorInput"
+              class="simulator__input"
+              placeholder="Forest area (ha)"
+              min="1"
+            />
+            <span class="simulator__unit">ha</span>
           </div>
-          <p class="sim-result" id="sim-result"></p>
+          <div class="simulator__results" id="simulatorResults" hidden>
+            <span class="simulator__result-label">Annual monitoring cost</span>
+            <span class="simulator__result-price" id="priceMonitoring">—</span>
+          </div>
+          <p class="simulator__warn" id="simulatorWarn" hidden></p>
+          <p class="simulator__footnote">All prices exclude VAT · App access not included</p>
         </div>
 
       </div>
     </section>
 
     <!-- ===================== FAQ ===================== -->
-    <section class="section section-light" id="faq" style="background: #ffffff">
+    <section class="section" id="faq">
       <div class="container">
         <p class="section-label">FAQ</p>
         <h2 class="section-title section-title--centered">Common questions.</h2>
@@ -262,15 +403,23 @@
     </section>
 
     <!-- ===================== CTA FINAL ===================== -->
-    <section class="section section--cta section-dark" id="cta" style="background: #384b38; color: #f2ede6">
+    <section class="section section--cta" id="contact">
       <div class="container">
-        <div class="cta-mono">
-          <h2 class="cta-title">Your forests under monitoring — starting this week.</h2>
-          <p class="cta-subtitle">Start with a free 12-month retrospective analysis — no commitment required.</p>
-          <div class="cta-btns">
-            <a href="#contact" class="btn btn--primary" style="background-color: #be842d; color: #ffffff; border-color: #be842d" data-modal-analysis>Get my free analysis</a>
-            <a href="#contact" class="btn btn--outline" style="color: #ffffff; border-color: #ffffff" data-modal-demo>Book a demo</a>
+        <h2 class="cta-title">Your forests under monitoring — starting this week.</h2>
+        <div class="cta-cards">
+
+          <div class="cta-card fade-in">
+            <h3 class="cta-card__title">Get started now</h3>
+            <p class="cta-card__text">Start with a free 12-month retrospective analysis — no commitment required.</p>
+            <a href="#contact" class="btn btn--green" data-modal-analysis>Get my free analysis</a>
           </div>
+
+          <div class="cta-card fade-in">
+            <h3 class="cta-card__title">Talk to our team first</h3>
+            <p class="cta-card__text">Prefer to discuss your needs before getting started? We're here.</p>
+            <a href="#contact" class="btn btn--outline-inv" data-modal-demo>Book a demo</a>
+          </div>
+
         </div>
       </div>
     </section>
@@ -289,9 +438,9 @@
         <a href="https://www.linkedin.com/company/goodforest/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
       <div class="footer__legal">
-        <a href="https://goodforest.fr/mentions-legales" target="_blank" rel="noopener noreferrer">Mentions légales</a>
+        <a href="https://goodforest.fr/mentions-legales" target="_blank" rel="noopener noreferrer">Legal notice</a>
         <span class="footer__sep" aria-hidden="true">·</span>
-        <a href="https://goodforest.fr/politique-de-confidentialite" target="_blank" rel="noopener noreferrer">Politique de confidentialité</a>
+        <a href="https://goodforest.fr/politique-de-confidentialite" target="_blank" rel="noopener noreferrer">Privacy policy</a>
       </div>
       <p class="footer__text">© 2026 Goodforest</p>
     </div>

@@ -1,7 +1,33 @@
 /**
  * Goodforest — Monitoring Landing Page
- * Fade-in scroll animations · Two contact modals · Price simulator
  */
+
+// ─── Challenge row scroll-highlight ──────────────────────────────────────────
+(function () {
+  'use strict';
+  const rows = document.querySelectorAll('.challenge-row');
+  if (!rows.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-highlighted');
+        } else if (entry.boundingClientRect.top > 0) {
+          entry.target.classList.remove('is-highlighted');
+        }
+      });
+    },
+    { threshold: 0, rootMargin: '0px 0px -30% 0px' }
+  );
+
+  rows.forEach((row) => observer.observe(row));
+})();
+
+// ─── Nav scroll state ─────────────────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
 
 // ─── Fade-in scroll animations ────────────────────────────────────────────────
 (function () {
@@ -114,34 +140,43 @@ initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analys
 (function () {
   'use strict';
 
-  const input  = document.getElementById('sim-area');
-  const result = document.getElementById('sim-result');
-  if (!input || !result) return;
+  const input   = document.getElementById('simulatorInput');
+  const results = document.getElementById('simulatorResults');
+  const price   = document.getElementById('priceMonitoring');
+  const warn    = document.getElementById('simulatorWarn');
+  if (!input) return;
 
-  function compute() {
-    const ha = parseInt(input.value, 10);
+  function getRate(ha) {
+    if (ha < 3000)  return 2.49;
+    if (ha < 10000) return 2.16;
+    return 1.99;
+  }
 
-    if (!ha || ha < 1) {
-      result.textContent = '';
-      result.className = 'sim-result';
+  function calculate() {
+    const ha = parseFloat(input.value);
+
+    if (!ha || ha <= 0) {
+      results.hidden = true;
+      warn.hidden = true;
       return;
     }
 
     if (ha < 1000) {
-      result.textContent = 'Minimum area: 1,000 ha';
-      result.className = 'sim-result sim-result--warn';
+      results.hidden = true;
+      warn.textContent = 'Minimum area: 1,000 ha';
+      warn.hidden = false;
       return;
     }
 
-    let rate;
-    if (ha < 3000)       rate = 2.49;
-    else if (ha < 10000) rate = 2.16;
-    else                 rate = 1.99;
-
-    const cost = Math.round(ha * rate);
-    result.textContent = 'Estimated cost: €' + cost.toLocaleString('en') + ' / year';
-    result.className = 'sim-result sim-result--ok';
+    warn.hidden = true;
+    const cost = Math.round(ha * getRate(ha));
+    price.textContent = '€' + cost.toLocaleString('en-GB') + ' / year';
+    results.hidden = false;
   }
 
-  input.addEventListener('input', compute);
+  let debounceTimer;
+  input.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(calculate, 300);
+  });
 })();
