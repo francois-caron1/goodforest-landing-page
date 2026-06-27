@@ -805,9 +805,9 @@ blockquote::before, blockquote::after { content: none; }
 
 .price-includes__list {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .price-includes__list li {
