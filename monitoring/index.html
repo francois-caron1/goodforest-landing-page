@@ -287,35 +287,47 @@
       <div class="container">
         <p class="section-label">Pricing</p>
         <h2 class="section-title">Simple, transparent pricing — <br> per hectare per year.</h2>
-        <div class="cards-grid cards-grid--3col">
-
-          <article class="card card--service fade-in">
-            <span class="service-tag">S</span>
-            <h3 class="card__title">1,000 to 2,999 ha</h3>
-            <p class="card__tagline"><em>Entry tier</em></p>
-            <p class="service-price">€2.49</p>
-            <p class="service-price-unit">/ ha / year</p>
-          </article>
-
-          <article class="card card--service card--featured fade-in">
-            <span class="service-tag">M</span>
-            <h3 class="card__title">3,000 to 9,999 ha</h3>
-            <p class="card__tagline"><em>Most common</em></p>
-            <p class="service-price">€2.16</p>
-            <p class="service-price-unit">/ ha / year</p>
-          </article>
-
-          <article class="card card--service fade-in">
-            <span class="service-tag">L</span>
-            <h3 class="card__title">10,000 ha+</h3>
-            <p class="card__tagline"><em>Large portfolio</em></p>
-            <p class="service-price">€1.99</p>
-            <p class="service-price-unit">/ ha / year</p>
-          </article>
-
+        <div class="price-bar">
+          <div class="price-bar__segment">
+            <div class="price-bar__color" style="background: #a7f3d0;"></div>
+            <p class="price-bar__range">500 to 999 ha</p>
+            <p class="price-bar__price">€2.99</p>
+            <p class="price-bar__unit">/ha/year</p>
+          </div>
+          <div class="price-bar__segment">
+            <div class="price-bar__color" style="background: #6ee7b7;"></div>
+            <p class="price-bar__range">1,000 to 2,999 ha</p>
+            <p class="price-bar__price">€2.49</p>
+            <p class="price-bar__unit">/ha/year</p>
+          </div>
+          <div class="price-bar__segment">
+            <div class="price-bar__color" style="background: #34d399;"></div>
+            <p class="price-bar__range">3,000 to 9,999 ha</p>
+            <p class="price-bar__price">€2.16</p>
+            <p class="price-bar__unit">/ha/year</p>
+          </div>
+          <div class="price-bar__segment">
+            <div class="price-bar__color" style="background: #10b981;"></div>
+            <p class="price-bar__range">10,000 ha+</p>
+            <p class="price-bar__price">€1.99</p>
+            <p class="price-bar__unit">/ha/year</p>
+          </div>
         </div>
 
-        <p style="text-align: center; font-size: 0.8125rem; color: var(--t3); margin-top: 16px;">+€120 / user / year for web or mobile app access</p>
+        <div class="price-includes">
+          <p class="price-includes__title">What's included</p>
+          <ul class="price-includes__list">
+            <li>Dieback and water stress detection</li>
+            <li>Continuous monitoring</li>
+            <li>Email alerts every 2 weeks</li>
+            <li>Web app with interactive mapping</li>
+            <li>Historical trend tracking</li>
+            <li>Dashboard</li>
+            <li>API access</li>
+          </ul>
+        </div>
+
+        <p class="price-footnote">* €120/user/year for web app access (cartography, indicators)</p>
 
         <div class="simulator">
           <p class="simulator__title">Estimate your annual cost</p>

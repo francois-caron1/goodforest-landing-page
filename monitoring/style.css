@@ -738,6 +738,108 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 /* ============================================================
+   PRICING BAR
+   ============================================================ */
+.price-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.price-bar__segment {
+  padding: 24px 20px 20px;
+  border-right: 1px solid var(--cb);
+}
+.price-bar__segment:last-child { border-right: none; }
+
+.price-bar__color {
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.price-bar__range {
+  font-size: 0.8rem;
+  color: var(--t3);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.price-bar__price {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--t1);
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.price-bar__unit {
+  font-size: 0.75rem;
+  color: var(--t3);
+}
+
+/* ============================================================
+   PRICING INCLUDES
+   ============================================================ */
+.price-includes {
+  background: var(--surface);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 28px 32px;
+  margin-bottom: 16px;
+}
+
+.price-includes__title {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--t2);
+  margin-bottom: 16px;
+}
+
+.price-includes__list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 32px;
+}
+
+.price-includes__list li {
+  font-size: 0.875rem;
+  color: var(--t2);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.5;
+}
+.price-includes__list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.price-footnote {
+  font-size: 0.75rem;
+  color: var(--t3);
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .price-bar { grid-template-columns: repeat(2, 1fr); }
+  .price-bar__segment:nth-child(2) { border-right: none; }
+  .price-bar__segment:nth-child(3) { border-top: 1px solid var(--cb); }
+  .price-bar__segment:nth-child(4) { border-top: 1px solid var(--cb); border-right: none; }
+  .price-includes__list { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
    SOCIAL PROOF
    ============================================================ */
 .logos-row {
