@@ -749,10 +749,11 @@ blockquote::before, blockquote::after { content: none; }
   box-shadow: var(--sh);
   overflow: hidden;
   margin-bottom: 32px;
+  max-width: fit-content;
 }
 
 .price-bar__segment {
-  padding: 24px 20px 20px;
+  padding: 20px 16px 16px;
 }
 
 .price-bar__color {
@@ -785,8 +786,6 @@ blockquote::before, blockquote::after { content: none; }
 /* ============================================================
    PRICING INCLUDES
    ============================================================ */
-.price-includes__list { max-width: 420px; }
-
 .price-includes {
   background: var(--surface);
   border: 1px solid var(--cb);
@@ -794,6 +793,7 @@ blockquote::before, blockquote::after { content: none; }
   box-shadow: var(--sh);
   padding: 28px 32px;
   margin-bottom: 16px;
+  max-width: 480px;
 }
 
 .price-includes__title {
