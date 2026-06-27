@@ -753,9 +753,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .price-bar__segment {
   padding: 24px 20px 20px;
-  border-right: 1px solid var(--cb);
 }
-.price-bar__segment:last-child { border-right: none; }
 
 .price-bar__color {
   height: 4px;
@@ -787,6 +785,8 @@ blockquote::before, blockquote::after { content: none; }
 /* ============================================================
    PRICING INCLUDES
    ============================================================ */
+.price-includes__list { max-width: 420px; }
+
 .price-includes {
   background: var(--surface);
   border: 1px solid var(--cb);
