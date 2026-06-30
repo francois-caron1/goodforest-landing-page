@@ -212,7 +212,7 @@ blockquote::before, blockquote::after { content: none; }
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 580px;
+  min-height: 640px;
   padding-top: var(--nav-h);
   background:
     linear-gradient(rgba(10, 22, 40, 0.6), rgba(10, 22, 40, 0.6)),
@@ -300,8 +300,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .hero__visual img {
-  width: 100%;
-  max-width: 560px;
+  width: 120%;
+  max-width: 620px;
   height: auto;
   display: block;
 }
