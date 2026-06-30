@@ -482,11 +482,11 @@ blockquote::before, blockquote::after { content: none; }
 
 .problem-timeline {
   flex-shrink: 0;
-  width: 320px;
+  width: 400px;
   display: flex;
   align-items: center;
   padding-left: 0;
-  margin-left: -60px;
+  margin-left: -80px;
   margin-top: -80px;
   z-index: 2;
 }
