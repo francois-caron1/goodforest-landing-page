@@ -753,6 +753,7 @@ blockquote::before, blockquote::after { content: none; }
 
 .price-bar__segment {
   padding: 24px 20px 20px;
+  text-align: center;
 }
 
 .price-bar__color {
@@ -762,8 +763,9 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .price-bar__range {
-  font-size: 0.8rem;
-  color: var(--t3);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--t2);
   margin-bottom: 10px;
   line-height: 1.4;
 }
