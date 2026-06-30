@@ -300,8 +300,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .hero__visual img {
-  width: 120%;
-  max-width: 700px;
+  width: 100%;
+  max-width: 560px;
   height: auto;
   display: block;
 }
