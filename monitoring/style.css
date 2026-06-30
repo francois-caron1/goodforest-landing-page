@@ -1382,7 +1382,7 @@ blockquote::before, blockquote::after { content: none; }
     min-height: auto;
   }
   .hero__content { padding: 48px 24px 40px; }
-  .hero__headline { font-size: 1.875rem; }
+  .hero__headline { font-size: 1.5rem; }
   .hero__visual   { padding: 0 24px 48px; justify-content: flex-start; }
 
   .cards-grid--2x2,
