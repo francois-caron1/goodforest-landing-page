@@ -788,12 +788,12 @@ blockquote::before, blockquote::after { content: none; }
    PRICING INCLUDES
    ============================================================ */
 .price-includes {
-  background: var(--surface);
+  background: #f0f7f2;
   border: 1px solid var(--cb);
   border-radius: var(--r);
   box-shadow: var(--sh);
   padding: 28px 32px;
-  margin: 0 auto 16px;
+  margin: 20px auto 0;
   max-width: 480px;
 }
 
