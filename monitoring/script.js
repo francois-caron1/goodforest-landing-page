@@ -147,6 +147,7 @@ initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analys
   if (!input) return;
 
   function getRate(ha) {
+    if (ha < 1000)  return 2.99;
     if (ha < 3000)  return 2.49;
     if (ha < 10000) return 2.16;
     return 1.99;
@@ -161,9 +162,9 @@ initModal('analysisModal', 'analysisForm', 'analysisSuccess', 'data-modal-analys
       return;
     }
 
-    if (ha < 1000) {
+    if (ha < 500) {
       results.hidden = true;
-      warn.textContent = 'Minimum area: 1,000 ha';
+      warn.textContent = 'Minimum area: 500 ha';
       warn.hidden = false;
       return;
     }
