@@ -480,8 +480,15 @@ blockquote::before, blockquote::after { content: none; }
   background: var(--card);
   border: 1px solid var(--cb);
   border-radius: var(--r);
-  padding: 28px 28px 24px;
+  padding: 36px 32px;
   box-shadow: var(--sh);
+  /* Card is naturally much shorter than the card list on the left; give it
+     some minimum height to close that gap, and center its content within
+     it rather than leaving the extra room stacked at the bottom. */
+  min-height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .timeline-items {
@@ -495,7 +502,7 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 72px 16px 1fr;
   align-items: flex-start;
   gap: 0 10px;
-  padding: 12px 0;
+  padding: 18px 0;
 }
 
 /* Severity progression over time: 5 distinct stages, yellow -> red. --stage-color
@@ -526,7 +533,10 @@ blockquote::before, blockquote::after { content: none; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--t3);
+  /* var(--t3) (#9ca3af, 2.54:1 on white) read as barely-visible - this passes
+     WCAG AA (4.83:1) while staying clearly distinct from the saturated
+     per-stage colors used once a row is reached. */
+  background: #6b7280;
   transition: background 0.3s ease;
 }
 
@@ -544,8 +554,9 @@ blockquote::before, blockquote::after { content: none; }
   font-size: 11.5px;
   /* Neutral until reached - each stage picks up its own severity color as the
      matching challenge point is scrolled past, and keeps it (checklist-style)
-     until the user scrolls back up above that point. */
-  color: var(--t3);
+     until the user scrolls back up above that point. Uses the same AA-safe
+     gray as the dot (var(--t3) alone was only 2.54:1 on white). */
+  color: #6b7280;
   line-height: 1.45;
   padding-top: 1px;
   transition: color 0.3s ease, font-weight 0.3s ease;
@@ -577,6 +588,11 @@ blockquote::before, blockquote::after { content: none; }
   .timeline-card {
     position: static;
     top: auto;
+    /* The extra min-height only exists to match the left column's height
+       when the two sit side by side - once stacked, let the card hug its
+       own content instead of leaving empty space under it. */
+    min-height: 0;
+    justify-content: flex-start;
   }
 }
 
