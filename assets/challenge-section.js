@@ -25,8 +25,9 @@
  *         { time: 'D+0', label: 'Storm hits', stage: 'yellow' },
  *         // stage is one of: yellow, amber, orange, orange-red, red, red-dark
  *       ],
- *       // Optional: one continuous line + a single dot that glides along it
- *       // based on scroll progress, instead of a static dot per stage.
+ *       // Optional: one continuous line + a single dot that snaps to
+ *       // whichever stage is currently reached (same accumulation state
+ *       // as the label coloring), instead of a static dot per stage.
  *       progressCursor: true,
  *     });
  *   </script>
@@ -50,11 +51,7 @@
 
     container.appendChild(split);
 
-    initScrollSync(split);
-
-    if (config.progressCursor) {
-      initProgressCursor(split, split.querySelectorAll('.timeline-item'), timeline.dot);
-    }
+    initScrollSync(split, config.progressCursor ? timeline.dot : null);
   }
 
   function buildChallengeList(points) {
@@ -126,7 +123,7 @@
     return { wrap: wrap, items: items, track: track, dot: dot };
   }
 
-  function initScrollSync(split) {
+  function initScrollSync(split, progressDotEl) {
     const points = split.querySelectorAll('.challenge-point');
     const timelineItems = split.querySelectorAll('.timeline-item');
     if (!points.length) return;
@@ -146,16 +143,27 @@
 
     if (!timelineItems.length) return;
 
+    // maxStage is the single source of truth for both the label accumulation
+    // below and the progress dot (when present) - the dot is positioned on
+    // whichever .timeline-item this same value points to, never computed
+    // from a separate scroll-percentage reading, so the two can't drift
+    // apart.
     function syncTimeline() {
       let maxStage = 0;
       points.forEach((point) => {
         if (!point.classList.contains('is-reached')) return;
         maxStage = Math.max(maxStage, parseInt(point.dataset.maxStage, 10) || 0);
       });
+
+      let reachedItem = null;
       timelineItems.forEach((item) => {
         const stage = parseInt(item.dataset.stage, 10);
-        item.classList.toggle('is-reached', stage <= maxStage);
+        const isReached = stage <= maxStage;
+        item.classList.toggle('is-reached', isReached);
+        if (stage === maxStage) reachedItem = item;
       });
+
+      if (progressDotEl) updateProgressDot(progressDotEl, reachedItem);
     }
 
     // A point is "reached" once it scrolls above the vertical center of the
@@ -179,48 +187,18 @@
     points.forEach((point) => reachObserver.observe(point));
   }
 
-  // Moves a single dot continuously along the timeline's line, in sync with
-  // scroll position, instead of the label accumulation's discrete per-stage
-  // jumps (that logic, in initScrollSync above, is untouched and keeps
-  // driving the label text color/weight independently of this).
-  function initProgressCursor(split, timelineItems, dotEl) {
-    const list = split.querySelector('.challenge-list');
-    if (!list || !dotEl) return;
-
-    const stageColors = Array.from(timelineItems).map((item) =>
-      getComputedStyle(item).getPropertyValue('--stage-color').trim()
-    );
-
-    let ticking = false;
-
-    function update() {
-      ticking = false;
-      const rect = list.getBoundingClientRect();
-      const viewportMid = window.innerHeight / 2;
-      // 0 when the list's top edge sits at the viewport's vertical center
-      // (matches the "reached" trigger line), 1 when its bottom edge does -
-      // i.e. the same span the discrete accumulation sweeps through, just
-      // read continuously instead of point by point.
-      let progress = rect.height > 0 ? (viewportMid - rect.top) / rect.height : 0;
-      progress = Math.max(0, Math.min(1, progress));
-
-      dotEl.style.top = progress * 100 + '%';
-
-      if (stageColors.length) {
-        const idx = Math.min(stageColors.length - 1, Math.floor(progress * stageColors.length));
-        dotEl.style.background = stageColors[idx];
-      }
+  // Snaps the progress dot onto the timeline row that matches maxStage - the
+  // same value that drives which rows are colored - rather than any
+  // independent position calculation. CSS handles the glide between two
+  // resting positions (see .timeline-progress-dot's transition).
+  function updateProgressDot(dotEl, reachedItem) {
+    if (!reachedItem) {
+      dotEl.style.opacity = '0';
+      return;
     }
-
-    function onScrollOrResize() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(update);
-    }
-
-    window.addEventListener('scroll', onScrollOrResize, { passive: true });
-    window.addEventListener('resize', onScrollOrResize);
-    update();
+    dotEl.style.opacity = '1';
+    dotEl.style.top = reachedItem.offsetTop + 4 + 'px'; // matches the per-stage dot's own top: 4px
+    dotEl.style.background = getComputedStyle(reachedItem).getPropertyValue('--stage-color').trim();
   }
 
   global.renderChallengeSection = renderChallengeSection;

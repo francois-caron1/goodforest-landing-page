@@ -188,12 +188,14 @@
   height: 11px;
   border-radius: 50%;
   background: #976e08;
+  opacity: 0;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 0 4px rgba(107, 114, 128, 0.22), var(--sh);
-  /* top/left changes are driven by scroll position every frame - only
-     transition color/shadow so the motion itself stays 1:1 with scroll,
-     not lagging behind it. */
-  transition: background 0.2s ease, box-shadow 0.2s ease;
+  /* Position snaps to whichever stage maxStage points to (same source of
+     truth as the label accumulation) - this transition is purely the
+     visible glide between two such resting positions, not driving the
+     position itself. */
+  transition: top 0.35s ease, background 0.3s ease, opacity 0.3s ease;
   z-index: 1;
 }
 
