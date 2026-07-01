@@ -498,10 +498,15 @@ blockquote::before, blockquote::after { content: none; }
   padding: 12px 0;
 }
 
-/* Severity progression over time: amber from the very first stage -> orange -> strong red */
-.timeline-item--amber  { --stage-color: #d97706; --stage-line: rgba(217, 119, 6, 0.30); }
-.timeline-item--orange { --stage-color: #ea580c; --stage-line: rgba(234, 88, 12, 0.30); }
-.timeline-item--red    { --stage-color: #dc2626; --stage-line: rgba(220, 38, 38, 0.32); }
+/* Severity progression over time: 5 distinct stages, yellow -> red. --stage-color
+   is darkened from the requested hue where needed to clear WCAG AA (4.5:1) for
+   text on white; --stage-line keeps the brighter original hue since it's only
+   ever used as a low-alpha decorative tint, not as text. */
+.timeline-item--yellow     { --stage-color: #976e08; --stage-line: rgba(245, 194, 66, 0.35); }
+.timeline-item--amber      { --stage-color: #a5670b; --stage-line: rgba(242, 169, 59, 0.32); }
+.timeline-item--orange     { --stage-color: #b75c0f; --stage-line: rgba(238, 138, 53, 0.30); }
+.timeline-item--orange-red { --stage-color: #cc4920; --stage-line: rgba(224, 98, 58, 0.30); }
+.timeline-item--red        { --stage-color: #c93b3b; --stage-line: rgba(201, 59, 59, 0.32); }
 
 .timeline-item__line {
   width: 1px;
