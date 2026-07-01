@@ -414,7 +414,7 @@ blockquote::before, blockquote::after { content: none; }
   column-gap: 20px;
   align-items: center;
   height: 260px;
-  padding: 32px;
+  padding: 24px 32px;
   border-left: 3px solid transparent;
   border-radius: var(--r-sm);
   transition: background var(--tr), border-left-color var(--tr);
@@ -542,12 +542,12 @@ blockquote::before, blockquote::after { content: none; }
   font-weight: 700;
   color: var(--t2);
   letter-spacing: 0.04em;
-  padding-top: 3px;
   white-space: nowrap;
 }
 
 .timeline-item__label {
-  font-size: 17px;
+  /* Matches .challenge-point__text (left column descriptive text) */
+  font-size: 0.875rem;
   /* Neutral until reached - each stage picks up its own severity color as the
      matching challenge point is scrolled past, and keeps it (checklist-style)
      until the user scrolls back up above that point. Uses the same AA-safe
