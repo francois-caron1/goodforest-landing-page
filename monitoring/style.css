@@ -448,6 +448,11 @@ blockquote::before, blockquote::after { content: none; }
   transition: color var(--tr);
 }
 
+.challenge-point__text--strong {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
 .challenge-point.is-active {
   background: var(--acs);
   border-left-color: var(--primary);
@@ -462,6 +467,10 @@ blockquote::before, blockquote::after { content: none; }
 
 .challenge-point.is-active .challenge-point__text {
   color: var(--t2);
+}
+
+.challenge-point.is-active .challenge-point__text--strong {
+  color: var(--t1);
 }
 
 /* ---- Timeline card - sticky on desktop, static + stacked below on tablet/mobile ---- */
@@ -489,8 +498,7 @@ blockquote::before, blockquote::after { content: none; }
   padding: 12px 0;
 }
 
-/* Severity progression over time: neutral gray -> amber -> orange -> strong red */
-.timeline-item--gray   { --stage-color: #94a3b8; --stage-line: rgba(148, 163, 184, 0.32); }
+/* Severity progression over time: amber from the very first stage -> orange -> strong red */
 .timeline-item--amber  { --stage-color: #d97706; --stage-line: rgba(217, 119, 6, 0.30); }
 .timeline-item--orange { --stage-color: #ea580c; --stage-line: rgba(234, 88, 12, 0.30); }
 .timeline-item--red    { --stage-color: #dc2626; --stage-line: rgba(220, 38, 38, 0.32); }
@@ -520,8 +528,8 @@ blockquote::before, blockquote::after { content: none; }
 .timeline-item__time {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  font-weight: 600;
-  color: var(--t3);
+  font-weight: 700;
+  color: var(--t2);
   letter-spacing: 0.04em;
   padding-top: 2px;
   white-space: nowrap;
