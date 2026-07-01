@@ -433,7 +433,8 @@ blockquote::before, blockquote::after { content: none; }
 
 .challenge-point__title {
   font-weight: 600;
-  font-size: 20px;
+  /* Matches .step__title (How It Works cards) */
+  font-size: 0.9375rem;
   color: var(--t3);
   line-height: 1.3;
   letter-spacing: -0.015em;
@@ -442,7 +443,8 @@ blockquote::before, blockquote::after { content: none; }
 }
 
 .challenge-point__text {
-  font-size: 16px;
+  /* Matches .step__text (How It Works cards) */
+  font-size: 0.875rem;
   color: var(--t3);
   line-height: 1.6;
   transition: color var(--tr);
