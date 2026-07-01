@@ -3,30 +3,8 @@
  * Scroll-triggered fade-in with staggered siblings
  */
 
-// ─── Challenge row scroll-highlight ──────────────────────────────────────────
-(function () {
-  'use strict';
-  const rows = document.querySelectorAll('.challenge-row');
-  if (!rows.length) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Row entered the trigger zone — activate
-          entry.target.classList.add('is-highlighted');
-        } else if (entry.boundingClientRect.top > 0) {
-          // Row exited below viewport bottom (user scrolled back up) — de-activate
-          entry.target.classList.remove('is-highlighted');
-        }
-        // top < 0: row exited past the top — stay highlighted
-      });
-    },
-    { threshold: 0, rootMargin: '0px 0px -30% 0px' }
-  );
-
-  rows.forEach((row) => observer.observe(row));
-})();
+// Challenge section scroll-sync (active point + timeline accumulation) lives
+// in assets/challenge-section.js, shared with the monitoring page.
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {

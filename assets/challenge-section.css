@@ -1,0 +1,202 @@
+/* ============================================================
+   CHALLENGE SECTION — shared two-column scrollytelling component
+   Left: compact list of pain points, one active/focused at a time.
+   Right: sticky timeline that fills in progressively (checklist-style)
+   as the user scrolls past each point on the left.
+   Rendered by assets/challenge-section.js from a page-supplied config -
+   see that file for the data shape. Relies on this site's shared design
+   tokens (--t1/--t2/--t3, --primary, --acs, --card, --cb, --r, --r-sm,
+   --sh, --tr, --nav-h, --font-mono), defined in each page's own
+   :root block.
+   ============================================================ */
+.problem-split {
+  display: grid;
+  grid-template-columns: 7fr 5fr; /* ~58.3% / 41.7% */
+  gap: 64px;
+  position: relative;
+}
+
+.challenge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.challenge-point {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  column-gap: 20px;
+  /* Height follows content - no fixed/min height. Cards end up different
+     heights depending on their text, which is expected. */
+  align-items: flex-start;
+  padding: 24px 32px;
+  border-left: 3px solid transparent;
+  border-radius: var(--r-sm);
+  transition: background var(--tr), border-left-color var(--tr);
+}
+
+.challenge-point__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.challenge-point__icon-wrap svg {
+  opacity: 0.45;
+  transition: opacity var(--tr);
+}
+
+.challenge-point__title {
+  font-weight: 600;
+  /* Matches .step__title (How It Works cards) */
+  font-size: 0.9375rem;
+  color: var(--t3);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  transition: color var(--tr), font-weight var(--tr);
+}
+
+.challenge-point__text {
+  /* Matches .step__text (How It Works cards) */
+  font-size: 0.875rem;
+  color: var(--t3);
+  line-height: 1.6;
+  transition: color var(--tr);
+}
+
+.challenge-point__text--strong {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.challenge-point.is-active {
+  background: var(--acs);
+  border-left-color: var(--primary);
+}
+
+.challenge-point.is-active .challenge-point__icon-wrap svg { opacity: 1; }
+
+.challenge-point.is-active .challenge-point__title {
+  color: var(--t1);
+  font-weight: 700;
+}
+
+.challenge-point.is-active .challenge-point__text {
+  color: var(--t2);
+}
+
+.challenge-point.is-active .challenge-point__text--strong {
+  color: var(--t1);
+}
+
+/* ---- Timeline card - sticky on desktop, static + stacked below on tablet/mobile.
+   Height is intentionally NOT forced to match the left column - it sizes to its
+   own content (padding + item spacing below) rather than being propped up. ---- */
+.timeline-card {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  background: var(--card);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  padding: 40px;
+  box-shadow: var(--sh);
+}
+
+.timeline-items {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 80px 14px 1fr;
+  column-gap: 12px;
+  align-items: flex-start;
+}
+
+/* Severity progression, yellow -> dark red. --stage-color is darkened from
+   the requested hue where needed to clear WCAG AA (4.5:1) for text on white;
+   --stage-line keeps a brighter hue since it's only ever used as a low-alpha
+   decorative tint, not as text. Timelines with fewer stages just use a
+   subset of these classes; --red-dark is available for a 6th/terminal step. */
+.timeline-item--yellow     { --stage-color: #976e08; --stage-line: rgba(245, 194, 66, 0.35); }
+.timeline-item--amber      { --stage-color: #a5670b; --stage-line: rgba(242, 169, 59, 0.32); }
+.timeline-item--orange     { --stage-color: #b75c0f; --stage-line: rgba(238, 138, 53, 0.30); }
+.timeline-item--orange-red { --stage-color: #cc4920; --stage-line: rgba(224, 98, 58, 0.30); }
+.timeline-item--red        { --stage-color: #c93b3b; --stage-line: rgba(201, 59, 59, 0.32); }
+.timeline-item--red-dark   { --stage-color: #8f2020; --stage-line: rgba(143, 32, 32, 0.35); }
+
+.timeline-item__line {
+  width: 1px;
+  background: var(--cb);
+  align-self: stretch;
+  margin: 0 auto;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.timeline-item__line::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  /* var(--t3) (#9ca3af, 2.54:1 on white) reads as barely-visible - this passes
+     WCAG AA (4.83:1) while staying clearly distinct from the saturated
+     per-stage colors used once a row is reached. */
+  background: #6b7280;
+  transition: background 0.3s ease;
+}
+
+.timeline-item__time {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--t2);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.timeline-item__label {
+  /* Matches .challenge-point__text (left column descriptive text) */
+  font-size: 0.875rem;
+  /* Neutral until reached - each stage picks up its own severity color as the
+     matching challenge point is scrolled past, and keeps it (checklist-style)
+     until the user scrolls back up above that point. Uses the same AA-safe
+     gray as the dot (var(--t3) alone was only 2.54:1 on white) whether the
+     row is reached or not. */
+  color: #6b7280;
+  line-height: 1.5;
+  transition: color 0.3s ease, font-weight 0.3s ease;
+}
+
+.timeline-item.is-reached .timeline-item__line {
+  background: var(--stage-line);
+}
+
+.timeline-item.is-reached .timeline-item__line::before {
+  background: var(--stage-color);
+}
+
+.timeline-item.is-reached .timeline-item__label {
+  color: var(--stage-color);
+  font-weight: 700;
+}
+
+/* The sticky two-column scrollytelling effect only makes sense with room to
+   spare on desktop - below this width, stack timeline under the list, static. */
+@media (max-width: 1024px) {
+  .problem-split {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .timeline-card {
+    position: static;
+    top: auto;
+  }
+}

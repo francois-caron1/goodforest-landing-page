@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="/assets/logo-arbre-seul.png">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../assets/challenge-section.css">
 </head>
 <body>
 
@@ -57,114 +58,8 @@
         <p class="section-label">The Challenge</p>
         <h2 class="section-title">Forest damage is hard to localise, harder to measure and every delay has a cost.</h2>
 
-        <div class="problem-split">
+        <div id="challenge-section"></div>
 
-          <div class="challenge-rows">
-
-            <article class="challenge-row">
-              <div class="challenge-row__icon-wrap">
-                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <circle cx="9.5" cy="9.5" r="5.5" stroke="#3DD68C" stroke-width="1.5"/>
-                  <line x1="13.7" y1="13.7" x2="19" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="7" y1="9.5" x2="12" y2="9.5" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-                  <line x1="9.5" y1="7" x2="9.5" y2="12" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
-                </svg>
-              </div>
-              <div class="challenge-row__content">
-                <h3 class="challenge-row__title">You don't know where to look first</h3>
-                <p class="challenge-row__text">After Storm Vaia (2018), insurers faced simultaneous claims across 40,000+ hectares.</p>
-                <p class="challenge-row__text challenge-row__text--strong">Experts get mobilised where it's limited. Critical zones wait.</p>
-              </div>
-            </article>
-
-            <article class="challenge-row">
-              <div class="challenge-row__icon-wrap">
-                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8" stroke="#3DD68C" stroke-width="1.5"/>
-                  <line x1="11" y1="7" x2="11" y2="11.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="11" y1="11.5" x2="14" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <circle cx="11" cy="11.5" r="0.8" fill="#3DD68C"/>
-                </svg>
-              </div>
-              <div class="challenge-row__content">
-                <h3 class="challenge-row__title">The clock is ticking on your timber</h3>
-                <p class="challenge-row__text">Post-Ciarán (2023), some assessments took up to 6 months.</p>
-                <p class="challenge-row__text challenge-row__text--strong">The longer the wait, the harder to salvage and to close the claim.</p>
-              </div>
-            </article>
-
-            <article class="challenge-row">
-              <div class="challenge-row__icon-wrap">
-                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M11 3L20 19H2L11 3Z" stroke="#3DD68C" stroke-width="1.5" stroke-linejoin="round"/>
-                  <line x1="11" y1="9" x2="11" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <circle cx="11" cy="16" r="0.9" fill="#3DD68C"/>
-                </svg>
-              </div>
-              <div class="challenge-row__content">
-                <h3 class="challenge-row__title">When access is impossible, data becomes critical</h3>
-                <p class="challenge-row__text">Ground experts and drones are grounded for days after a major event.</p>
-                <p class="challenge-row__text challenge-row__text--strong">Critical areas go unassessed while the damage compounds.</p>
-              </div>
-            </article>
-
-            <article class="challenge-row">
-              <div class="challenge-row__icon-wrap">
-                <svg width="52" height="52" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <line x1="11" y1="3" x2="11" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <line x1="4" y1="6" x2="18" y2="6" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M4 6 Q2 10 4 13 Q6 16 8 13 Q10 10 8 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-                  <path d="M14 6 Q12 10 14 13 Q16 16 18 13 Q20 10 18 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
-                  <line x1="8" y1="19" x2="14" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <div class="challenge-row__content">
-                <h3 class="challenge-row__title">Disputed claims need objective ground truth</h3>
-                <p class="challenge-row__text">When damage figures are contested, both sides rely on the same field expert.</p>
-                <p class="challenge-row__text challenge-row__text--strong">Without an independent reference, disputes drag on.</p>
-              </div>
-            </article>
-
-          </div>
-
-          <div class="problem-timeline">
-  <div class="timeline-card">
-    <div class="timeline-items">
-      <div class="timeline-item">
-        <span class="timeline-item__time">D+0</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Storm hits</span>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-item__time">D+1 – D+7</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Claims volume surges</span>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-item__time">D+7 – D+21</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Experts unavailable</span>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-item__time">M1 – M6</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Assessments ongoing</span>
-      </div>
-      <div class="timeline-item">
-        <span class="timeline-item__time">M6 – M9</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Figures contested</span>
-      </div>
-      <div class="timeline-item timeline-item--last">
-        <span class="timeline-item__time">M9+</span>
-        <div class="timeline-item__line"></div>
-        <span class="timeline-item__label">Salvage window gone</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-        </div>
       </div>
     </section>
 
@@ -608,6 +503,69 @@
     </div>
   </div>
 
+  <script src="../assets/challenge-section.js"></script>
+  <script>
+    renderChallengeSection(document.getElementById('challenge-section'), {
+      points: [
+        {
+          icon: `<svg width="26" height="26" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="9.5" cy="9.5" r="5.5" stroke="#3DD68C" stroke-width="1.5"/>
+            <line x1="13.7" y1="13.7" x2="19" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="7" y1="9.5" x2="12" y2="9.5" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+            <line x1="9.5" y1="7" x2="9.5" y2="12" stroke="#3DD68C" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+          </svg>`,
+          title: "You don't know where to look first",
+          text: 'After Storm Vaia (2018), insurers faced simultaneous claims across 40,000+ hectares.',
+          conclusion: "Experts get mobilised where it's limited. Critical zones wait.",
+          maxStage: 2,
+        },
+        {
+          icon: `<svg width="26" height="26" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" stroke="#3DD68C" stroke-width="1.5"/>
+            <line x1="11" y1="7" x2="11" y2="11.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="11" y1="11.5" x2="14" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="11.5" r="0.8" fill="#3DD68C"/>
+          </svg>`,
+          title: 'The clock is ticking on your timber',
+          text: 'Post-Ciarán (2023), some assessments took up to 6 months.',
+          conclusion: 'The longer the wait, the harder to salvage and to close the claim.',
+          maxStage: 4,
+        },
+        {
+          icon: `<svg width="26" height="26" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11 3L20 19H2L11 3Z" stroke="#3DD68C" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="11" y1="9" x2="11" y2="13.5" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="16" r="0.9" fill="#3DD68C"/>
+          </svg>`,
+          title: 'When access is impossible, data becomes critical',
+          text: 'Ground experts and drones are grounded for days after a major event.',
+          conclusion: 'Critical areas go unassessed while the damage compounds.',
+          maxStage: 5,
+        },
+        {
+          icon: `<svg width="26" height="26" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="11" y1="3" x2="11" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="4" y1="6" x2="18" y2="6" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M4 6 Q2 10 4 13 Q6 16 8 13 Q10 10 8 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <path d="M14 6 Q12 10 14 13 Q16 16 18 13 Q20 10 18 6" stroke="#3DD68C" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            <line x1="8" y1="19" x2="14" y2="19" stroke="#3DD68C" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>`,
+          title: 'Disputed claims need objective ground truth',
+          text: 'When damage figures are contested, both sides rely on the same field expert.',
+          conclusion: 'Without an independent reference, disputes drag on.',
+          maxStage: 6,
+        },
+      ],
+      timeline: [
+        { time: 'D+0', label: 'Storm hits', stage: 'yellow' },
+        { time: 'D+1 – D+7', label: 'Claims volume surges', stage: 'amber' },
+        { time: 'D+7 – D+21', label: 'Experts unavailable', stage: 'orange' },
+        { time: 'M1 – M6', label: 'Assessments ongoing', stage: 'orange-red' },
+        { time: 'M6 – M9', label: 'Figures contested', stage: 'red' },
+        { time: 'M9+', label: 'Salvage window gone', stage: 'red-dark' },
+      ],
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
