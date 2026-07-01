@@ -91,7 +91,6 @@
       item.dataset.stage = i + 1;
       item.innerHTML =
         '<span class="timeline-item__time">' + step.time + '</span>' +
-        '<div class="timeline-item__line"></div>' +
         '<span class="timeline-item__label">' + step.label + '</span>';
       items.appendChild(item);
     });

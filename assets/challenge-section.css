@@ -111,59 +111,27 @@
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 80px 14px 1fr;
+  grid-template-columns: 80px 1fr;
   column-gap: 12px;
   align-items: flex-start;
 }
 
 /* Severity progression, yellow -> dark red. --stage-color is darkened from
-   the requested hue where needed to clear WCAG AA (4.5:1) for text on white;
-   --stage-line keeps a brighter hue since it's only ever used as a low-alpha
-   decorative tint, not as text. Timelines with fewer stages just use a
-   subset of these classes; --red-dark is available for a 6th/terminal step. */
-.timeline-item--yellow     { --stage-color: #976e08; --stage-line: rgba(245, 194, 66, 0.35); }
-.timeline-item--amber      { --stage-color: #a5670b; --stage-line: rgba(242, 169, 59, 0.32); }
-.timeline-item--orange     { --stage-color: #b75c0f; --stage-line: rgba(238, 138, 53, 0.30); }
-.timeline-item--orange-red { --stage-color: #cc4920; --stage-line: rgba(224, 98, 58, 0.30); }
-.timeline-item--red        { --stage-color: #c93b3b; --stage-line: rgba(201, 59, 59, 0.32); }
-.timeline-item--red-dark   { --stage-color: #8f2020; --stage-line: rgba(143, 32, 32, 0.35); }
-
-.timeline-item__line {
-  width: 1px;
-  background: var(--cb);
-  align-self: stretch;
-  margin: 0 auto;
-  position: relative;
-  transition: background 0.3s ease;
-}
-
-.timeline-item__line::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  /* var(--t3) (#9ca3af, 2.54:1 on white) reads as barely-visible - this passes
-     WCAG AA (4.83:1) while staying clearly distinct from the saturated
-     per-stage colors used once a row is reached. */
-  background: #6b7280;
-  transition: background 0.3s ease;
-}
+   the requested hue where needed to clear WCAG AA (4.5:1) for text on white.
+   Timelines with fewer stages just use a subset of these classes;
+   --red-dark is available for a 6th/terminal step. */
+.timeline-item--yellow     { --stage-color: #976e08; }
+.timeline-item--amber      { --stage-color: #a5670b; }
+.timeline-item--orange     { --stage-color: #b75c0f; }
+.timeline-item--orange-red { --stage-color: #cc4920; }
+.timeline-item--red        { --stage-color: #c93b3b; }
+.timeline-item--red-dark   { --stage-color: #8f2020; }
 
 /* ---- Continuous-line variant (opt-in via config.progressCursor) ----
-   One continuous vertical line behind all stages instead of a separate
-   segment per row. The per-item line stays in the DOM (so the label
-   column keeps its grid track) but is made invisible instead of removed. */
+   One continuous vertical gradient line behind all stages. */
 .timeline-items--progress-line {
-  --timeline-dot-x: 99px; /* 80px time column + 12px gap + half of the 14px dot column */
+  --timeline-dot-x: 86px; /* 80px time column + half of the 12px gap */
   position: relative;
-}
-
-.timeline-items--progress-line .timeline-item__line {
-  visibility: hidden;
 }
 
 .timeline-progress-track {
@@ -192,20 +160,11 @@
   font-size: 0.875rem;
   /* Neutral until reached - each stage picks up its own severity color as the
      matching challenge point is scrolled past, and keeps it (checklist-style)
-     until the user scrolls back up above that point. Uses the same AA-safe
-     gray as the dot (var(--t3) alone was only 2.54:1 on white) whether the
-     row is reached or not. */
+     until the user scrolls back up above that point. #6b7280 clears WCAG AA
+     (4.83:1 on white) - var(--t3) alone was only 2.54:1. */
   color: #6b7280;
   line-height: 1.5;
   transition: color 0.3s ease, font-weight 0.3s ease;
-}
-
-.timeline-item.is-reached .timeline-item__line {
-  background: var(--stage-line);
-}
-
-.timeline-item.is-reached .timeline-item__line::before {
-  background: var(--stage-color);
 }
 
 .timeline-item.is-reached .timeline-item__label {
