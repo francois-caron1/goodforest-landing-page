@@ -406,14 +406,16 @@ blockquote::before, blockquote::after { content: none; }
 .challenge-list {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 
 .challenge-point {
   display: grid;
   grid-template-columns: 40px 1fr;
   column-gap: 20px;
-  align-items: center;
-  height: 260px;
+  /* Height follows content - no fixed/min height. Each of the 4 cards ends up
+     a different height depending on its text, which is expected. */
+  align-items: flex-start;
   padding: 24px 32px;
   border-left: 3px solid transparent;
   border-radius: var(--r-sm);
@@ -577,9 +579,6 @@ blockquote::before, blockquote::after { content: none; }
   .problem-split {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .challenge-point {
-    height: auto;
   }
   .timeline-card {
     position: static;
