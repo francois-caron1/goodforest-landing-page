@@ -537,16 +537,20 @@ blockquote::before, blockquote::after { content: none; }
 
 .timeline-item__label {
   font-size: 11.5px;
-  color: var(--t2);
+  /* Always tinted with its own stage color, matching the dot - active state
+     only turns the volume up (full opacity + bold), it isn't the only way
+     the color shows. */
+  color: var(--stage-color);
+  opacity: 0.75;
   line-height: 1.45;
   padding-top: 1px;
-  transition: color var(--tr), font-weight var(--tr);
+  transition: color var(--tr), opacity var(--tr), font-weight var(--tr);
 }
 
 .timeline-item--red .timeline-item__label { font-weight: 600; }
 
 .timeline-item.is-active .timeline-item__label {
-  color: var(--stage-color);
+  opacity: 1;
   font-weight: 700;
 }
 
