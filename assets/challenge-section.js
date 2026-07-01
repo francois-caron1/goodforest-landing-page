@@ -25,6 +25,9 @@
  *         { time: 'D+0', label: 'Storm hits', stage: 'yellow' },
  *         // stage is one of: yellow, amber, orange, orange-red, red, red-dark
  *       ],
+ *       // Optional: one continuous line + a single dot that glides along it
+ *       // based on scroll progress, instead of a static dot per stage.
+ *       progressCursor: true,
  *     });
  *   </script>
  *
@@ -42,11 +45,16 @@
     split.className = 'problem-split';
 
     split.appendChild(buildChallengeList(config.points || []));
-    split.appendChild(buildTimeline(config.timeline || []));
+    const timeline = buildTimeline(config.timeline || [], config.progressCursor);
+    split.appendChild(timeline.wrap);
 
     container.appendChild(split);
 
     initScrollSync(split);
+
+    if (config.progressCursor) {
+      initProgressCursor(split, split.querySelectorAll('.timeline-item'), timeline.dot);
+    }
   }
 
   function buildChallengeList(points) {
@@ -70,7 +78,7 @@
     return list;
   }
 
-  function buildTimeline(steps) {
+  function buildTimeline(steps, progressCursor) {
     const wrap = document.createElement('div');
     wrap.className = 'problem-timeline';
 
@@ -79,6 +87,7 @@
 
     const items = document.createElement('div');
     items.className = 'timeline-items';
+    if (progressCursor) items.classList.add('timeline-items--progress-line');
 
     steps.forEach((step, i) => {
       const item = document.createElement('div');
@@ -91,9 +100,30 @@
       items.appendChild(item);
     });
 
+    let track = null;
+    let dot = null;
+    if (progressCursor) {
+      track = document.createElement('div');
+      track.className = 'timeline-progress-track';
+      // Gradient stops mirror each stage's --stage-color, read straight off
+      // the elements just built above so it always matches the real colors,
+      // however many stages this particular timeline has.
+      const stageColors = Array.from(items.querySelectorAll('.timeline-item')).map(
+        (item) => getComputedStyle(item).getPropertyValue('--stage-color').trim()
+      );
+      if (stageColors.length) {
+        track.style.background = 'linear-gradient(to bottom, ' + stageColors.join(', ') + ')';
+      }
+      items.appendChild(track);
+
+      dot = document.createElement('div');
+      dot.className = 'timeline-progress-dot';
+      items.appendChild(dot);
+    }
+
     card.appendChild(items);
     wrap.appendChild(card);
-    return wrap;
+    return { wrap: wrap, items: items, track: track, dot: dot };
   }
 
   function initScrollSync(split) {
@@ -147,6 +177,50 @@
       { threshold: 0, rootMargin: '0px 0px -50% 0px' }
     );
     points.forEach((point) => reachObserver.observe(point));
+  }
+
+  // Moves a single dot continuously along the timeline's line, in sync with
+  // scroll position, instead of the label accumulation's discrete per-stage
+  // jumps (that logic, in initScrollSync above, is untouched and keeps
+  // driving the label text color/weight independently of this).
+  function initProgressCursor(split, timelineItems, dotEl) {
+    const list = split.querySelector('.challenge-list');
+    if (!list || !dotEl) return;
+
+    const stageColors = Array.from(timelineItems).map((item) =>
+      getComputedStyle(item).getPropertyValue('--stage-color').trim()
+    );
+
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+      const rect = list.getBoundingClientRect();
+      const viewportMid = window.innerHeight / 2;
+      // 0 when the list's top edge sits at the viewport's vertical center
+      // (matches the "reached" trigger line), 1 when its bottom edge does -
+      // i.e. the same span the discrete accumulation sweeps through, just
+      // read continuously instead of point by point.
+      let progress = rect.height > 0 ? (viewportMid - rect.top) / rect.height : 0;
+      progress = Math.max(0, Math.min(1, progress));
+
+      dotEl.style.top = progress * 100 + '%';
+
+      if (stageColors.length) {
+        const idx = Math.min(stageColors.length - 1, Math.floor(progress * stageColors.length));
+        dotEl.style.background = stageColors[idx];
+      }
+    }
+
+    function onScrollOrResize() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+    update();
   }
 
   global.renderChallengeSection = renderChallengeSection;
