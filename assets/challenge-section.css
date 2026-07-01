@@ -153,12 +153,10 @@
   transition: background 0.3s ease;
 }
 
-/* ---- Progress-cursor variant (opt-in via config.progressCursor) ----
+/* ---- Continuous-line variant (opt-in via config.progressCursor) ----
    One continuous vertical line behind all stages instead of a separate
-   segment per row, and a single dot that glides along it as the user
-   scrolls, rather than one static dot per stage. The per-item line/dot
-   stay in the DOM (so the label column keeps its grid track) but are
-   made invisible instead of removed. */
+   segment per row. The per-item line stays in the DOM (so the label
+   column keeps its grid track) but is made invisible instead of removed. */
 .timeline-items--progress-line {
   --timeline-dot-x: 99px; /* 80px time column + 12px gap + half of the 14px dot column */
   position: relative;
@@ -178,25 +176,6 @@
   transform: translateX(-50%);
   /* Gradient stops are set inline by JS from the same --stage-color values
      used per stage, so it always matches whatever stages are configured. */
-}
-
-.timeline-progress-dot {
-  position: absolute;
-  left: var(--timeline-dot-x);
-  top: 0;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #976e08;
-  opacity: 0;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 4px rgba(107, 114, 128, 0.22), var(--sh);
-  /* Position snaps to whichever stage maxStage points to (same source of
-     truth as the label accumulation) - this transition is purely the
-     visible glide between two such resting positions, not driving the
-     position itself. */
-  transition: top 0.35s ease, background 0.3s ease, opacity 0.3s ease;
-  z-index: 1;
 }
 
 .timeline-item__time {
