@@ -2,25 +2,11 @@
  * Goodforest — Monitoring Landing Page
  */
 
-// ─── Challenge scrollytelling: active point + synced timeline stage ──────────
+// ─── Challenge scrollytelling: active point (left column focus) ─────────────
 (function () {
   'use strict';
   const points = document.querySelectorAll('.challenge-point');
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  if (!points.length || !timelineItems.length) return;
-
-  function syncTimeline() {
-    const activeStages = new Set();
-    points.forEach((point) => {
-      if (!point.classList.contains('is-active')) return;
-      (point.dataset.stages || '').split(',').forEach((stage) => {
-        if (stage) activeStages.add(stage.trim());
-      });
-    });
-    timelineItems.forEach((item) => {
-      item.classList.toggle('is-active', activeStages.has(item.dataset.stage));
-    });
-  }
+  if (!points.length) return;
 
   // A point becomes active while it crosses a band centered on the viewport.
   // Narrower than a plain middle-third split so that shorter list items don't
@@ -30,9 +16,49 @@
       entries.forEach((entry) => {
         entry.target.classList.toggle('is-active', entry.isIntersecting);
       });
-      syncTimeline();
     },
     { threshold: 0, rootMargin: '-44% 0px -44% 0px' }
+  );
+
+  points.forEach((point) => observer.observe(point));
+})();
+
+// ─── Challenge scrollytelling: timeline fills progressively as points pass ──
+(function () {
+  'use strict';
+  const points = document.querySelectorAll('.challenge-point');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if (!points.length || !timelineItems.length) return;
+
+  function syncTimeline() {
+    let maxStage = 0;
+    points.forEach((point) => {
+      if (!point.classList.contains('is-reached')) return;
+      maxStage = Math.max(maxStage, parseInt(point.dataset.maxStage, 10) || 0);
+    });
+    timelineItems.forEach((item) => {
+      const stage = parseInt(item.dataset.stage, 10);
+      item.classList.toggle('is-reached', stage <= maxStage);
+    });
+  }
+
+  // A point is "reached" once it scrolls above the vertical center of the
+  // viewport, and stays reached - like a checklist - until the user scrolls
+  // back up past it. Points are checked independently, but since they're
+  // stacked top to bottom, reaching point N always implies points 1..N-1
+  // were already reached, so the accumulation falls out naturally.
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-reached');
+        } else if (entry.boundingClientRect.top > 0) {
+          entry.target.classList.remove('is-reached');
+        }
+      });
+      syncTimeline();
+    },
+    { threshold: 0, rootMargin: '0px 0px -50% 0px' }
   );
 
   points.forEach((point) => observer.observe(point));

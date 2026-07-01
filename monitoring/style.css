@@ -505,10 +505,11 @@ blockquote::before, blockquote::after { content: none; }
 
 .timeline-item__line {
   width: 1px;
-  background: var(--stage-line);
+  background: var(--cb);
   align-self: stretch;
   margin: 0 auto;
   position: relative;
+  transition: background 0.3s ease;
 }
 
 .timeline-item__line::before {
@@ -520,9 +521,8 @@ blockquote::before, blockquote::after { content: none; }
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--stage-color);
-  /* Grows around its own center on activation, so highlighting never shifts surrounding layout. */
-  transition: width var(--tr), height var(--tr), box-shadow var(--tr);
+  background: var(--t3);
+  transition: background 0.3s ease;
 }
 
 .timeline-item__time {
@@ -537,27 +537,26 @@ blockquote::before, blockquote::after { content: none; }
 
 .timeline-item__label {
   font-size: 11.5px;
-  /* Always tinted with its own stage color, matching the dot - active state
-     only turns the volume up (full opacity + bold), it isn't the only way
-     the color shows. */
-  color: var(--stage-color);
-  opacity: 0.75;
+  /* Neutral until reached - each stage picks up its own severity color as the
+     matching challenge point is scrolled past, and keeps it (checklist-style)
+     until the user scrolls back up above that point. */
+  color: var(--t3);
   line-height: 1.45;
   padding-top: 1px;
-  transition: color var(--tr), opacity var(--tr), font-weight var(--tr);
+  transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
-.timeline-item--red .timeline-item__label { font-weight: 600; }
+.timeline-item.is-reached .timeline-item__line {
+  background: var(--stage-line);
+}
 
-.timeline-item.is-active .timeline-item__label {
-  opacity: 1;
+.timeline-item.is-reached .timeline-item__line::before {
+  background: var(--stage-color);
+}
+
+.timeline-item.is-reached .timeline-item__label {
+  color: var(--stage-color);
   font-weight: 700;
-}
-
-.timeline-item.is-active .timeline-item__line::before {
-  width: 9px;
-  height: 9px;
-  box-shadow: 0 0 0 4px var(--stage-line);
 }
 
 /* The sticky two-column scrollytelling effect only makes sense with room to
