@@ -2,26 +2,39 @@
  * Goodforest — Monitoring Landing Page
  */
 
-// ─── Challenge row scroll-highlight ──────────────────────────────────────────
+// ─── Challenge scrollytelling: active point + synced timeline stage ──────────
 (function () {
   'use strict';
-  const rows = document.querySelectorAll('.challenge-row');
-  if (!rows.length) return;
+  const points = document.querySelectorAll('.challenge-point');
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  if (!points.length || !timelineItems.length) return;
 
+  function syncTimeline() {
+    const activeStages = new Set();
+    points.forEach((point) => {
+      if (!point.classList.contains('is-active')) return;
+      (point.dataset.stages || '').split(',').forEach((stage) => {
+        if (stage) activeStages.add(stage.trim());
+      });
+    });
+    timelineItems.forEach((item) => {
+      item.classList.toggle('is-active', activeStages.has(item.dataset.stage));
+    });
+  }
+
+  // A point becomes active while it crosses the middle third of the viewport,
+  // which keeps exactly one point active at a time as the user scrolls.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-highlighted');
-        } else if (entry.boundingClientRect.top > 0) {
-          entry.target.classList.remove('is-highlighted');
-        }
+        entry.target.classList.toggle('is-active', entry.isIntersecting);
       });
+      syncTimeline();
     },
-    { threshold: 0, rootMargin: '0px 0px -30% 0px' }
+    { threshold: 0, rootMargin: '-33% 0px -33% 0px' }
   );
 
-  rows.forEach((row) => observer.observe(row));
+  points.forEach((point) => observer.observe(point));
 })();
 
 // ─── Nav scroll state ─────────────────────────────────────────────────────────

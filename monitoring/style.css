@@ -394,117 +394,85 @@ blockquote::before, blockquote::after { content: none; }
 .card--featured     { margin-bottom: 32px; }
 
 /* ============================================================
-   CHALLENGE ROWS
+   CHALLENGE — scrollytelling list + sticky timeline
    ============================================================ */
 .problem-split {
-  display: flex;
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  gap: 64px;
   position: relative;
-  align-items: center;
-  gap: 48px;
 }
 
-.challenge-rows {
-  position: relative;
-  z-index: 2;
-  flex: 1;
-  min-width: 0;
-  max-width: 800px;
-  margin: 0 auto;
+.challenge-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
 }
 
-.challenge-row {
-  z-index: 2;
+.challenge-point {
   display: grid;
-  grid-template-columns: 52px 1fr;
-  column-gap: 24px;
+  grid-template-columns: 40px 1fr;
+  column-gap: 18px;
   align-items: center;
-  padding: 24px 28px;
-  background: var(--card);
-  border: 1px solid var(--cb);
+  min-height: 24vh;
+  padding: 20px;
   border-left: 3px solid transparent;
-  border-radius: var(--r);
-  box-shadow: var(--sh);
-  opacity: 0.3;
-  transition: opacity 0.4s ease, border-left-color 0.4s ease;
+  border-radius: var(--r-sm);
+  transition: background var(--tr), border-left-color var(--tr);
 }
 
-.challenge-row.is-highlighted {
-  opacity: 1;
-  border-left-color: var(--primary);
-}
-
-.challenge-row__icon-wrap {
+.challenge-point__icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.challenge-row__icon-wrap svg {
-  width: 32px;
-  height: 32px;
+.challenge-point__icon-wrap svg {
+  opacity: 0.45;
+  transition: opacity var(--tr);
 }
 
-.challenge-row__content {
-  padding-top: 0;
-  /* Reserves clearance so text never reaches the zone the timeline card overlaps,
-     regardless of content length - scales with the row's own width instead of a fixed cutoff. */
-  max-width: calc(100% - 40px);
-}
-
-.challenge-row__title {
-  font-weight: 700;
-  font-size: 0.9375rem;
-  color: var(--t1);
-  line-height: 1.30;
-  letter-spacing: -0.015em;
-  margin-bottom: 5px;
-}
-
-.challenge-row__text {
-  font-size: 0.875rem;
-  color: var(--t2);
-  line-height: 1.60;
-}
-
-.challenge-row__text--strong {
+.challenge-point__title {
   font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--t3);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+  transition: color var(--tr), font-weight var(--tr);
+}
+
+.challenge-point__text {
+  font-size: 0.8125rem;
+  color: var(--t3);
+  line-height: 1.55;
+  transition: color var(--tr);
+}
+
+.challenge-point.is-active {
+  background: var(--acs);
+  border-left-color: var(--primary);
+}
+
+.challenge-point.is-active .challenge-point__icon-wrap svg { opacity: 1; }
+
+.challenge-point.is-active .challenge-point__title {
   color: var(--t1);
-  margin-top: 4px;
+  font-weight: 700;
 }
 
-@media (max-width: 768px) {
-  .challenge-row {
-    grid-template-columns: 52px 1fr;
-    column-gap: 16px;
-    padding: 24px 0 24px 14px;
-  }
+.challenge-point.is-active .challenge-point__text {
+  color: var(--t2);
 }
 
-.problem-timeline {
-  flex-shrink: 0;
-  width: 400px;
-  display: flex;
-  align-items: center;
-  padding-left: 0;
-  margin-left: -80px;
-  margin-top: -80px;
-  z-index: 2;
-}
-
+/* ---- Timeline card - sticky on desktop, static + stacked below on tablet/mobile ---- */
 .timeline-card {
-  background: rgba(13, 27, 42, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 24px 24px 20px;
-  /* Extra directional shadow (toward the card it overlaps) signals the overlap is intentional. */
-  box-shadow:
-    0 12px 32px -12px rgba(0, 0, 0, 0.55),
-    0 24px 56px -24px rgba(0, 0, 0, 0.40),
-    -20px 14px 36px -16px rgba(0, 0, 0, 0.45);
-  width: 100%;
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  background: var(--card);
+  border: 1px solid var(--cb);
+  border-radius: var(--r);
+  padding: 28px 28px 24px;
+  box-shadow: var(--sh);
 }
 
 .timeline-items {
@@ -518,19 +486,18 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 72px 16px 1fr;
   align-items: flex-start;
   gap: 0 10px;
-  padding: 10px 0;
-  border-bottom: none;
+  padding: 12px 0;
 }
 
 /* Severity progression over time: neutral gray -> amber -> orange -> strong red */
-.timeline-item--gray   { --stage-color: #94a3b8; --stage-line: rgba(148, 163, 184, 0.3); }
-.timeline-item--amber  { --stage-color: #f5a623; --stage-line: rgba(245, 166, 35, 0.3); }
-.timeline-item--orange { --stage-color: #f97316; --stage-line: rgba(249, 115, 22, 0.3); }
-.timeline-item--red    { --stage-color: #ef4444; --stage-line: rgba(239, 68, 68, 0.35); }
+.timeline-item--gray   { --stage-color: #94a3b8; --stage-line: rgba(148, 163, 184, 0.32); }
+.timeline-item--amber  { --stage-color: #d97706; --stage-line: rgba(217, 119, 6, 0.30); }
+.timeline-item--orange { --stage-color: #ea580c; --stage-line: rgba(234, 88, 12, 0.30); }
+.timeline-item--red    { --stage-color: #dc2626; --stage-line: rgba(220, 38, 38, 0.32); }
 
 .timeline-item__line {
   width: 1px;
-  background: var(--stage-line, rgba(148, 163, 184, 0.3));
+  background: var(--stage-line);
   align-self: stretch;
   margin: 0 auto;
   position: relative;
@@ -541,23 +508,20 @@ blockquote::before, blockquote::after { content: none; }
   position: absolute;
   top: 4px;
   left: 50%;
-  transform: translateX(-50%);
-  width: 5px;
-  height: 5px;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--stage-color, #94a3b8);
-  opacity: 0.9;
-}
-
-.timeline-item--last {
-  border-bottom: none;
+  background: var(--stage-color);
+  /* Grows around its own center on activation, so highlighting never shifts surrounding layout. */
+  transition: width var(--tr), height var(--tr), box-shadow var(--tr);
 }
 
 .timeline-item__time {
   font-family: var(--font-mono);
   font-size: 9.5px;
   font-weight: 600;
-  color: #94a3b8;
+  color: var(--t3);
   letter-spacing: 0.04em;
   padding-top: 2px;
   white-space: nowrap;
@@ -565,34 +529,38 @@ blockquote::before, blockquote::after { content: none; }
 
 .timeline-item__label {
   font-size: 11.5px;
-  color: var(--stage-color, #94a3b8);
+  color: var(--t2);
   line-height: 1.45;
   padding-top: 1px;
+  transition: color var(--tr), font-weight var(--tr);
 }
 
-.timeline-item--red .timeline-item__label {
+.timeline-item--red .timeline-item__label { font-weight: 600; }
+
+.timeline-item.is-active .timeline-item__label {
+  color: var(--stage-color);
   font-weight: 700;
 }
 
-/* Below this width there isn't enough room for the timeline card to overlap
-   the challenge rows without either overflowing the viewport or covering
-   text - switch to a stacked layout (timeline below the 4 cards) instead. */
+.timeline-item.is-active .timeline-item__line::before {
+  width: 9px;
+  height: 9px;
+  box-shadow: 0 0 0 4px var(--stage-line);
+}
+
+/* The sticky two-column scrollytelling effect only makes sense with room to
+   spare on desktop - below this width, stack timeline under the list, static. */
 @media (max-width: 1024px) {
   .problem-split {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 32px;
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-  .challenge-rows {
-    max-width: none;
+  .challenge-point {
+    min-height: 0;
   }
-  .problem-timeline {
-    width: 100%;
-    margin-left: 0;
-    margin-top: 0;
-  }
-  .challenge-row__content {
-    max-width: none;
+  .timeline-card {
+    position: static;
+    top: auto;
   }
 }
 
