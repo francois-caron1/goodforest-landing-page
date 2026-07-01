@@ -413,7 +413,7 @@ blockquote::before, blockquote::after { content: none; }
   grid-template-columns: 40px 1fr;
   column-gap: 18px;
   align-items: center;
-  min-height: 24vh;
+  min-height: 160px;
   padding: 20px;
   border-left: 3px solid transparent;
   border-radius: var(--r-sm);

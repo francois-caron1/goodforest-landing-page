@@ -22,8 +22,9 @@
     });
   }
 
-  // A point becomes active while it crosses the middle third of the viewport,
-  // which keeps exactly one point active at a time as the user scrolls.
+  // A point becomes active while it crosses a band centered on the viewport.
+  // Narrower than a plain middle-third split so that shorter list items don't
+  // let two neighbors sit in the band - and thus be active - at once.
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -31,7 +32,7 @@
       });
       syncTimeline();
     },
-    { threshold: 0, rootMargin: '-33% 0px -33% 0px' }
+    { threshold: 0, rootMargin: '-44% 0px -44% 0px' }
   );
 
   points.forEach((point) => observer.observe(point));
