@@ -111,7 +111,9 @@
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  /* --timeline-time-w is set from JS once the real time labels are measured,
+     so "Week 0" and "Month 1 – Month 6" both get exactly the room they need. */
+  grid-template-columns: var(--timeline-time-w, 80px) 1fr;
   column-gap: 12px;
   align-items: flex-start;
 }
@@ -130,7 +132,6 @@
 /* ---- Continuous-line variant (opt-in via config.progressCursor) ----
    One continuous vertical gradient line behind all stages. */
 .timeline-items--progress-line {
-  --timeline-dot-x: 86px; /* 80px time column + half of the 12px gap */
   position: relative;
 }
 
@@ -138,7 +139,9 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: var(--timeline-dot-x);
+  /* Centered in the gap right after the time column, whatever width that
+     column was measured to (see sizeTimeColumn in challenge-section.js). */
+  left: calc(var(--timeline-time-w, 80px) + 6px);
   width: 2px;
   border-radius: 1px;
   transform: translateX(-50%);

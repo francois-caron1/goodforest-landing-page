@@ -50,7 +50,23 @@
 
     container.appendChild(split);
 
+    sizeTimeColumn(timeline.items);
     initScrollSync(split);
+  }
+
+  // The time column has a fixed fallback width (see --timeline-time-w in the
+  // CSS), but "Week 0" and "Month 1 – Month 6" need very different amounts of
+  // room. Measure the actual rendered labels (only possible now that the
+  // section is in the live DOM) and widen the column to fit the longest one,
+  // so nothing gets clipped or overlaps the label text next to it.
+  function sizeTimeColumn(itemsEl) {
+    const timeEls = itemsEl.querySelectorAll('.timeline-item__time');
+    if (!timeEls.length) return;
+    let maxWidth = 0;
+    timeEls.forEach((el) => {
+      maxWidth = Math.max(maxWidth, el.scrollWidth);
+    });
+    itemsEl.style.setProperty('--timeline-time-w', maxWidth + 2 + 'px');
   }
 
   function buildChallengeList(points) {
